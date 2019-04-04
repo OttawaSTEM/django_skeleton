@@ -3,10 +3,6 @@
 
 html, body {
     height: 100%;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
     font-family: Arial, Tahoma, Helvetica, 'Noto Sans SC Sliced', sans-serif;
 }
 
@@ -65,7 +61,6 @@ body>.navbar-transparent {
 
 .navbar-brand {
     font-weight: bold;
-    padding: 5px 10px;
 }
 
 .navbar-brand>img {

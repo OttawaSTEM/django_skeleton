@@ -1,12 +1,10 @@
 from django.urls import include, path
 from django.contrib import admin
 from django.conf import settings
-from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from . import views
 
-urlpatterns = [path('i18n/', include('django.conf.urls.i18n'))]
-urlpatterns += i18n_patterns(
+urlpatterns = [
     path('', views.HomePage.as_view(), name='home'),
     path('aboutus/', views.AboutPage.as_view(), name='about'),
 
@@ -16,7 +14,7 @@ urlpatterns += i18n_patterns(
     path('registration/', include('registration.backends.default.urls')),
     path('webadmin/', admin.site.urls),
     path('users/', include('profiles.urls', namespace='profiles')),
-)
+]
 
 # User-uploaded files like profile pics need to be served in development
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
