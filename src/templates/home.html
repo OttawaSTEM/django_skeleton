@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-{% load crispy_forms_tags %}
 
 {% block title %}{{ block.super }}Home{% endblock %}
 
 {% block extrahead %}
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 {% endblock extrahead %}
 
 {% block navbar_left %}
@@ -14,25 +12,12 @@
 {% endblock %}
 
 {% block splash %}
-    <div class="corporate-jumbo vertical-center">
-        <div class="container" style="height: 60vh; margin-left: 15vw; width: 68%;">
+    <div class="jumbotron jumbotron-carousel corporate-jumbo">
+        <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div style="background-color: rgba(241, 241, 241, 0.6); border-radius: 10px; padding: 40px 60px;">
-                        <h4 class="text-left">{% trans "Find your dream place with ease" %}</h4>
-                        <h4 class="text-left">{% trans "Start searching now" %}</h4>
-                        {% comment %} <h4 class="text-left">{% trans "Write a review here" %}</h4> {% endcomment %}
-                        <br>
-                        <form id="form_id_search" method="post">
-                            <div class="input-group">
-                                {% csrf_token %}
-                                <input name="search" id="search" type="text" class="form-control" style="box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);" placeholder="{% trans 'Location, Province' %}">
-                                <span class="input-group-btn">
-                                    <button id="search_button" type="submit" class="btn btn-primary" style="float: right; box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);">{% trans "Search" %}</button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
+                <div class="col-md-8 col-sm-8">
+                </div>
+                <div class="col-md-4 col-sm-4">
                 </div>
             </div>
         </div>
@@ -40,29 +25,27 @@
 {% endblock splash %}
 
 {% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+                <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
 {% endblock container %}
 
 {% block scripts %}
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
-    {% comment %} <script src="{% static 'site/js/site.min.js' %}"></script> {% endcomment %}
-    <script>
-        $(document).ready(function () {
-            $("#search_button").click(function () {
-                if (!$("input[name=search]").val()) {
-                    $("input[name=search]").focus();
-                    return false;
-                    event.preventDefault();
-                } else {
-                    $("#form_id_payment").submit();
-                }
-            });
-  
-            $(function() {
-                $("#search").autocomplete({
-                    source: "{% url 'home' %}",
-                    minLength: 3,
-                });
-            });
-        });
-    </script>
+    <script src="{% static 'site/js/site.min.js' %}"></script>
 {% endblock scripts %}

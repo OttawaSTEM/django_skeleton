@@ -16,12 +16,6 @@
         <!-- Bootstrap core CSS -->
         {% comment %} <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-{% comment %} 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
- {% endcomment %}
         <!-- Custom styles for this site -->
         {% block styles %}
             <link href="{% static 'site/css/main.css' %}" rel="stylesheet">
@@ -29,17 +23,6 @@
 
         <!-- Custom tags for the head tag -->
         {% block extrahead %}{% endblock extrahead %}
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_TRACKING_ID }}"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', '{{ GOOGLE_ANALYTICS_TRACKING_ID }}');
-        </script>
     </head>
 
     <body>
@@ -62,26 +45,6 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             {% block navbar_left %}{% endblock %}
-                        </ul>
-
-                        <ul class="nav navbar-nav navbar-right" style="margin: 8px 10px 0px 0px;">
-                            <form action="{% url 'set_language' %}" method="post">
-                                {% csrf_token %}
-                                <input name="next" type="hidden" value="" />
-                                <select name="language" class="selectpicker" data-width="120" onchange="this.form.submit();">
-                                    {% get_current_language as LANGUAGE_CODE %}
-                                    {% get_available_languages as LANGUAGES %}
-                                    {% get_language_info_list for LANGUAGES as languages %}
-                                    {% for language in languages %}
-                                        <option value="{{ language.code }}" 
-                                            {% if language.code == LANGUAGE_CODE %} selected {% endif %} 
-                                            {% with 'site/img/flags-lang/'|add:language.code|add:'.png' as image_lang %}
-                                                data-content="<span><img src=' {% static image_lang %}'> {{ language.name_local|capfirst }}</span>">
-                                            {% endwith %}
-                                        </option>
-                                    {% endfor %}
-                                </select>
-                            </form>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
@@ -177,12 +140,7 @@
         {% comment %} <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script> {% endcomment %}
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script> 
-{% comment %} 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
- {% endcomment %}
+
         {% block scripts %} 
         {% endblock scripts %}
     </body>

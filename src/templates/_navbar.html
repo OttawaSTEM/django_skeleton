@@ -1,22 +1,4 @@
 {% load i18n %}
 
-{% comment %} VISA Services {% endcomment %}
-{% comment %} <li {% if active_link == "visa_services" %} class="active" {% endif %}>
-    <a href="{% url 'home' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-        {% if active_link == "extendstudy" or active_link == "temporaryvisa" or active_link == "visitorrecord" or active_link == "pgworkpermit" %}
-            style="background-color: #e7e7e7;"
-        {% endif %}>
-        {% trans "VISA Services" %}
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li><a href="{% url 'extendstudy:index' %}">{% trans "Extend Study Permit" %}</a></li>
-        <li><a href="{% url 'temporaryvisa:index' %}">{% trans "Temporary Resident VISA" %}</a></li>
-        <li><a href="{% url 'visitorrecord:index' %}">{% trans "Visitor Record" %}</a></li>
-        <li><a href="{% url 'pgworkpermit:index' %}">{% trans "Post Graduation Work Permit" %}</a></li>
-    </ul>
-</li> {% endcomment %}
-
-{% comment %} About us {% endcomment %}
 <li {% if active_link == "home" or active_link == "locations" %} class="active" {% endif %}><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
 <li {% if active_link == "about" %} class="active" {% endif %}><a href="{% url 'about' %}">{% trans "About us" %}</a></li>
