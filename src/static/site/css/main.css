@@ -1,0 +1,525 @@
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: Arial, Tahoma, Helvetica, 'Noto Sans SC Sliced', sans-serif;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+.alert {
+    margin-top: 51px;
+    margin-bottom: -55px;
+    position: relative;
+    z-index: 1000;
+    text-align: center;
+}
+
+.func-btn {
+    padding: 10px 15px;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+body>.navbar-transparent {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.navbar-transparent .navbar-nav>.active>a {
+    background-color: transparent;
+}
+
+.navbar-form {
+    margin-right: 0;
+}
+
+.navbar-nav>li>a.profile-menu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-nav>.btn {
+    margin: 8px 0px 0px 15px;
+}
+
+.navbar-nav>li>a {
+    font-size: 1.6rem;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.navbar-brand>img {
+    float: left;
+}
+
+.navbar-nav {
+    padding: 0px 26px 0px 0px;
+}
+
+/* .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    background-color: #f8f8f8;
+    background-color: rgb(248, 248, 248, 0.8);
+} */
+
+/* .btn {
+    background-image: none;
+    -webkit-box-shadow: 0px 1px 0px #ddd;
+    -moz-box-shadow: 0px 1px 0px #ddd;
+    box-shadow: 0px 1px 0px #ddd;
+} */
+
+
+/* Home page styling */
+.corporate-jumbo {
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)), url("/static/site/img/banner.png"); */
+    background-image: url("/static/site/img/canada-map-full.svg");
+    /* background-image: url("/static/site/img/canada_flag.png"); */
+    /* background-position: 0px 50px !important;  */
+    /* opacity: 0.05; */
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    background-repeat: no-repeat;
+    background-position: bottom !important;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: #f5f5f5;
+    /* padding: 10em 0; */
+    /* height: 100%; */
+    /* width: 100%; */
+    /* margin-bottom: 100px; */
+    /* margin-top: 100px; */
+}
+
+.vertical-center {
+    min-height: 100%;
+    /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh;
+    /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}
+
+.buffer {
+    margin: 40px 0px;
+}
+
+.top-buffer {
+    margin: 30px 0px 0px 0px;
+}
+
+.corporate-jumbo .well {
+    background-color: rgba(245, 245, 245, .7);
+}
+
+.corporate-jumbo p,
+.corporate-jumbo h1 {
+    color: #eee;
+    text-shadow: 0px 0px 2px black;
+}
+
+.corporate-jumbo p {
+    font-weight: 500;
+}
+
+.corporate-jumbo p {
+    font-weight: 500;
+}
+
+.corporate-jumbo h2 {
+    /* color: #eee; */
+    color: white;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.644);
+    font-weight: 900;
+    font-size: 300%;
+}
+
+.corporate-jumbo h3 {
+    /* color: #eee; */
+    color: white;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.644);
+    font-weight: 900;
+    font-size: 250%;
+}
+
+.corporate-jumbo h4 {
+    /* color: #eee; */
+    color: white;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.644);
+    font-weight: 900;
+    font-size: 200%;
+}
+
+.corporate-jumbo h5 {
+    /* color: #eee; */
+    color: rgb(57, 131, 237);
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.644);
+    font-weight: 900;
+    font-size: 150%;
+}
+
+.corporate-jumbo .well legend {
+    color: #333;
+}
+
+.corporate-jumbo>.container {
+    display: block;
+    position: absolute;
+    bottom: 2em;
+    left: 15px;
+}
+
+.contact-banner {
+    padding: 100px 0;
+    background: #e0e0e0;
+    margin-top: 100px;
+}
+
+.footer a:hover {
+    text-decoration: none;
+}
+/*  End of Home page styling */
+
+
+/* About page styling */
+#sec1 {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJklEQVQIW2NkAIILFy78NzAwYATRjCABZEGwAEwFiA1WBlIOUwkA72gTdDIYVO4AAAAASUVORK5CYII=) repeat;
+}
+/* End of About page styling */
+
+
+/* Profile page styling */
+.profile-head {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJklEQVQIW2NkAIILFy78NzAwYATRjCABZEGwAEwFiA1WBlIOUwkA72gTdDIYVO4AAAAASUVORK5CYII=) repeat;
+    padding: 10px 0px 10px 20px;
+}
+
+.profile-body {
+    padding: 4px 0px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    font-weight: bold;
+}
+
+.text-page {
+    padding: 120px 0;
+}
+
+#map-outer {
+    height: 440px;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    background-color: #FFF
+}
+
+#map-container {
+    height: 400px
+}
+
+.img-dim {
+    opacity: 0.5;
+    box-shadow: inset 0px 0px 64px 64px #EA1717, 0px 0px 4px 4px #EA1717;
+}
+/* End of Profile page styling */
+
+
+/* Authentication forms */
+.form-box form,
+.form-box .form-message {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-box form .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-box form .checkbox {
+    font-weight: normal;
+}
+
+.form-box form .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 2rem;
+}
+
+.form-box form .form-control:focus {
+    z-index: 2;
+}
+/* End of Authentication forms */
+
+
+/* Custom Form */
+.form-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-left {
+    padding-left: 0px;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-default:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.asteriskField {
+    color: red;
+}
+
+/* Custom Form */
+/* Signature Form */
+.jSignature {
+    background-color: #DDD;
+}
+
+
+/* jQuery-File-Upload */
+.preview img {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url("/static/site/img/loading.gif") center no-repeat;
+    background-size: contain;
+}
+
+
+/* Locations */
+.locations-container {
+    margin-top: 50px; 
+    min-height: calc(100vh - 100px);
+    overflow: hidden;
+}
+
+.locations-header-row {
+    padding: 4px 10px 2px 10px !important;
+    border-bottom: 1px solid;
+    border-color: #bdbdbd;
+    background-color: #e0e0e0;
+    height: auto;
+}
+
+/* Radius and Price Range Label */
+.slider-handle {            /* locations .slider-handle     */
+    border-radius: 4px !important;
+}
+
+.locations-slider-left {
+    position: relative;
+    margin-right: 15px;
+    background: #47b7e7;
+    padding: 5px;
+    width: 200px;
+    height: 100px;
+    border-radius: 3px;
+    color: white;
+}
+.locations-slider-left:after {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: #47b7e7;
+	border-width: 6px;
+	margin-top: -6px;
+}
+
+.locations-slider-right {
+    position: relative;
+    margin-left: 15px;
+    background: #47b7e7;
+    padding: 5px;
+    width: 200px;
+    height: 100px;
+    border-radius: 3px;
+    color: white;
+}
+.locations-slider-right:after {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-right-color: #47b7e7;
+	border-width: 6px;
+	margin-top: -6px;
+}
+/* End of Radius and Price Range Label */
+
+/* Locations Leaflet */
+.locations-wrapper {
+    display: flex;    
+    align-content: streach;
+    justify-content: space-between;
+    width: auto;
+    height: calc(100vh - 95px);
+}    
+
+.locations-sidebar {
+    overflow-y: scroll;
+    flex: 0 0 300px;
+}
+
+.locations-item {
+    word-wrap: break-word; 
+    margin: 10px 10px 0px 10px;
+}
+
+.locations-map {
+    width: auto; 
+    flex-grow: 1;
+}
+
+.datepicker { 
+    z-index: 999 !important;
+}
+
+.datepicker, .table-condensed {
+    width: auto;
+}
+
+/* Locations Leaflet */
+.leaflet-container {
+    width: 100%;
+    height: 100%; 
+}
+
+/* .leaflet-control-zoom { 
+    position: absolute;
+    right: 5px; 
+}  */
+
+.leaflet-popup-content {
+    width: 400px !important;
+    height: 110px !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    padding: 0 5px 0 0 !important;
+    width: 28px !important;
+    font: 200% Tahoma, Verdana, sans-serif !important;
+    color: black !important;
+    font-weight: bold !important;
+}
+
+/* Map Popup */
+.map-popup {
+    float: left;
+    display: block;
+    margin-right: 10px;
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+}
+/* End of Locations */
+
+
+/* Properties */
+.prop-border {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+    padding: 10px;
+}
+
+.img-thumbnail {
+    border-radius: 0px;
+    margin-bottom: 5px;
+    height: auto;
+    width: 200px;
+}
+
+/* End of Properties */
+.locations-image img {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.locations-image {
+    width: 265px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #BEBEBE; /*not required*/
+    position: relative;
+    margin: 0px 10px 10px 0px; 
+}
+
+.thumbnail-image img {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+.thumbnail-image {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #BEBEBE; /*not required*/
+    position: relative;
+    margin: 0px 10px 10px 0px; 
+}
+
+.thumbnail-image-delete {
+    width: 20px !important;
+    height: 20px !important;
+    position: relative !important;
+    top: 0px !important;
+    left: 77px !important;
+}

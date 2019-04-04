@@ -1,0 +1,274 @@
+{% extends "extendstudy/extendstudy_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!-- Custom title for the head title -->
+{% block title %}{{ block.super }}Extend Study Invoice & Payment{% endblock %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+{% endblock extrahead %}
+
+{% block navbar_left %}
+    {% include "_navbar.html" with active_link="extendstudy" %}
+{% endblock %}
+
+{% block container %}
+    <div class="container">
+        <div style="padding-top: 50px;">
+            <div class="col-sm-12">
+                <h3 style="font-weight:bold;">{% trans "EXTEND STUDY PERMIT" %} - {% trans "INVOICE" %}</h3>
+            </div>
+        </div>
+
+        <div class="panel panel-default form-shadow" style="margin-top: 60px;">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <div style="font-weight: bold; font-style: italic;">Invoice</div>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <img src="/static/site/img/logo-big.png" alt="logo" style="display: inline; margin-right: 10px;">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% if LANGUAGE_CODE == "zh-hans" %}
+                    <h2 style="display: inline; vertical-align: middle;"> {{ data.company_chinese_name }}</h2>
+                    <div class="row">
+                        <h4 class="col-sm-6" style="font-weight: bold;">{{ data.company_name }}</h4>
+                        <h4 class="col-sm-6" style="font-weight: bold; text-align: right">INVOICE</h4>
+                    </div>
+                {% else %} 
+                    <h2 style="display: inline; vertical-align: middle;"> {{ data.company_name }}</h2>
+                    <div class="row">
+                        <h4 class="col-sm-6" style="font-weight: bold;"></h4>
+                        <h4 class="col-sm-6" style="font-weight: bold; text-align: right">INVOICE</h4>
+                    </div>
+                {% endif %} 
+                <div>
+                    <h5 style="margin: 0px;">{{ data.company_address_1 }}<br>{{ data.company_address_2 }}</h5>
+                </div>
+                <div>
+                    <h5 style="margin: 0px;">{{ data.company_tel_1 }}<br>{{ data.company_tel_2 }}<br>{{ data.company_website }}</h5>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <label class="col-sm-6" style="margin: 0px;">Bill To:</label>
+                    <label class="col-sm-4" style="text-align: right; margin: 0px;">Invoice #:</label>
+                    <h5 class="col-sm-2" style="text-align: right; margin: 0px;">{{ data.invoice_id }}</h5>
+                </div>
+                <div class="row">
+                    <h5 class="col-sm-6" style="margin: 0px;">{{ data.given_name }} {{ data.last_name }}</h5>
+                    <label class="col-sm-4" style="text-align: right; margin: 0px;">Invoice Date:</label>
+                    <h5 class="col-sm-2" style="text-align: right; margin: 0px;">{{ data.date }}</h5>
+                </div>
+                <div class="row">
+                    <h5 class="col-sm-12" style="margin: 0px;"> {{ data.address }}</h5>
+                </div>
+                <br>
+
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr style="background-color: #EEE;">
+                            <th style="text-align: center; width: 20px;">ITEM</th>
+                            <th style="text-align: center; width: auto;">DESCRIPTION</th>
+                            <th style="text-align: center; width: 20px;">QTY</th>
+                            <th style="text-align: right; width: 80px;">AMOUNT</th>
+                        </tr>
+                        {% for item in data.items %}
+                            <tr>
+                                <td style="text-align: center;">{{ item.id }}</td>
+                                <td style="text-align: left;">{{ item.description }}</td>
+                                <td style="text-align: center;">{{ item.qty }}</td>
+                                <td style="text-align: right;">{{ item.amount }}</td>
+                            </tr>
+                        {% endfor %}
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td style="font-weight: bold; text-align: right;">Total:</td>
+                            <td style="text-align: right;">{{ data.total }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <img class="col-sm-3" src="/static/site/img/rcic.png" alt="rcic" style="width: 150px; height: auto;">
+                    <h5 class="col-sm-9" style="margin-top: 80px;">We also accept other payment methods, such as Cash, Cheque, Interac e-Transfer etc.
+                        <br>Cheque payable to Baiju Immigration Inc.
+                        <br>Interac e-Transfer payable to info@baijuvisa.com
+                        <br>Please contact us, if you have any questions</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="form_id_payment" method="post">
+        {% csrf_token %}
+        {% crispy form %}
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <style>#interac-arrow {cursor: pointer;}</style>
+                    <h4 style="text-align: left;"><img id="interac-arrow" src="/static/site/img/arrow.gif" alt="click here" align="right">After finished Interac e-Transfer<br>Click here to confirm your payment</h4>
+                </div>
+                <div class="col-sm-8">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5" style="text-align: center; margin-top: 10px;">
+                    <style>#interac {cursor: pointer;}</style>
+                    <img id="interac" src="/static/site/img/interac.png" alt="Interac e-Transfer">
+                </div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-5">
+                    <div id="paypal-button" class="btn center-block">
+                        <script>
+                            paypal.Button.render({
+                                env: "sandbox", 
+                                //env: "production",
+                                client: {
+                                    sandbox: "{{ data.paypal_sanbox_id }}",
+                                    //production: "{{ data.paypal_production_id }}"
+                                },
+                                commit: true, // {# Show a "Pay Now" button #}
+                                style: {
+                                    color: "gold",
+                                    size: "large",
+                                    shape: "pill",
+                                    fundingicons: true, // {# Show credit card icon #}
+                                },
+                                payment: function(data, actions) {
+                                    return actions.payment.create({
+                                        payment: {
+                                            transactions: [
+                                                {
+                                                    //amount: { total: "{{ data.pay_amount }}", currency: "CAD" }
+                                                    amount: { total: "0.01", currency: "CAD" }
+                                                }
+                                            ]
+                                        }
+                                    });
+                                },
+                                onAuthorize: function(data, actions) {          // {# Payment is completed #}
+                                    return actions.payment.execute().then(function(payment) {
+                                        $("#form_id_payment").append($("<input>").attr("type", "hidden").attr("name", "transaction_id").val(payment.transactions[0].related_resources[0].sale['id']));
+                                        $("#form_id_payment").submit();
+                                    });
+                                },
+                                onCancel: function(data, actions) {             // {# Puyer cancelled the payment #}
+                                    alert("{{ data.paypal_msg_cancel|escapejs }}");
+                                },
+                                onError: function(err) {                        // {# An error occurred during the transaction #}
+                                    alert("{{ data.paypal_msg_error|escapejs }}");
+                                }
+                            }, "#paypal-button");
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interac_form" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" style="display: inline-block; font-weight: bold;">{{ data.interac_msg_title}}</h4>
+                        <img src="/static/site/img/interac.png" alt="Interac e-Transfer" height="48" width="auto" style="display: inline-block;">
+                    </div>
+                    <div class="modal-body">
+                        <h4>{{ data.interac_msg_description }}</h4>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="div_id_interac_ref" class="form-group">
+                                    <label for="id_interac_ref" class="control-label  requiredField">
+                                        {{ data.interac_msg_ref }}
+                                        <span class="asteriskField">*</span>
+                                    </label>
+                                    <div class="controls ">
+                                        <input type="text" name="interac_ref" required="" class="textinput textInput form-control" id="id_interac_ref">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div id="div_id_interac_date" class="form-group">
+                                    <label for="id_interac_date" class="control-label  requiredField">
+                                        {{ data.interac_msg_date }}
+                                        <span class="asteriskField">*</span>
+                                    </label>
+                                    <div class="controls ">
+                                        <input type="text" name="interac_date" style="text-align: center;" required="" class="datepicker textinput textInput form-control" placeholder="YYYY-MM-DD" data-provide="datepicker" id="id_interac_date">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <strong>Note:</strong> You can find the Interac e-Transfer Reference Number from the email which sent by Interac or your bank.)
+                            </div>
+                            <div class="col-sm-12">
+                                <img src="/static/site/img/interac-email.png" class="center-block img-responsive"/>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="modal-footer">
+                        <button id="interac_submit" type="button" class="btn btn-primary" data-dismiss="modal">{{ data.interac_msg_submit }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <input type="button" name="previous_page" value="Previous Service Fee Page" class="btn btn btn-primary pull-left" id="button-id-previous_page">
+            </div>
+        </div>
+    </div>    
+
+{% endblock container %}
+
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.fn.datepicker.defaults.format = "yyyy-mm-dd";
+
+            $("#button-id-previous_page").click(function () {
+                window.location.href = "{{ data.previous_page }}";
+                return false;
+            });
+
+            $("#interac-arrow").click(function () {
+                $("#interac_form").modal('show');
+            });
+            $("#interac").click(function () {
+                $("#interac_form").modal('show');
+            });
+
+            $("#interac_submit").click(function () {
+                console.info("submit")
+                console.info($("input[name=interac_ref]").val());
+                if ($("input[name=interac_ref]").val() && $("input[name=interac_date]").val()) {
+                    console.info($("input[name=interac_ref]").val());
+                    console.info($("input[name=interac_date]").val());
+                    $("#form_id_payment").append($("<input>").attr("type", "hidden").attr("name", "interac_ref").val($("input[name=interac_ref]").val()));
+                    $("#form_id_payment").append($("<input>").attr("type", "hidden").attr("name", "interac_date").val($("input[name=interac_date]").val()));
+                    $("#form_id_payment").submit();
+                } else {
+                    alert("Please input Interac e-Transfer Reference Number and Transcation Date.")
+                    return false;
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+
+{% endblock scripts %}

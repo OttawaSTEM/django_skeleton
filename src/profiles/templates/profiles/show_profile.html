@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ block.super }}{% trans "Profile" %}{% endblock %}
+
+{% block navbar_left %}
+    {% include "_navbar.html" %}
+{% endblock %}
+
+{% block extrahead %}
+    <script src="https://www.paypal.com/sdk/js?client-id={{ PAYPAL_CLIENT_ID }}&currency=CAD"></script>
+{% endblock extrahead %}
+
+{% block container %}
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <ul class="nav nav-tabs" style="width: 102%;">
+            <li>
+                <a href="#myprofile" data-toggle="tab">{% trans "My Profile" %}</a>
+            </li>
+            <li>
+                <a href="#myproperties" data-toggle="tab">{% trans "My Properties" %}</a>
+            </li>
+        </ul>
+
+        <div class="tab-content ">
+            <div class="tab-pane" id="myprofile">
+                <div class="container profile-head">
+                    <div class="row">
+                        <h1 style="margin: 0px; padding: 0px 10px;">
+                            {% if show_user.profile.picture %}
+                                <img title="profile picture" src="{{ MEDIA_URL}}{{ show_user.profile.picture }}" height="80px" width="80px" alt="avatar">
+                            {% else %}
+                                <img src="{% static 'site/img/profile/default_80x80.png' %}" alt="avatar"/>
+                            {% endif%}
+                            {{ show_user.get_full_name }}
+                            {% if editable %}
+                                <a href="{% url 'profiles:edit_self' %}" class="btn btn-info pull-right" style="margin: 25px 20px 0px 0px;">{% trans "Edit Profile" %}</a>
+                            {% endif %}
+                        </h1>
+                    </div>
+                </div>
+                <div id="profile" class="container profile-body" style="margin-top: 10px;">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="panel panel-default form-shadow">
+                                <div class="panel-heading" style="padding: 10px 10px; font-weight: bold;">{% trans "Account Details" %} </div>
+                                <div class="row" style="padding: 10px;">
+                                    <div class="col-xs-2">
+                                        <div><span><strong>{% trans "Name" %}:</strong></span></div>
+                                    </div>
+                                    <div class="col-xs-10">
+                                            <div>{{ show_user.get_full_name }}</div>
+                                        </div>
+                                    </div>
+                                <hr style="margin: 0px; border-top: 1px solid #ddd !important;">
+            
+                                <div class="row" style="padding: 10px;">
+                                    <div class="col-xs-2">
+                                        <div><span><strong>{% trans "Phone" %}:</strong></span></div>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <div>{{ show_user.profile.phone_number }}</div>
+                                    </div>
+                                </div>
+                                
+                                <hr style="margin: 0px; border-top: 1px solid #ddd !important;">
+                                <div class="row" style="padding: 10px;">
+                                    <div class="col-xs-2">
+                                        <div><span><strong>{% trans "Address" %}:</strong></span></div>
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <div>{{ show_user.profile.pobox }} {{ show_user.profile.apt_unit }} {{ show_user.profile.street_num }} {{ show_user.profile.street_name }}, {{ show_user.profile.city }}, {{ show_user.profile.province }}, {{ show_user.profile.post_code }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default form-shadow">
+                                <div class="panel-heading" style="padding: 10px 10px; font-weight: bold;">{% trans "Summary" %}</div>
+                                <div class="row" style="padding: 10px;">
+                                    <div class="col-xs-4 col-sm-4">
+                                        <div><span><strong>{% trans "Email" %}:</strong></span></div>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8">
+                                        <div class="text-right">
+                                            {{ show_user.email|default:"missing" }}
+                                            {% if show_user.profile.email_verified %}
+                                                <span class="glyphicon glyphicon-ok-circle" aria-hidden="true" title="This email address has been verified"></span>
+                                                <span class="sr-only">{% trans "Verified" %}</span>
+                                            {% else %}
+                                                <span class="glyphicon glyphicon-warning-sign" aria-hidden="true" title="This email address is not verified"></span>
+                                                <span class="sr-only">{% trans "Not Verified" %}</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr style="margin: 0px; border-top: 1px solid #ddd !important;">
+            
+                                <div class="row" style="padding: 10px;">
+                                    <div class="col-xs-4 col-sm-4">
+                                        <div><span><strong>{% trans "Joined" %}:</strong></span></div>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8">
+                                        <div class="text-right">{{ show_user.date_joined }}</div>
+                                    </div>
+                                </div>
+                                <hr style="margin: 0px; border-top: 1px solid #ddd !important;">
+            
+                                <div class="row" style="padding: 10px;">
+                                    <div class="col-xs-4 col-sm-4">
+                                        <div><span><strong>{% trans "Last Seen" %}:</strong></span></div>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8">
+                                        <div class="text-right">{{ show_user.last_login }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="myproperties">
+                <div class="container" style="margin-top: 20px; margin-bottom: 5px;">
+                    <div class="row">
+                        <a id="post-property" href="{% url 'properties:post-property' %}" class="btn btn-primary" style="margin-bottom: 10px; padding: 10px 20px;">{% trans "Post my property" %}</a>
+                    </div>
+                </div>
+                <div id="properties" class="container profile-body">
+                </div>
+            </div>
+        </div>
+
+        <form id="form_id_payment" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var deleteconfirm = "{{ data.deleteconfirm }}";
+        $(document).ready(function () {
+            $('.nav-tabs a').click(function (e) {
+                $(this).tab('show');
+                window.location.href = window.location.href.split("?")[0] + "?" + this.hash.replace("#", "");
+                var scrollmem = $('body').scrollTop();
+                $('html,body').scrollTop(scrollmem);
+            });
+
+            $(function(hash) {
+                tab = window.location.href.split("?")[1];
+                tab = tab.replace("#", "")
+                if (tab) {
+                    $('ul.nav a[href="#' + tab + '"]').tab('show');
+                    if (tab == "myproperties") {
+                        $.ajax({
+                            url: "/properties/myproperties/",
+                            type: "get",
+                            data: {},
+                            dataType: "json",
+                            success: function (data) {
+                                items = ""
+                                for (i in data) {
+                                    items = items + '<div class="row" style="border-top: 1px solid rgba(0, 0, 0, 0.3); border-left: 1px solid rgba(0, 0, 0, 0.3); border-right: 1px solid rgba(0, 0, 0, 0.3); padding: 15px 0px;">';
+                                    items = items + '<div class="col-md-2"><a href="/en/properties/' + data[i].province + "/" + data[i].id + '/">' + '<img src="' + data[i].thumbnail + '" class="img-responsive" alt="Thumbnail"></a></div>';
+                                    items = items + '<div class="col-md-2" style="padding: 0px 5px;"><p style="font-weight: bold;">{% trans "Title" %}:</p><p><a href="/en/properties/' + data[i].province + '/' + data[i].id + '/">' + data[i].title + '</a></p></div>';
+                                    items = items + '<div class="col-md-2" style="padding: 0px 5px;"><p style="font-weight: bold;">{% trans "Address" %}:</p><p>' + data[i].full_address + '</p></div>';
+                                    items = items + '<div class="col-md-1" style="padding: 0px 5px;"><p style="font-weight: bold;">{% trans "Price" %}:</p><p>' + data[i].price.toLocaleString() + '</p></div>';
+                                    items = items + '<div class="col-md-2" style="padding: 0px 5px;"><p style="font-weight: bold;">{% trans "Category" %}:</p><p><i class="' + data[i].property_type_icon + '" style="margin-right: 5px;"></i>' + data[i].property_type + '</p></div>';
+                                    items = items + '<div class="col-md-1" style="padding: 0px 5px;"><p style="font-weight: bold;">{% trans "Available Date" %}:</p><p>' + data[i].available_date + '</p></div>';
+                                    items = items + '<div class="col-md-1" style="padding: 0px 5px;"><p style="font-weight: bold;">{% trans "Status" %}:</p><p style="color: red; font-weight: bold;">' + data[i].status + '</p></div>';
+                                    items = items + '<div class="col-md-1" style="margin-top: 0px; padding: 0px 5px;">';
+                                    items = items + '<div><a href="/' + "{{ LANGUAGE_CODE }}/properties/" +  data[i].province + '/' + data[i].id + '/edit/" class="btn btn-primary" style="margin-bottom: 10px;">{% trans "Edit" %}</a></div>';
+                                    {% comment %} items = items + '<div><a id="delete" onclick=DelProperty("' + data[i].province + '","' + data[i].id + '"); class="btn btn-default" style="margin-bottom: 0px;">{% trans "Delete" %}</a></div>'; {% endcomment %}
+                                    items = items + '</div>';
+                                    items = items + '</div>';
+
+                                    items = items + '<div class="row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.3); border-left: 1px solid rgba(0, 0, 0, 0.3); border-right: 1px solid rgba(0, 0, 0, 0.3); padding: 15px 0px;">';
+                                    items = items + '<div class="col-md-2" style="padding: 0px 5px;"><p style="font-weight: bold;"></p><p></p></div>';
+                                    items = items + '<div class="col-md-2" style="padding: 0px 5px;"><p style="font-weight: bold;"></p><p></p></div>';
+                                    items = items + '<div class="col-md-3" style="padding: 0px 5px;"><p style="font-weight: bold;"></p><p></p></div>';
+                                    items = items + '<div class="col-md-2" style="padding: 0px 5px;"><p style="font-weight: bold;">{% trans "Pump up until" %}:</p><p>' + data[i].ad_date + '</p></div>';
+                                    items = items + '<div class="col-md-3" style="padding: 0px 5px;"><p style="font-weight: bold; font-size: 1.1em; color: red; font-style: italic;">{% trans "Bump Up 30 Days for $10" %}</p><p id="paypal-button-' + i +'"></p></div>';
+                                    items = items + '</div>';
+                                }
+                                $("#properties").html(items);
+                                for (i in data) {
+                                    LoadPaypal("#paypal-button-"+i, data[i].province, data[i].id);
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    window.location.href = window.location.href.replace("?", "") + "?myprofile";
+                }
+            });
+        });
+
+        function DelProperty(province, property_id) {
+            if (!confirm(deleteconfirm)) {
+                event.preventDefault();
+            } else {
+                $.ajax({
+                    type: "GET",
+                    url: "/properties/delproperty/",
+                    data: {"province": province, "property_id": property_id},
+                    dataType: "json",
+                    success: function(data) { 
+                        if (data.result == 'Succeed') {
+                            alert(data.msg); 
+                        }
+                    }            
+                });
+            }
+        }
+
+        function LoadPaypal(button_id, province, property_id) {
+            paypal.Buttons({
+                style: {
+                    label: "pay",
+                    layout: "horizontal",
+                    color: "blue",
+                    height: 35,
+                    shape: "pill",
+                    tagline: false
+                },
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                "value": "10.00"
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        $("#form_id_payment").append($("<input>").attr("type", "hidden").attr("name", "transaction_id").val(details.purchase_units[0].payments.captures[0].id));
+                        $("#form_id_payment").append($("<input>").attr("type", "hidden").attr("name", "province").val(province));
+                        $("#form_id_payment").append($("<input>").attr("type", "hidden").attr("name", "property_id").val(property_id));
+                        $("#form_id_payment").submit();
+                    });
+                },
+                onCancel: function (data) {
+                    alert("{{ data.paypal_cancel }}");
+                },
+                onError: function (err) {
+                    alert("{{ data.paypal_error }}");
+                }
+            }).render(button_id);
+        }
+
+    </script>
+{% endblock scripts %}
+

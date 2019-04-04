@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}{% trans "Profile" %}{% endblock %}
+
+{% block navbar_left %}
+    {% include "_navbar.html" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <h1 class="text-primary">{% trans "Edit Profile" %}</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-sm-3">
+                {% if user.profile.picture %}
+                    <img title="profile picture" src="{{ MEDIA_URL }}{{ user.profile.picture }}" height="140px" width="140px" alt="avatar">
+                {% else %}
+                    <img src="{% static 'site/img/profile/default_140x140.png' %}" alt="avatar"/>
+                {% endif%}
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-sm-9">
+                <h3 style="font-weight: bold;">{% trans "Personal Information" %}</h3>
+                <form enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    {% crispy user_form %}
+                    {% crispy profile_form %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-primary pull-right" href="{% url 'accounts:password-change' %}">{% trans "Change Password" %}</a>
+            </div>
+        </div>
+    </div>
+{% endblock container%}
+
+{% block scripts %}
+    {# JQUERY FILE UPLOAD SCRIPTS #}
+    <script src="{% static 'site/js/image/load-image.all.min.js' %}"></script>
+    <script>var del_img_url = "{% static 'site/img/delete.png' %}";</script>
+    <script>
+        var deleteconfirm = "{{ data.deleteconfirm }}";
+        $(document).ready(function () {
+            if ("{{ data.picture }}" != "") {
+                LoadAvatar("{{ data.picture }}");
+            }
+        });
+    </script>
+    <script src="{% static 'site/js/image/upload-avatar-image.min.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "venv/bin/python",
+    "python.venvPath": "/Volumes/Data/Workspace/Django/DjangoBase/venv/",
+    // pip install pylint pylint-django
+    "python.linting.pylintPath": "venv/bin/pylint",
+    "python.linting.pylintArgs": ["--load-plugins", "--errors-only",  "pylint_django"],
+    "files.exclude": {
+        "venv/": true,
+        "**/categories.json": true,
+        "**/confusables.json": true
+    },
+    "python.linting.pylintEnabled": true
+}

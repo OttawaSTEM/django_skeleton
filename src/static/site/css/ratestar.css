@@ -1,0 +1,31 @@
+.ratestar {
+    display: inline-block; 
+}
+
+.ratestar a {
+    font-size: 16px;
+    padding: 0 1px;
+    cursor: pointer;
+    /* color: #FFD119; */
+    /* color: #FFA700; */
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffce00), to(#ffa700));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    text-decoration: none; 
+}
+
+.ratestar-lg {
+    display: inline-block; 
+}
+.ratestar-lg a {
+    font-size: 32px;
+    padding: 0 1px;
+    cursor: pointer;
+    /* color: #FFD119; */
+    /* color: #FFA700; */
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffce00), to(#ffa700));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    text-decoration: none; 
+}
+
