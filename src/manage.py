@@ -7,9 +7,9 @@ if __name__ == "__main__":
     # default. Change the DJANGO_SETTINGS_MODULE environment variable
     # for using the environment specific settings file.
     if os.environ.get('DJANGO_DEVELOPMENT') == 'True':
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rentbnb.settings.development')
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangobase.settings.development')
     else:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rentbnb.settings.production')
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangobase.settings.production')
 
     from django.core.management import execute_from_command_line
 

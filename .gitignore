@@ -47,9 +47,3 @@ bootstrap/
 
 # Visual Studio Code
 # .vscode/
-
-# Rentbnb
-files/
-src/media/properties
-src/media/users
-Documents/Temp/

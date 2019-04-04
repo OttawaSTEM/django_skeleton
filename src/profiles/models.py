@@ -3,10 +3,8 @@ from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-
 from django_countries.fields import CountryField
-from multiselectfield import MultiSelectField
-from rentbnb.constants import DATA
+from djangobase.constants import PROVINCE
 
 
 class BaseProfile(models.Model):
@@ -24,7 +22,7 @@ class BaseProfile(models.Model):
     street_num = models.CharField(_('Street Number'), max_length=20, blank=True)
     street_name = models.CharField(_('Street Name'), max_length=50, blank=True)
     city = models.CharField(_('City/Town'), max_length=30, blank=True)
-    province = models.CharField(_('Province'), max_length=2, blank=True, db_index=True, choices=DATA.PROVINCE)
+    province = models.CharField(_('Province'), max_length=2, blank=True, db_index=True, choices=PROVINCE)
     country = CountryField(default='CA')
     post_code = models.CharField(_('Postal Code'), max_length=7, blank=True)
 

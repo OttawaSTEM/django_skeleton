@@ -16,10 +16,6 @@ urlpatterns += i18n_patterns(
     path('registration/', include('registration.backends.default.urls')),
     path('webadmin/', admin.site.urls),
     path('users/', include('profiles.urls', namespace='profiles')),
-
-    path('locations/', include('locations.urls', namespace='locations')),
-    path('properties/', include('properties.urls', namespace='properties')),
-    # path('properties-review/', include('properties_review.urls', namespace='properties-review'))
 )
 
 # User-uploaded files like profile pics need to be served in development
