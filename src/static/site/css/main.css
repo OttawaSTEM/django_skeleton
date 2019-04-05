@@ -58,7 +58,7 @@ body>.navbar-transparent {
 .navbar-nav>li>a {
     font-size: 1.6rem;
     color: #333 !important;
-    /* font-weight: bold !important; */
+    font-weight: bold !important;
 }
 
 .navbar-brand {
