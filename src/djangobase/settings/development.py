@@ -10,10 +10,6 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda r: False,  # Disables debug_toolbar
 }
 
-# Define Local Server MEDIA_ROOT for User-uploaded files like profile pics need to be served
-STATIC_URL = '/static/'                 # Local
-MEDIA_URL = '/media/'                 # Local
-
 # Django Debug Toolbar
 INSTALLED_APPS += (
     'debug_toolbar',

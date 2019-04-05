@@ -32,6 +32,10 @@ STATICFILES_DIRS = [join(BASE_DIR, 'static')]           # For ./manager.py colle
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 MEDIA_ROOT = join(BASE_DIR, 'media')
 
+# Define Local Server MEDIA_ROOT for User-uploaded files like profile pics need to be served
+STATIC_URL = '/static/'                 # Local
+MEDIA_URL = '/media/'                 # Local
+
 # To use this setting, install the Argon2 password hashing algorithm.
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
