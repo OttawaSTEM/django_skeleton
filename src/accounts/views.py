@@ -69,7 +69,7 @@ class LoginView(authviews.LoginView):
                 expiry = getattr(settings, 'KEEP_LOGGED_DURATION', ONE_MONTH)
                 self.request.session.set_expiry(expiry)
             # return redirect
-            return HttpResponseRedirect(reverse_lazy('profiles:show_self') + '?myprofile')
+            return HttpResponseRedirect(reverse_lazy('profiles:show_self'))
         else:
             return HttpResponseRedirect('/')
 
@@ -106,4 +106,4 @@ class PasswordResetConfirmView(authviews.PasswordResetConfirmAndLoginView):
     form_class = forms.SetPasswordForm
     
     def get_success_url(self): # override this function if you want to use reverse
-        return '{}{}'.format(reverse_lazy('profiles:show_self'), '?myprofile')
+        return reverse_lazy('profiles:show_self')

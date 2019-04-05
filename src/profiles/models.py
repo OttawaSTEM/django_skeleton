@@ -1,10 +1,28 @@
 import os, uuid
+from io import BytesIO
 from django.db import models
 from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.utils.deconstruct import deconstructible
 from django.utils.translation import ugettext_lazy as _
+from PIL import Image
 
 from django_countries.fields import CountryField
 from djangobase.constants import PROVINCE
+
+
+@deconstructible
+class UploadStorage(FileSystemStorage):
+    def __init__(self, *args, **kwargs):
+        super(UploadStorage, self).__init__(location=settings.MEDIA_ROOT, base_url='/media/')
+
+def upload_to(instance, filename):      # Convert to (private) path, not full private yet
+    profile_img = 'users/{}/profile_pics/{}'.format(instance.user.profile.slug, 'avatar.jpg')
+    profile_img_path = os.path.join(settings.MEDIA_ROOT, profile_img)
+    if os.path.exists(profile_img_path):
+        os.remove(profile_img_path)
+    return profile_img
 
 
 class BaseProfile(models.Model):
@@ -13,7 +31,7 @@ class BaseProfile(models.Model):
     # Add more user profile fields here with default values,
     # CharFiled and TextFiled discouraged to use null=True in Django, avoid two possible values for “no data”: null and the empty string
     # python manage.py makemigrations profiles --name AddProfileModels
-    picture = models.ImageField(_('Profile Picture'), max_length=200, blank=True, null=True)
+    picture = models.ImageField(_('Profile Picture'), upload_to=upload_to, storage=UploadStorage(), blank=True, null=True)
     bio = models.CharField(_('Short Bio'), max_length=200, blank=True)
     email_verified = models.BooleanField(_('Email Verified'), default=False)
     phone_number = models.CharField(_('Phone Number'), max_length=20, blank=True)
@@ -26,9 +44,18 @@ class BaseProfile(models.Model):
     country = CountryField(default='CA')
     post_code = models.CharField(_('Postal Code'), max_length=7, blank=True)
 
-
     class Meta:
         abstract = True
+
+    def save(self, *args, **kwargs):
+        if self.picture:
+            image = Image.open(BytesIO(self.picture.read()))
+            image.thumbnail((140,140))
+            output = BytesIO()
+            image.save(output, format='JPEG')
+            output.seek(0)
+            self.picture= InMemoryUploadedFile(output, 'ImageField', '{}.jpg'.format('avatar.jpg'), 'image/jpeg', len(output.getvalue()), None)
+        super(BaseProfile, self).save(*args, **kwargs)
 
 
 class Profile(BaseProfile):

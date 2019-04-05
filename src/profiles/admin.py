@@ -2,6 +2,7 @@ from django.contrib import admin
 from authtools.admin import NamedUserAdmin
 from .models import Profile
 from django.contrib.auth import get_user_model
+from django.utils.html import format_html
 from django.urls import reverse
 
 User = get_user_model()
@@ -20,9 +21,8 @@ class NewUserAdmin(NamedUserAdmin):
     # was a workaround.
     def permalink(self, obj):
         url = reverse('profiles:show', kwargs={'slug': obj.profile.slug})
-        # Unicode hex b6 is the Pilcrow sign
-        from django.utils.html import format_html
-        return '<a href="{}">{}</a>'.format(url, '\xb6')
+        # Unicode hex &#x1f517; is the Pilcrow sign
+        return format_html('<a href="{}">{}</a>'.format(url, '&#x1f517;'))
     permalink.allow_tags = True
 
 admin.site.unregister(User)

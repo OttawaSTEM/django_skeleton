@@ -61,16 +61,16 @@
                                             {% if user.profile.picture %}
                                                 <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" class="img-circle" height="30px" width="30px" alt="avatar"/> {{ user.get_full_name|truncatechars:20 }}
                                             {% else %}
-                                                <img src="{% static 'site/img/profile/default_30x30.png' %}" class="img-circle" alt="avatar"/> {{ user.get_full_name|truncatechars:20 }}
+                                                <img src="{% static 'site/img/profile_default.png' %}" class="img-circle" alt="avatar" width="30px" height="30px"> {{ user.get_full_name|truncatechars:20 }}
                                             {% endif%}
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="{% url 'profiles:show_self' %}?myprofile">{% trans "My Profile" %}</a>
+                                                <a href="{% url 'profiles:show_self' %}">My Profile</a>
                                             </li>
                                             <li>
-                                                <a href="{% url 'profiles:show_self' %}?myproperties">{% trans "My Properties" %}</a>
+                                                <a href="{% url 'profiles:show_self' %}"></a>
                                             </li>
                                             <li>
                                                 <a href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a>

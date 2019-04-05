@@ -52,6 +52,7 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
         user = self.request.user
         user_form = forms.UserForm(request.POST, instance=user)
         profile_form = forms.ProfileForm(request.POST, request.FILES, instance=user.profile)
+
         if not (user_form.is_valid() and profile_form.is_valid()):
             messages.error(request, _('There was a problem with the form. Please check the details.'))
             user_form = forms.UserForm(instance=user)
@@ -64,5 +65,12 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
 
         profile.user = user
         profile.save()  
+
+        if not profile.picture:
+            try:
+                shutil.rmtree(os.path.join(settings.MEDIA_ROOT, 'users/{}/'.format(user.profile.slug)))
+            except:
+                pass
+
         messages.success(request, _('Profile details saved!'))
         return HttpResponseRedirect(reverse_lazy('profiles:show_self'))        

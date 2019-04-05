@@ -371,100 +371,10 @@ https://regex101.com/
 https://github.com/seiyria/bootstrap-slider
 
 
-# Python script output stdout and stderr
-$ nohup python script.py > log.outerr 2>&1 &
-$ /usr/bin/nohup /home/admin/venv/bin/python /home/admin/Rentbnb/src/properties/kijiji.py > /home/admin/Rentbnb/logs/kijiji.stdout 2>&1 &
-
-
-# Rate Star - Change starrr to ratestar
-https://github.com/dobtco/starrr
-
 
 # Encrypt and Decrypt ID
 https://hashids.org/
 
-# Amazon S3
-## Use Access Control List to allow AWS Console Owner full permission
-after maintaintance, enable both ACLs back for security
-* Block new public ACLs and uploading public objects (Recommended)
-* Remove public access granted through public ACLs (Recommended)
-
-## Bucket Permission Policy
-https://aws.amazon.com/blogs/aws/amazon-s3-block-public-access-another-layer-of-protection-for-your-accounts-and-buckets/
-
-## boto3 client api
-https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_object
-
-Principal doesn't support Group, only support user
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "Granting Read-Only Permission to an Anonymous User",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::rentbnb-dev/*"
-        },
-        {
-            "Sid": "Granting Post, Put and Delete Permission to Admin Group",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::040680749497:user/Rentbnb-Admin"
-            },
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject",
-                "s3:DeleteObject"
-            ],
-            "Resource": "arn:aws:s3:::rentbnb-dev/*"
-        }
-    ]
-}
-
-
-## Use the EC2 instance profile and its attached IAM role (AWS only)
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-
-## CORS Configuration
-<CORSConfiguration>
-    <CORSRule>
-        <AllowedOrigin>*</AllowedOrigin>
-        <AllowedMethod>GET</AllowedMethod>
-        <AllowedMethod>POST</AllowedMethod>
-        <MaxAgeSeconds>3000</MaxAgeSeconds>
-        <AllowedHeader>*</AllowedHeader>
-    </CORSRule>
-    <CORSRule>
-        <AllowedOrigin>https://*.rentbnb.ca</AllowedOrigin>
-        <AllowedMethod>GET</AllowedMethod>
-        <AllowedMethod>POST</AllowedMethod>
-        <AllowedMethod>DELETE</AllowedMethod>
-        <MaxAgeSeconds>3000</MaxAgeSeconds>
-    </CORSRule>
-</CORSConfiguration>
-
-
-# Amazon S3 Backup
-sudo pip install awscli
-aws configure
-aws s3 mb s3://rentbnb-dev-backup                           # Create S3 Bucket
-aws s3 sync s3://rentbnb-dev s3://rentbnb-dev-backup        # Backup Bucket to another Bucket
-
-
-# Scraper
-Amazon EC2 Change IP address, Stop Instance and Start Instance
 
 
 # Google Analysis

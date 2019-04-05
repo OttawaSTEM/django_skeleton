@@ -16,6 +16,7 @@ logs/
 *.env
 
 # Django stuff:
+media/
 *.mo
 *.pot
 
@@ -46,4 +47,5 @@ local/
 bootstrap/
 
 # Visual Studio Code
-# .vscode/
+.vscode/
+
