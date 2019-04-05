@@ -337,26 +337,11 @@ User:
 
 
 
-# Canada Postal Code
-https://www.canadapost.ca/cpc/en/business/marketing/audience/license-data.page
-
-https://github.com/inkjet/pypostalcode
-
-https://ws1.postescanada-canadapost.ca/AddressComplete/Interactive/Find/v2.10/json3ex.ws?Key=ea98-jc42-tf94-jk98&Country=CAN&SearchTerm=518%20clearbrook&LanguagePreference=en&LastId=&SearchFor=Everything&OrderBy=UserLocation&$block=true&$cache=true&MaxSuggestions=7&MaxResults=100
-
 
 # Google Maps Geocoding API
 https://console.developers.google.com/
 https://www.scrapehero.com/how-to-parse-unstructured-addresses-using-python-and-google-geocoding-api/
 
-
-# Kijiji
-// https://www.kijiji.ca/j-vac-phone-get.json?token=1368101120%7C1532959817196%7C0e334f1c7f%7C7ad4afefbfbdefbfbd76%7Cefbfbd79efbfbdefbfbd48
- https://www.kijiji.ca/j-vac-phone-get.json?token=1368101120%7C1533044152739%7Cefbfbd0fefbfbdefbfbd7a%7C1e413fdea3efbfbd%7C43efbfbd15185b
-// https://www.kijiji.ca/j-vac-phone-get.json?token=1368101120|0e334f1c7f|7ad4afefbfbdefbfbd76|efbfbd79efbfbdefbfbd48
-{
-  "phone": "613-612-5028"
-}
 
 # Selenium
 ## XPath

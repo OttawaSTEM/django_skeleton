@@ -48,12 +48,6 @@ LOGGING = {
             'filename': join(LOGFILE_ROOT, 'project.log'),
             'formatter': 'verbose'
         },
-        'kijiji_log_file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': join(LOGFILE_ROOT, 'kijiji.log'),
-            'formatter': 'verbose'
-        },        
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -64,10 +58,6 @@ LOGGING = {
     'loggers': {
         'project': {
             'handlers': ['proj_log_file'],
-            'level': 'DEBUG',
-        },
-        'kijiji': {
-            'handlers': ['kijiji_log_file'],
             'level': 'DEBUG',
         }
     }
