@@ -47,7 +47,7 @@
                         <ul class="nav navbar-nav">
                             {% block navbar_left %}{% endblock %}
                         </ul>
-
+{% comment %} 
                         <ul class="nav navbar-nav navbar-right">
                             {% block navbar_right %} 
                                 {% if user.is_authenticated %}
@@ -83,6 +83,7 @@
                                 {% endif %}
                             {% endblock navbar_right %}
                         </ul>
+{% endcomment %}
                     </div>
                 {% endblock navbar_menu %}
             </div>

@@ -12,7 +12,7 @@ urlpatterns = [
     path('registration/register/complete/', views.RegisterCompleteView, name='register-complete'),
     path('registration/activate/complete/', views.ActivationCompleteView, name='activate-complete'),
     path('registration/', include('registration.backends.default.urls')),
-    path('webadmin/', admin.site.urls),
+    # path('webadmin/', admin.site.urls),
     path('users/', include('profiles.urls', namespace='profiles')),
 ]
 
