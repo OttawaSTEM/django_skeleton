@@ -49,16 +49,8 @@
 {% endblock container%}
 
 {% block scripts %}
-    {# JQUERY FILE UPLOAD SCRIPTS #}
-    <script src="{% static 'site/js/image/load-image.all.min.js' %}"></script>
-    <script>var del_img_url = "{% static 'site/img/delete.png' %}";</script>
     <script>
-        var deleteconfirm = "{{ data.deleteconfirm }}";
         $(document).ready(function () {
-            if ("{{ data.picture }}" != "") {
-                LoadAvatar("{{ data.picture }}");
-            }
         });
     </script>
-    <script src="{% static 'site/js/image/upload-avatar-image.min.js' %}"></script>
 {% endblock scripts %}
