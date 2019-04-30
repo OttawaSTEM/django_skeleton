@@ -24,6 +24,9 @@ if exists(env_file):
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
+# Sitemaps
+SITE_ID = 1
+
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
 # Local - Build paths inside the project like this: join(BASE_DIR, "directory")
@@ -80,8 +83,10 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sessions',
+    'django.contrib.sitemaps',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
   
     'accounts',

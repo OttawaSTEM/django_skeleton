@@ -1,12 +1,19 @@
 from django.urls import include, path
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.conf import settings
 from django.conf.urls.static import static
-from . import views
+from . import views, sitemaps
+
+sitemaps = {
+    'static': sitemaps.StaticViewSitemap,
+}
 
 urlpatterns = [
     path('', views.HomePage.as_view(), name='home'),
     path('aboutus/', views.AboutPage.as_view(), name='about'),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('registration/register/complete/', views.RegisterCompleteView, name='register-complete'),

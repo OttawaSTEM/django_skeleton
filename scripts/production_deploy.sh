@@ -8,6 +8,9 @@ if [ "$choice" = "Yes" ]; then
         # ssh -p 2200 admin@djangobase.ca "cd /home/admin/DjangoBase/ && /usr/bin/git fetch --all && git reset --hard origin/master"
         ssh -p 2200 admin@djangobase.ca "cd /home/admin/DjangoBase/ && /usr/bin/git pull"
 
+        # Update PIP
+        ssh -p 2200 admin@ottawastem.com "source /home/admin/venv/bin/activate && pip install pip --upgrade"
+        
         # Install new django packages
         ssh -p 2200 admin@djangobase.ca "source /home/admin/venv/bin/activate && pip install -r /home/admin/DjangoBase/requirements.txt"
 
@@ -18,6 +21,9 @@ if [ "$choice" = "Yes" ]; then
         # Udate Database
         ssh -p 2200 admin@djangobase.ca "source /home/admin/venv/bin/activate && cd /home/admin/DjangoBase/src/ && ./manage.py migrate"
 
+        # SEO - Ping Google after update with sitemap
+        ssh -p 2200 admin@ottawastem.com "source /home/admin/venv/bin/activate && cd /home/admin/OttawaSTEM/src/ && ./manage.py ping_google"
+        
         # Restart Django Server
         ssh -p 2200 admin@djangobase.ca "sudo service gunicorn restart"
 
