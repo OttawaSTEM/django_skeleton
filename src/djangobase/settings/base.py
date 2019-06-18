@@ -27,6 +27,7 @@ if exists(env_file):
 # Sitemaps
 # Need to update database manual from example.com to domain name
 SITE_ID = 1
+SITE_NAME = 'Djangobase'
 SITE_URL = 'https://djangobase.com/' 
 
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
