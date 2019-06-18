@@ -6,9 +6,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="{% block description %}{% endblock description %}">
-        <meta name="author" content="Patrick Li">
+        <meta name="language" content="English">
+        <meta name="og:url" content="{{ SITE_URL }}"> 
+        <meta name="og:type" content="website">
+        <meta name="og:title" content="Ottawa STEM"> 
+        <meta name="og:description" content="{% block description %}{% endblock description %}">
+        <meta name="og:image" content="{{ SITE_URL }}static/site/img/logo-big.png">
+
+
+        <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
+
+
         <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
 
         <title>{% include "_brandname.html" %}</title>

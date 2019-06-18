@@ -25,7 +25,9 @@ if exists(env_file):
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # Sitemaps
+# Need to update database manual from example.com to domain name
 SITE_ID = 1
+SITE_URL = 'https://djangobase.com/' 
 
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
@@ -64,6 +66,9 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                
+                # Need update djangobase to project folder name
+                'djangobase.context_processors.global_settings'
             ],
         },
     },
@@ -149,3 +154,5 @@ REGISTRATION_EMAIL_HTML = False     # Only use templates/registration/activation
 # Google reCAPTCHA
 RECAPTCHA_SITE_KEY = env('RECAPTCHA_SITE_KEY')
 RECAPTCHA_SECRET_KEY = env('RECAPTCHA_SECRET_KEY')
+
+GOOGLE_ANALYTICS_TRACKING_ID = env('GOOGLE_ANALYTICS_TRACKING_ID')
