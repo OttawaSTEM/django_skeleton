@@ -25,7 +25,7 @@ if exists(env_file):
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # Sitemaps
-# Need to update database manual from example.com to domain name
+# Need to update database table: django_site manual from example.com to domain name, which match record ID
 SITE_ID = 1
 SITE_NAME = 'Djangobase'
 SITE_URL = 'https://djangobase.com/' 
