@@ -11,7 +11,7 @@ class HomePage(generic.TemplateView):
 
 
 class AboutPage(generic.TemplateView):
-    template_name = 'aboutus.html'
+    template_name = 'about.html'
 
 
 def RegisterCompleteView(request):

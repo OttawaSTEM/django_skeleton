@@ -2,12 +2,25 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}{{ block.super }}About Us{% endblock %}
+
+{% block title %}{{ block.super }} - About Us{% endblock %}
+
+{% block meta_url %}{{ block.super }}about/{% endblock %}
+{% block meta_title %}{{ block.super }} - About Us{% endblock %}
+{% block meta_description %}Djangobase about us.{% endblock %}
+{% block meta_image %}{{ block.super }}{% endblock %}
+
+{% block twitter_meta_title %}{{ block.super }} - About Us{% endblock %}
+{% block twitter_meta_description %}Djangobase about us.{% endblock %}
+{% block twitter_meta_image %}{{ block.super }}{% endblock %}
+
+
+{% block extrahead %}
+{% endblock extrahead %}
 
 {% block navbar_left %}
     {% include "_navbar.html" with active_link="about" %}
-{% endblock %}
-
+{% endblock navbar_left%}
 
 <!-- Benefits of the Django application -->
 {% block container %}

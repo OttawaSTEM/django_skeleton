@@ -2,14 +2,28 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}{{ block.super }}Home{% endblock %}
+{% block title %}{{ block.super }}{% endblock %}
+
+{% block meta_url %}{{ block.super }}{% endblock %}
+{% block meta_title %}{{ block.super }}{% endblock %}
+{% block meta_description %}
+Djangobase description.
+{% endblock %}
+{% block meta_image %}{{ block.super }}{% endblock %}
+
+{% block twitter_meta_title %}{{ block.super }}{% endblock %}
+{% block twitter_meta_description %}
+Djangobase description.
+{% endblock %}
+{% block twitter_meta_image %}{{ block.super }}{% endblock %}
+
 
 {% block extrahead %}
 {% endblock extrahead %}
 
 {% block navbar_left %}
     {% include "_navbar.html" with active_link="home" %}
-{% endblock %}
+{% endblock navbar_left%}
 
 {% block splash %}
     <div class="jumbotron jumbotron-carousel corporate-jumbo">

@@ -14,7 +14,6 @@ if [ "$choice" = "Yes" ]; then
         # Install new django packages
         ssh -p 2200 admin@djangobase.ca "source /home/admin/venv/bin/activate && pip install -r /home/admin/DjangoBase/requirements.txt"
 
-
         # Copy static files to STATIC_ROOT
         ssh -p 2200 admin@djangobase.ca "source /home/admin/venv/bin/activate && cd /home/admin/DjangoBase/src/ && ./manage.py collectstatic --noinput"
 

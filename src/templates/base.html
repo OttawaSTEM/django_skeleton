@@ -4,25 +4,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>{% block title %}{% include "_brandname.html" %}{% endblock %}</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="language" content="English">
-        <meta name="og:url" content="{{ SITE_URL }}"> 
+        <meta name="og:url" content="{% block meta_url %}{{ SITE_URL }}{% endblock %}"> 
         <meta name="og:site_name" content="{{ SITE_NAME }}"> 
-        <meta name="og:type" content="website">
-        <meta name="og:title" content="Ottawa STEM"> 
-        <meta name="og:description" content="{% block description %}{% endblock description %}">
-        <meta name="og:image" content="{{ SITE_URL }}static/site/img/logo-big.png">
-
-
+        <meta name="og:type" content="{% block meta_type %}article{% endblock %}">             {% comment %} http://ogp.me/#types {% endcomment %}
+        <meta name="og:title" content="{% block meta_title %}{% include "_brandname.html" %}{% endblock %}"> 
+        <meta name="og:description" content="{% block meta_description %}Djangobase description{% endblock %}">
+        <meta name="og:image" content="{% block meta_image %}{{ SITE_URL }}static/site/img/logo-big.png{% endblock %}">
+        <meta name="twitter:site" content="@djangobase">
+        <meta name="twitter:title" content="{% block twitter_meta_title %}{% include "_brandname.html" %}{% endblock %}">
+        <meta name="twitter:description" content="{% block twitter_meta_description %}Djangobase description{% endblock %}">
+        <meta name="twitter:image" content="{% block twitter_meta_image %}{{ SITE_URL }}static/site/img/logo-big.png{% endblock %}">
         <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
-
-
-        <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
-
-        <title>{% include "_brandname.html" %}</title>
 
         <!-- Bootstrap core CSS -->
         {% comment %} <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
