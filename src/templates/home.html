@@ -2,20 +2,20 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}{{ block.super }}{% endblock %}
+{% block title %}{{ block.super }}{% endblock title %}
 
-{% block meta_url %}{{ block.super }}{% endblock %}
-{% block meta_title %}{{ block.super }}{% endblock %}
+{% block meta_url %}{{ block.super }}{% endblock meta_url %}
+{% block meta_title %}{{ block.super }}{% endblock meta_title %}
 {% block meta_description %}
 Djangobase description.
-{% endblock %}
-{% block meta_image %}{{ block.super }}{% endblock %}
+{% endblock meta_description %}
+{% block meta_image %}{{ block.super }}{% endblock meta_image %}
 
-{% block twitter_meta_title %}{{ block.super }}{% endblock %}
+{% block twitter_meta_title %}{{ block.super }}{% endblock twitter_meta_title %}
 {% block twitter_meta_description %}
 Djangobase description.
-{% endblock %}
-{% block twitter_meta_image %}{{ block.super }}{% endblock %}
+{% endblock twitter_meta_description %}
+{% block twitter_meta_image %}{{ block.super }}{% endblock twitter_meta_image%}
 
 
 {% block extrahead %}

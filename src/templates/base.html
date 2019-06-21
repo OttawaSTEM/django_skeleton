@@ -22,18 +22,18 @@
         <meta name="twitter:image" content="{% block twitter_meta_image %}{{ SITE_URL }}static/site/img/logo-big.png{% endblock %}">
         <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
 
-        <!-- Bootstrap core CSS -->
+        {% comment %} Bootstrap core CSS {% endcomment %}
         {% comment %} <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- Custom styles for this site -->
+        {% comment %} Custom styles for this site {% endcomment %}
         {% block styles %}
             <link href="{% static 'site/css/main.css' %}" rel="stylesheet">
         {% endblock styles %}
 
-        <!-- Custom tags for the head tag -->
-        {% block extrahead %}{% endblock extrahead %}
+        {% comment %} Custom tags for the head tag {% endcomment %}
+        {% block extrahead %}
+        {% endblock extrahead %}
     </head>
-
     <body>
         <div id="div_id_language" style="display: none;">{{ LANGUAGE_CODE }}</div>
         {% block navbar %}
@@ -56,43 +56,43 @@
                         <ul class="nav navbar-nav">
                             {% block navbar_left %}{% endblock %}
                         </ul>
-{% comment %} 
-                        <ul class="nav navbar-nav navbar-right">
-                            {% block navbar_right %} 
-                                {% if user.is_authenticated %}
-                                    {% if user.is_staff %}
-                                        <li>
-                                            <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
+                        {% comment %} 
+                            <ul class="nav navbar-nav navbar-right">
+                                {% block navbar_right %} 
+                                    {% if user.is_authenticated %}
+                                        {% if user.is_staff %}
+                                            <li>
+                                                <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
+                                            </li>
+                                        {% endif %}
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle profile-menu" data-toggle="dropdown">
+                                                {% if user.profile.picture %}
+                                                    <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" class="img-circle" height="30px" width="30px" alt="avatar"/> {{ user.get_full_name|truncatechars:20 }}
+                                                {% else %}
+                                                    <img src="{% static 'site/img/profile_default.png' %}" class="img-circle" alt="avatar" width="30px" height="30px"> {{ user.get_full_name|truncatechars:20 }}
+                                                {% endif%}
+                                                <span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="{% url 'profiles:show_self' %}">My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'profiles:show_self' %}"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a>
+                                                </li>
+                                            </ul>
                                         </li>
+                                    {% else %}
+                                        <a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">{% trans "Log in" %}</a>
+                                        <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">{% trans "Sign up" %}</a>
                                     {% endif %}
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle profile-menu" data-toggle="dropdown">
-                                            {% if user.profile.picture %}
-                                                <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" class="img-circle" height="30px" width="30px" alt="avatar"/> {{ user.get_full_name|truncatechars:20 }}
-                                            {% else %}
-                                                <img src="{% static 'site/img/profile_default.png' %}" class="img-circle" alt="avatar" width="30px" height="30px"> {{ user.get_full_name|truncatechars:20 }}
-                                            {% endif%}
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{% url 'profiles:show_self' %}">My Profile</a>
-                                            </li>
-                                            <li>
-                                                <a href="{% url 'profiles:show_self' %}"></a>
-                                            </li>
-                                            <li>
-                                                <a href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                {% else %}
-                                    <a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">{% trans "Log in" %}</a>
-                                    <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">{% trans "Sign up" %}</a>
-                                {% endif %}
-                            {% endblock navbar_right %}
-                        </ul>
-{% endcomment %}
+                                {% endblock navbar_right %}
+                            </ul>
+                        {% endcomment %}
                     </div>
                 {% endblock navbar_menu %}
             </div>
@@ -102,7 +102,7 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">
-                        <!-- singular -->
+                        {% comment %} singular {% endcomment %}
                         <a class="close" data-dismiss="alert">×</a>
                         {{ message|safe }}
                     </div>
@@ -122,9 +122,9 @@
             </div>
         {% endblock container %}
 
-        <!-- Site footer -->
+        {% comment %} Site footer {% endcomment %}
         {% block footer %}
-            <!-- Some social button for contact will do -->
+            {% comment %} Some social button for contact will do {% endcomment %}
             <a name="contact"></a>
             <div class="container">
                 <div class="footer">
@@ -144,9 +144,9 @@
             </div>
         {% endblock footer%}
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
+        {% comment %} Bootstrap core JavaScript
+        ================================================== {% endcomment %}
+        {% comment %} Placed at the end of the document so the pages load faster {% endcomment %}
         {% comment %} <script src="{% static 'bootstrap/js/jquery-3.3.1.min.js' %}"></script> {% endcomment %}
         {% comment %} <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script> {% endcomment %}
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
