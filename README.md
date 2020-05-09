@@ -1,4 +1,3 @@
-{% comment "This comment section will be deleted in the generated project" %}
 **A Django project starter.**
 ## Features
 
@@ -16,7 +15,6 @@
 4. `$ cd src`
 5. `$ cp my_proj/settings/local.sample.env my_proj/settings/local.env`
 6. `$ python manage.py migrate`
-{% endcomment %}
 
 # {{ project_name }}
 !!! project name CAN NOT use '-' due to python conflict
