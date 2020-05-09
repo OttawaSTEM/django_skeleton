@@ -29,6 +29,9 @@ This project has the following basic apps:
 * App3 (short desc)
 
 ## Installation
+### Deploy in Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/OttawaSTEM/django-skeleton/)
+
 
 ### Quick start
 

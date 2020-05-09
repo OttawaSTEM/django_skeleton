@@ -1,12 +1,14 @@
-Django==2.2
-argon2-cffi==18.1.0
-django-authtools==1.6.0
-django-countries==5.3.2
-django-crispy-forms==1.7.2
-django-environ==0.4.5
-django-registration-redux==2.5
-gunicorn==19.9.0
-hashids==1.2.0
-pillow==6.0.0
+pip>=20.1
+wheel>=0.34.2
+Django>=2.2
+argon2-cffi>=18.1.0
+django-authtools>=1.6.0
+django-countries>=5.3.2
+django-crispy-forms>=1.7.2
+django-environ>=0.4.5
+django-registration-redux>=2.5
+gunicorn>=19.9.0
+hashids>=1.2.0
+pillow>=6.2.2
 requests>=2.19.1
 
