@@ -27,8 +27,8 @@ if exists(env_file):
 # Sitemaps
 # Need to update database table: django_site manual from example.com to domain name, which match record ID=1
 SITE_ID = 1
-SITE_NAME = 'Djangobase'
-SITE_URL = 'https://djangobase.com/' 
+SITE_NAME = 'django-skeleton'
+SITE_URL = 'https://django-skeleton.com/' 
 
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
@@ -68,8 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 
-                # Need update djangobase to project folder name
-                'djangobase.context_processors.global_settings'
+                # Need update django-skeleton to project folder name
+                'django-skeleton.context_processors.global_settings'
             ],
         },
     },
@@ -113,9 +113,9 @@ MIDDLEWARE = (
     'django.middleware.locale.LocaleMiddleware',
 )
 
-ROOT_URLCONF = 'djangobase.urls'
+ROOT_URLCONF = 'django-skeleton.urls'
 
-WSGI_APPLICATION = 'djangobase.wsgi.application'
+WSGI_APPLICATION = 'django-skeleton.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
