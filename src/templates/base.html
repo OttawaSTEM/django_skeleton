@@ -14,11 +14,11 @@
         <meta name="og:site_name" content="{{ SITE_NAME }}"> 
         <meta name="og:type" content="{% block meta_type %}article{% endblock %}">             {% comment %} http://ogp.me/#types {% endcomment %}
         <meta name="og:title" content="{% block meta_title %}{% include "_brandname.html" %}{% endblock %}"> 
-        <meta name="og:description" content="{% block meta_description %}django-skeleton description{% endblock %}">
+        <meta name="og:description" content="{% block meta_description %}django_skeleton description{% endblock %}">
         <meta name="og:image" content="{% block meta_image %}{{ SITE_URL }}static/site/img/logo-big.png{% endblock %}">
-        <meta name="twitter:site" content="@django-skeleton">
+        <meta name="twitter:site" content="@django_skeleton">
         <meta name="twitter:title" content="{% block twitter_meta_title %}{% include "_brandname.html" %}{% endblock %}">
-        <meta name="twitter:description" content="{% block twitter_meta_description %}django-skeleton description{% endblock %}">
+        <meta name="twitter:description" content="{% block twitter_meta_description %}django_skeleton description{% endblock %}">
         <meta name="twitter:image" content="{% block twitter_meta_image %}{{ SITE_URL }}static/site/img/logo-big.png{% endblock %}">
         <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
 
@@ -130,7 +130,7 @@
                 <div class="footer">
                     <div class="row">
                         <div class="col-sm-6">
-                            <p>django-skeleton.com &copy; {% now 'Y' %}</p>
+                            <p>django_skeleton.com &copy; {% now 'Y' %}</p>
                         </div>
                         <div class="col-sm-6 text-right">
                             <ul class="social">

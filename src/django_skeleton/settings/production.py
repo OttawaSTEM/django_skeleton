@@ -1,5 +1,5 @@
 # In production set the environment variable like this:
-#    DJANGO_SETTINGS_MODULE=mingvisa.settings.production
+#    DJANGO_SETTINGS_MODULE=django_skeleton.settings.production
 from .base import *             # NOQA
 import logging.config
 

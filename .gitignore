@@ -13,7 +13,7 @@ venv/
 logs/
 
 # Environment variables
-*.env
+local.env
 
 # Django stuff:
 media/

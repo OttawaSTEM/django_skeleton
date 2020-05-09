@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from PIL import Image
 
 from django_countries.fields import CountryField
-from django-skeleton.constants import PROVINCE
+from django_skeleton.constants import PROVINCE
 
 
 @deconstructible

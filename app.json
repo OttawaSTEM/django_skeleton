@@ -1,7 +1,7 @@
 {
     "name": "Heroku Github Django Skeleton deployment",
     "description": "Heroku Github Django Skeleton deployment",
-    "repository": "https://github.com/OttawaSTEM/django-skeleton",
+    "repository": "https://github.com/OttawaSTEM/django_skeleton",
     "logo": "https://static.djangoproject.com/img/icon-touch.e4872c4da341.png",
     "keywords": ["heroku", "django", "github"]
 }

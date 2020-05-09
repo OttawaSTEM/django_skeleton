@@ -12,6 +12,9 @@
             "args": [
                 "runserver"
             ],
+            "env": {
+                "DJANGO_DEVELOPMENT": "True"
+            },
             "django": true
         }
     ]

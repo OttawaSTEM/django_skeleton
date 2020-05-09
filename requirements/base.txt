@@ -1,6 +1,6 @@
 pip>=20.1
 wheel>=0.34.2
-Django>=2.2
+Django==2.2.12
 argon2-cffi>=18.1.0
 django-authtools>=1.6.0
 django-countries>=5.3.2

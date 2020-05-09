@@ -19,6 +19,7 @@
 {% endcomment %}
 
 # {{ project_name }}
+!!! project name CAN NOT use '-' due to python conflict
 
 {{ project_name }} is a _short description_. It is built with [Python][0] using the [Django Web Framework][1].
 
@@ -29,8 +30,12 @@ This project has the following basic apps:
 * App3 (short desc)
 
 ## Installation
+1. Change project name and src/django_skeleton folder name
+2. Change database/django_skeleton.db name
+3. For Windows, django_skeleton.db CAN NOT put under database folder, ONLY support under src
+
 ### Deploy in Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/OttawaSTEM/django-skeleton/)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/OttawaSTEM/django_skeleton/)
 
 
 ### Quick start
@@ -39,7 +44,8 @@ To set up a development environment quickly, first install Python 3. It
 comes with virtualenv built-in. So create a virtual env by:
 
     1. `$ python3 -m venv {{ project_name }}`
-    2. `$ . {{ project_name }}/bin/activate`
+    2. `$ python -m pip install --upgrade pip`
+    3. `$ . {{ project_name }}/bin/activate`
 
 Install all dependencies:
 

@@ -1,1 +1,1 @@
-web: gunicorn django-skeleton.wsgi
+web: gunicorn django_skeleton.wsgi
