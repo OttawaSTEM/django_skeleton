@@ -1,3 +1,6 @@
+# For Heroku Deploymnet
+django-heroku
+
 pip>=20.1
 wheel>=0.34.2
 Django<3.0.0
