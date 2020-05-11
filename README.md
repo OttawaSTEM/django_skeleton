@@ -21,8 +21,6 @@
 
 ## Installation
 1. Change project name and src/django_skeleton folder name
-2. Change database/django_skeleton.db name
-3. For Windows, django_skeleton.db CAN NOT put under database folder, ONLY support under src
 
 ### Deploy in Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/OttawaSTEM/django_skeleton/)
