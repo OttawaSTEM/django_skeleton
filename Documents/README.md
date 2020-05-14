@@ -1,75 +1,12 @@
 # Django project template
 https://github.com/arocks/edge
 
-# Switch different Python
-$ pyenv install 3.5.3
-$ cd /usr/local/bin
-$ ln -s /Users/keli/.pyenv/versions/3.5.3/bin/python3.5 ./python3
+## Language
+- For Windows  
+extract Packages\gettext0.20.2-iconv1.16-static-64.zip to C:\>Tools\Gettext
+Add C:\>Tools\Gettext\bin to system environment path
 
-# Git Switch SSH to HTTPS
-$ git remote -v
-$ git remote set-url origin https://Patrick_Li@bitbucket.org/Patrick_Li/rentbnb.git
-
-# PostgresSQL
-## In Debian 9
-You can now start the database server using:
-/usr/lib/postgresql/11/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
-
-## Install PostgreSQL with GIS
-brew install postgresql
-brew install postgis
-brew install geos
-$ psql --version
-
-## In Mac
-$ pg_ctl -D /usr/local/var/postgres start|stop|status
-keli=# \du                                # List users
-keli=# \list                              # List database
-keli=# CREATE USER dba PASSWORD 'dba';
-keli=# CREATE DATABASE Rentbnb OWNER dba;
-
-$ psql -d postgres
-postgres=# CREATE DATABASE rentbnb;
-$ psql -d rentbnb
-Rentbnb=# CREATE EXTENSION postgis;        # PostGIS 2 includes an extension for PostgreSQL that’s used to enable spatial functionality:
-
-## in Debian
-sudo -u postgres psql
-CREATE USER rentbnbdba PASSWORD 'rentbnbdba';
-CREATE DATABASE rentbnb OWNER rentbnbdba;
-ALTER ROLE rentbnbdba WITH SUPERUSER;               # Otherwise get 'ERROR:  must be owner of extension postgis' in ./manage.py dbrestore -z
-sudo -u postgres psql -d rentbnb
-CREATE EXTENSION postgis;        # PostGIS 2 includes an extension for PostgreSQL that’s used to enable spatial functionality:
-
-rentbnb=# SELECT version();
-rentbnb=# SELECT PostGIS_full_version();
-
-## use ~/.pgpass
-YOUR_HOST:YOUR_PORT:DB_NAME:USER_NAME:PASSWORD
-chmod 0600 ~/.pgpass
-PGPASSFILE=/home/dave/.pgpass psql -h localhost -U admin -d rentbnb 
-
-# PostgresSQL SSH Tunnel
-## From one terminal, 5433 for listen port in local Mac, 5432 is remote localhost port
-$ ssh -L 5433:localhost:5432 admin@rentbnb.ca
-
-## Background
-$ ssh -p 2200 -L 5433:localhost:5432 admin@rentbnb.ca -f -N
-
-## From another terminal
-$ psql -h localhost -p 5433 -d rentbnb -U dba
-
-
-
-
-## From PGAdmin4 
-Connection port is 5433
-
-# Python Virtual Environment
-$ python3 -m venv ./venv
-$ source|. ./venv/bin/activate
-$ pip install -r requirements.txt
-$ deactivate
+- For Debian
 
 
 # Update Table (Drop Table Method)

@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from os.path import dirname, join, exists, abspath
 # from celery.schedules import crontab
 
@@ -132,6 +133,16 @@ DATABASES = {
 TIME_ZONE = 'America/Toronto'
 USE_TZ = False
 USE_I18N = True
+
+# Language
+LOCALE_PATHS = [join(BASE_DIR, 'locale'),]
+LANGUAGE_CODE = 'en'
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('French')),
+    ('zh-cn', _('简体中文'))
+)
+
 
 # Crispy Form Theme - Bootstrap 3
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
