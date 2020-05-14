@@ -12,7 +12,7 @@
         <meta name="language" content="English">
         <meta name="og:url" content="{% block meta_url %}{{ SITE_URL }}{% endblock %}"> 
         <meta name="og:site_name" content="{{ SITE_NAME }}"> 
-        <meta name="og:type" content="{% block meta_type %}article{% endblock %}">             {% comment %} http://ogp.me/#types {% endcomment %}
+        <meta name="og:type" content="{% block meta_type %}article{% endblock %}">
         <meta name="og:title" content="{% block meta_title %}{% include "_brandname.html" %}{% endblock %}"> 
         <meta name="og:description" content="{% block meta_description %}django_skeleton description{% endblock %}">
         <meta name="og:image" content="{% block meta_image %}{{ SITE_URL }}static/site/img/logo.png{% endblock %}">
@@ -25,6 +25,7 @@
         {% comment %} Bootstrap core CSS {% endcomment %}
         {% comment %} <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
         {% comment %} Custom styles for this site {% endcomment %}
         {% block styles %}
             <link href="{% static 'site/css/main.css' %}" rel="stylesheet">
@@ -56,43 +57,62 @@
                         <ul class="nav navbar-nav">
                             {% block navbar_left %}{% endblock %}
                         </ul>
-                        {% comment %} 
-                            <ul class="nav navbar-nav navbar-right">
-                                {% block navbar_right %} 
-                                    {% if user.is_authenticated %}
-                                        {% if user.is_staff %}
-                                            <li>
-                                                <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
-                                            </li>
-                                        {% endif %}
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle profile-menu" data-toggle="dropdown">
-                                                {% if user.profile.picture %}
-                                                    <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" class="img-circle" height="30px" width="30px" alt="avatar"/> {{ user.get_full_name|truncatechars:20 }}
-                                                {% else %}
-                                                    <img src="{% static 'site/img/profile_default.png' %}" class="img-circle" alt="avatar" width="30px" height="30px"> {{ user.get_full_name|truncatechars:20 }}
-                                                {% endif%}
-                                                <span class="caret"></span>
-                                            </a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li>
-                                                    <a href="{% url 'profiles:show_self' %}">My Profile</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{% url 'profiles:show_self' %}"></a>
-                                                </li>
-                                                <li>
-                                                    <a href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a>
-                                                </li>
-                                            </ul>
+
+                        <ul class="nav navbar-nav navbar-right" style="margin: 8px 10px 0px 0px;">
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="" />
+                                <select name="language" class="selectpicker" data-width="120" onchange="this.form.submit();">
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    {% get_available_languages as LANGUAGES %}
+                                    {% get_language_info_list for LANGUAGES as languages %}
+                                    {% for language in languages %}
+                                        <option value="{{ language.code }}" 
+                                            {% if language.code == LANGUAGE_CODE %} selected {% endif %} 
+                                            {% with 'site/img/flags/'|add:language.code|add:'.png' as image_lang %}
+                                                data-content="<span><img src=' {% static image_lang %}'> {{ language.name_local|capfirst }}</span>">
+                                            {% endwith %}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            {% block navbar_right %} 
+                                {% if user.is_authenticated %}
+                                    {% if user.is_staff %}
+                                        <li>
+                                            <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
                                         </li>
-                                    {% else %}
-                                        <a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">{% trans "Log in" %}</a>
-                                        <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">{% trans "Sign up" %}</a>
                                     {% endif %}
-                                {% endblock navbar_right %}
-                            </ul>
-                        {% endcomment %}
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle profile-menu" data-toggle="dropdown">
+                                            {% if user.profile.picture %}
+                                                <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" class="img-circle" height="30px" width="30px" alt="avatar"/> {{ user.get_full_name|truncatechars:20 }}
+                                            {% else %}
+                                                <img src="{% static 'site/img/profile_default.png' %}" class="img-circle" alt="avatar" width="30px" height="30px"> {{ user.get_full_name|truncatechars:20 }}
+                                            {% endif%}
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{% url 'profiles:show_self' %}">My Profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'profiles:show_self' %}"></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">{% trans "Log in" %}</a>
+                                    <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">{% trans "Sign up" %}</a>
+                                {% endif %}
+                            {% endblock navbar_right %}
+                        </ul>
                     </div>
                 {% endblock navbar_menu %}
             </div>
@@ -157,6 +177,7 @@
         {% comment %} <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script> {% endcomment %}
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script> 
 
         {% block scripts %} 
         {% endblock scripts %}
