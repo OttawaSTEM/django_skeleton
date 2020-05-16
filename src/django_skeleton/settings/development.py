@@ -67,7 +67,7 @@ LOGGING = {
     # In Development, log to console
     'loggers': {
         'django': {
-            'handlers': ['django_log_file'],
+            'handlers': ['console'],
             'propagate': True,
             'level': 'DEBUG',
         },
@@ -79,3 +79,4 @@ LOGGING = {
 }
 
 logging.config.dictConfig(LOGGING)
+

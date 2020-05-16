@@ -1,13 +1,23 @@
-source $PWD/venv/bin/activate && ./src/manage.py makemessages -a
-source $PWD/venv/bin/activate && ./src/manage.py translate_messages -u -f
-# source $PWD/venv/bin/activate && ./src/manage.py compilemessages
+# Create the message file
+# source $PWD/venv/bin/activate && ./src/manage.py makemessages -l fr --pythonpath $PWD/django_skeleton
+# source $PWD/venv/bin/activate && ./src/manage.py makemessages -l zh-cn --pythonpath $PWD/django_skeleton
+
+# Update existing messages file, execute from django_skeleton/scripts/
+PROJECT_PATH=$PWD
+cd src
+source $PROJECT_PATH/venv/bin/activate && ./manage.py makemessages -a
+
+# Use django-autotranslate to translate po file
+source $PROJECT_PATH/venv/bin/activate && ./manage.py translate_messages -u -f
+
+# Compile po file for production
+source $PROJECT_PATH/venv/bin/activate && ./manage.py compilemessages
 
 
 # source $PWD/venv/bin/activate && ./src/manage.py translate_messages [options]
 # -f, --set-fuzzy: Set the 'fuzzy' flag on autotranslated entries
 # -l, --locale 'locale': Only translate the specified locales
 # -u, --untranslated: Only translate the untranslated messages
-
 
 # Django translation in template
 # Force variables to be translated
