@@ -67,13 +67,13 @@ LOGGING = {
     # In Development, log to console
     'loggers': {
         'django': {
-            'handlers': ['console'],
+            'handlers': ['django_log_file'],
             'propagate': True,
             'level': 'DEBUG',
         },
         'project': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
         }
     }
 }

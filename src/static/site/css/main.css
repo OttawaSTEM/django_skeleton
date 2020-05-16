@@ -92,7 +92,7 @@ body>.navbar-transparent {
         rgba(255, 255, 255, 0.3), 
         rgba(255, 255, 255, 0)
         200px), 
-        url("/static/site/img/banner.jpg"
+        url("/static/site/img/sea.jpg"
     );
     background-repeat: no-repeat;
     background-position: 80% center;
@@ -104,6 +104,17 @@ body>.navbar-transparent {
     margin-bottom: 0;
     height: 100%;
 }
+.water {
+    position: absolute;
+    background-image: url("/static/site/img/sea-map.png");
+    background-size: cover;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    filter: url("#turbulence");
+  }
+  
 
 .vertical-center {
     min-height: 100%;
