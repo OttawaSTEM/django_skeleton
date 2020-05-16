@@ -96,22 +96,24 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
   
+    'authtools',
+    'autotranslate',
+    'crispy_forms',
+    # 'dbbackup',
+    
     'accounts',
     'profiles',
-
-    'authtools',
-    'crispy_forms',
 )
 
 MIDDLEWARE = (
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'django_skeleton.urls'
@@ -130,17 +132,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
 # Default data format: 2000-02-18
-TIME_ZONE = 'America/Toronto'
-USE_TZ = False
 USE_I18N = True
+USE_L10N = True
+TIME_ZONE = 'America/Toronto'
+USE_TZ = True
 
 # Language
-LOCALE_PATHS = [join(BASE_DIR, 'locale'),]
+LOCALE_PATHS = (join(BASE_DIR, 'locale'),)
 LANGUAGE_CODE = 'en'
 LANGUAGES = (
     ('en', _('English')),
     ('fr', _('French')),
-    ('zh-cn', _('简体中文'))
+    ('zh-cn', _('Simplified Chinese'))
 )
 
 
@@ -167,3 +170,7 @@ RECAPTCHA_SITE_KEY = env('RECAPTCHA_SITE_KEY')
 RECAPTCHA_SECRET_KEY = env('RECAPTCHA_SECRET_KEY')
 
 GOOGLE_ANALYTICS_TRACKING_ID = env('GOOGLE_ANALYTICS_TRACKING_ID')
+
+# django-autotranslate change translation service
+AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.GoogleWebTranslatorService'
+# AUTOTRANSLATE_TRANSLATOR_SERVICE = 'GoSlateTranslatorService'
