@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-16 19:01-0400\n"
+"POT-Creation-Date: 2020-05-17 20:55-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,30 +18,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: accounts/forms.py:25 accounts/templates/accounts/login.html:21
-#: templates/base.html:116
+#: .\accounts\forms.py:25 .\accounts\templates\accounts\login.html:21
+#: .\templates\base.html:116
 msgid "Sign up"
 msgstr "s'enregistrer"
 
-#: accounts/forms.py:39
+#: .\accounts\forms.py:39
 msgid "Forgot Password?"
 msgstr "Mot de passe oublié ?"
 
-#: accounts/forms.py:42 accounts/templates/accounts/signup.html:21
-#: templates/base.html:115
+#: .\accounts\forms.py:42 .\accounts\templates\accounts\signup.html:21
+#: .\templates\base.html:115
 msgid "Log in"
 msgstr "Connectez-vous"
 
-#: accounts/forms.py:55 accounts/forms.py:78
-#: profiles/templates/profiles/edit_profile.html:45
+#: .\accounts\forms.py:55 .\accounts\forms.py:78
+#: .\profiles\templates\profiles\edit_profile.html:45
 msgid "Change Password"
 msgstr "Modifier le mot de passe"
 
-#: accounts/forms.py:66
+#: .\accounts\forms.py:66
 msgid "Reset Password"
 msgstr "Mot de passe réinitialisé"
 
-#: accounts/templates/accounts/emails/password_reset_email.html:3
+#: .\accounts\templates\accounts\emails\password_reset_email.html:3
 msgid ""
 "Hi,\n"
 "        You're receiving this email because you (or someone pretending to be you) \n"
@@ -61,43 +61,43 @@ msgstr ""
 "        ou copier et coller dans votre navigateur web:\n"
 "    "
 
-#: accounts/templates/accounts/emails/password_reset_email.html:15
+#: .\accounts\templates\accounts\emails\password_reset_email.html:15
 msgid ""
 "Your username, in case you've forgotten, it is same as this email address:"
 msgstr ""
 "Votre nom d’utilisateur, au cas où vous avez oublié, c’est la même chose que"
 " cette adresse e-mail:"
 
-#: accounts/templates/accounts/emails/password_reset_email.html:17
+#: .\accounts\templates\accounts\emails\password_reset_email.html:17
 msgid "Best regards,"
 msgstr "Sinceres salutations"
 
-#: accounts/templates/accounts/emails/password_reset_subject.txt:2
+#: .\accounts\templates\accounts\emails\password_reset_subject.txt:2
 msgid "Password reset on"
 msgstr "Réinitialisation du mot de passe"
 
-#: accounts/templates/accounts/login.html:14
+#: .\accounts\templates\accounts\login.html:14
 msgid "Please Log In"
 msgstr "S’il vous plaît connectez-vous"
 
-#: accounts/templates/accounts/login.html:21
+#: .\accounts\templates\accounts\login.html:21
 msgid "Don't have an account?"
 msgstr "Vous n’avez pas de compte ?"
 
-#: accounts/templates/accounts/password_change.html:7
-#: accounts/templates/accounts/password_reset_confirm.html:7
+#: .\accounts\templates\accounts\password_change.html:7
+#: .\accounts\templates\accounts\password_reset_confirm.html:7
 msgid "Password Change"
 msgstr "Changement de mot de passe"
 
-#: accounts/templates/accounts/password_reset.html:7
+#: .\accounts\templates\accounts\password_reset.html:7
 msgid "Password Reset"
 msgstr "Réinitialisation de mot de passe"
 
-#: accounts/templates/accounts/password_reset_done.html:8
+#: .\accounts\templates\accounts\password_reset_done.html:8
 msgid "Password Reset Email Sent"
 msgstr "Message de réinitialisation de mot de passe envoyé"
 
-#: accounts/templates/accounts/password_reset_done.html:14
+#: .\accounts\templates\accounts\password_reset_done.html:14
 msgid ""
 "Please check your mail. You would have received a password reset mail from "
 "us."
@@ -105,34 +105,34 @@ msgstr ""
 "S’il vous plaît vérifier votre courrier. Vous auriez reçu un message de "
 "réinitialisation de mot de passe de notre part."
 
-#: accounts/templates/accounts/signup.html:14
+#: .\accounts\templates\accounts\signup.html:14
 msgid "Signing Up is Free"
 msgstr "L’inscription est gratuite"
 
-#: accounts/templates/accounts/signup.html:21
+#: .\accounts\templates\accounts\signup.html:21
 msgid "Already signed up?"
 msgstr "Déjà inscrit?"
 
-#: accounts/views.py:88
+#: .\accounts\views.py:88
 msgid ""
 "Your password was changed, hence you have been logged out. Please relogin"
 msgstr ""
 "Votre mot de passe a été changé, d’où vous avez été déconnecté. S’il vous "
 "plaît relogin"
 
-#: django_skeleton/settings/base.py:144
+#: .\django_skeleton\settings\base.py:144
 msgid "English"
 msgstr "Anglais"
 
-#: django_skeleton/settings/base.py:145
+#: .\django_skeleton\settings\base.py:145
 msgid "French"
 msgstr "Français"
 
-#: django_skeleton/settings/base.py:146
+#: .\django_skeleton\settings\base.py:146
 msgid "Simplified Chinese"
 msgstr "Chinois simplifié"
 
-#: django_skeleton/views.py:18
+#: .\django_skeleton\views.py:18
 msgid ""
 "Your account has been created, and activation email had been sent to your "
 "email address. Please check your email and activate your account."
@@ -140,107 +140,107 @@ msgstr ""
 "Votre compte a été créé et des e-mails d’activation ont été envoyés à votre "
 "adresse e-mail. Veuillez consulter votre e-mail et activer votre compte."
 
-#: django_skeleton/views.py:23
+#: .\django_skeleton\views.py:23
 msgid "Your account is now activated."
 msgstr "Votre compte est maintenant activé."
 
-#: profiles/forms.py:50
+#: .\profiles\forms.py:50
 msgid "Update"
 msgstr "mettre à jour"
 
-#: profiles/models.py:34
+#: .\profiles\models.py:34
 msgid "Profile Picture"
 msgstr "Photo de profil"
 
-#: profiles/models.py:35
+#: .\profiles\models.py:35
 msgid "Short Bio"
 msgstr "Bio courte"
 
-#: profiles/models.py:36
+#: .\profiles\models.py:36
 msgid "Email Verified"
 msgstr "Courriel vérifié"
 
-#: profiles/models.py:37
+#: .\profiles\models.py:37
 msgid "Phone Number"
 msgstr "Numéro de téléphone"
 
-#: profiles/models.py:38
+#: .\profiles\models.py:38
 msgid "P.O. Box"
 msgstr "Boîte P.O."
 
-#: profiles/models.py:39
+#: .\profiles\models.py:39
 msgid "Apt/Unit"
 msgstr "Apt/Unité"
 
-#: profiles/models.py:40
+#: .\profiles\models.py:40
 msgid "Street Number"
 msgstr "Numéro de rue"
 
-#: profiles/models.py:41
+#: .\profiles\models.py:41
 msgid "Street Name"
 msgstr "Nom de la rue"
 
-#: profiles/models.py:42
+#: .\profiles\models.py:42
 msgid "City/Town"
 msgstr "Ville/Ville"
 
-#: profiles/models.py:43
+#: .\profiles\models.py:43
 msgid "Province"
 msgstr "Province"
 
-#: profiles/models.py:45
+#: .\profiles\models.py:45
 msgid "Postal Code"
 msgstr "Postal Code"
 
-#: profiles/templates/profiles/edit_profile.html:6
-#: profiles/templates/profiles/show_profile.html:5
+#: .\profiles\templates\profiles\edit_profile.html:6
+#: .\profiles\templates\profiles\show_profile.html:5
 msgid "Profile"
 msgstr "Profil"
 
-#: profiles/templates/profiles/edit_profile.html:18
+#: .\profiles\templates\profiles\edit_profile.html:18
 msgid "Edit Profile"
 msgstr "Modifier le profil"
 
-#: profiles/templates/profiles/edit_profile.html:32
+#: .\profiles\templates\profiles\edit_profile.html:32
 msgid "Personal Information"
 msgstr "Renseignements personnels"
 
-#: profiles/views.py:57
+#: .\profiles\views.py:57
 msgid "There was a problem with the form. Please check the details."
 msgstr ""
 "Il y avait un problème avec le formulaire. S’il vous plaît vérifier les "
 "détails."
 
-#: profiles/views.py:75
+#: .\profiles\views.py:75
 msgid "Profile details saved!"
 msgstr "Détails de profil enregistrés!"
 
-#: templates/_navbar.html:3
+#: .\templates\_navbar.html:3
 msgid "Home"
 msgstr "Accueil"
 
-#: templates/_navbar.html:4
+#: .\templates\_navbar.html:4
 msgid "About us"
 msgstr "Qui sommes-nous"
 
-#: templates/base.html:90
+#: .\templates\base.html:90
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/base.html:110
+#: .\templates\base.html:110
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: templates/registration/activate.html:7
-#: templates/registration/activation_email.txt:3
+#: .\templates\registration\activate.html:7
+#: .\templates\registration\activation_email.txt:3
 msgid "Hi,"
 msgstr "Salut"
 
-#: templates/registration/activate.html:8
+#: .\templates\registration\activate.html:8
 msgid "Account activation failed."
 msgstr "L’activation du compte a échoué."
 
-#: templates/registration/activate.html:9
+#: .\templates\registration\activate.html:9
 msgid ""
 "Your account may have been activated, please contact us if you are unable to"
 " activate your account"
@@ -248,19 +248,19 @@ msgstr ""
 "Votre compte peut avoir été activé, s’il vous plaît contactez-nous si vous "
 "n’êtes pas en mesure d’activer votre compte"
 
-#: templates/registration/activate.html:11
-#: templates/registration/activation_email.txt:18
+#: .\templates\registration\activate.html:11
+#: .\templates\registration\activation_email.txt:18
 msgid "Sincerely,"
 msgstr "Sincèrement"
 
-#: templates/registration/activation_email.txt:5
+#: .\templates\registration\activation_email.txt:5
 msgid ""
 "You (or someone pretending to be you) have asked to register an account at"
 msgstr ""
 "Vous (ou quelqu’un qui prétend être vous) avez demandé à enregistrer un "
 "compte à"
 
-#: templates/registration/activation_email.txt:6
+#: .\templates\registration\activation_email.txt:6
 msgid ""
 "If this wasn't you, please ignore this email and your address will be "
 "removed from our records."
@@ -268,7 +268,7 @@ msgstr ""
 "Si ce n’était pas vous, veuillez ignorer cet e-mail et votre adresse sera "
 "supprimée de nos dossiers."
 
-#: templates/registration/activation_email.txt:9
+#: .\templates\registration\activation_email.txt:9
 msgid ""
 "Your account has been created, please activate your account by clicking the "
 "link below."
@@ -276,11 +276,11 @@ msgstr ""
 "Votre compte a été créé, s’il vous plaît activer votre compte en cliquant "
 "sur le lien ci-dessous."
 
-#: templates/registration/activation_email.txt:13
+#: .\templates\registration\activation_email.txt:13
 msgid "Link is valid for 24 hours."
 msgstr "Le lien est valable 24 heures."
 
-#: templates/registration/activation_email.txt:15
+#: .\templates\registration\activation_email.txt:15
 msgid ""
 "Before logging in, you must activate your account, Once your account has "
 "been activated, please update your personal profile."
@@ -288,6 +288,6 @@ msgstr ""
 "Avant de vous connecter, vous devez activer votre compte, une fois que votre"
 " compte a été activé, veuillez mettre à jour votre profil personnel."
 
-#: templates/registration/activation_email.txt:16
+#: .\templates\registration\activation_email.txt:16
 msgid "If you have any questions, please contact us."
 msgstr "Si vous avez des questions, veuillez nous contacter."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-16 19:01-0400\n"
+"POT-Creation-Date: 2020-05-17 20:55-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,30 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: accounts/forms.py:25 accounts/templates/accounts/login.html:21
-#: templates/base.html:116
+#: .\accounts\forms.py:25 .\accounts\templates\accounts\login.html:21
+#: .\templates\base.html:116
 msgid "Sign up"
-msgstr "登记"
+msgstr "注册"
 
-#: accounts/forms.py:39
+#: .\accounts\forms.py:39
 msgid "Forgot Password?"
 msgstr "忘记密码？"
 
-#: accounts/forms.py:42 accounts/templates/accounts/signup.html:21
-#: templates/base.html:115
+#: .\accounts\forms.py:42 .\accounts\templates\accounts\signup.html:21
+#: .\templates\base.html:115
 msgid "Log in"
 msgstr "登录"
 
-#: accounts/forms.py:55 accounts/forms.py:78
-#: profiles/templates/profiles/edit_profile.html:45
+#: .\accounts\forms.py:55 .\accounts\forms.py:78
+#: .\profiles\templates\profiles\edit_profile.html:45
 msgid "Change Password"
 msgstr "更改密码"
 
-#: accounts/forms.py:66
+#: .\accounts\forms.py:66
 msgid "Reset Password"
 msgstr "重置密码"
 
-#: accounts/templates/accounts/emails/password_reset_email.html:3
+#: .\accounts\templates\accounts\emails\password_reset_email.html:3
 msgid ""
 "Hi,\n"
 "        You're receiving this email because you (or someone pretending to be you) \n"
@@ -60,213 +60,213 @@ msgstr ""
 "        或将其复制并粘贴到 Web 浏览器中：\n"
 "    "
 
-#: accounts/templates/accounts/emails/password_reset_email.html:15
+#: .\accounts\templates\accounts\emails\password_reset_email.html:15
 msgid ""
 "Your username, in case you've forgotten, it is same as this email address:"
 msgstr "您的用户名，如果您忘记了，它与此电子邮件地址相同："
 
-#: accounts/templates/accounts/emails/password_reset_email.html:17
+#: .\accounts\templates\accounts\emails\password_reset_email.html:17
 msgid "Best regards,"
 msgstr "此致敬意"
 
-#: accounts/templates/accounts/emails/password_reset_subject.txt:2
+#: .\accounts\templates\accounts\emails\password_reset_subject.txt:2
 msgid "Password reset on"
 msgstr "密码重置"
 
-#: accounts/templates/accounts/login.html:14
+#: .\accounts\templates\accounts\login.html:14
 msgid "Please Log In"
 msgstr "请登录"
 
-#: accounts/templates/accounts/login.html:21
+#: .\accounts\templates\accounts\login.html:21
 msgid "Don't have an account?"
 msgstr "没有帐户？"
 
-#: accounts/templates/accounts/password_change.html:7
-#: accounts/templates/accounts/password_reset_confirm.html:7
+#: .\accounts\templates\accounts\password_change.html:7
+#: .\accounts\templates\accounts\password_reset_confirm.html:7
 msgid "Password Change"
 msgstr "密码更改"
 
-#: accounts/templates/accounts/password_reset.html:7
+#: .\accounts\templates\accounts\password_reset.html:7
 msgid "Password Reset"
 msgstr "密码重置"
 
-#: accounts/templates/accounts/password_reset_done.html:8
+#: .\accounts\templates\accounts\password_reset_done.html:8
 msgid "Password Reset Email Sent"
 msgstr "密码重置电子邮件发送"
 
-#: accounts/templates/accounts/password_reset_done.html:14
+#: .\accounts\templates\accounts\password_reset_done.html:14
 msgid ""
 "Please check your mail. You would have received a password reset mail from "
 "us."
 msgstr "请检查您的邮件。您会收到来自我们的密码重置邮件。"
 
-#: accounts/templates/accounts/signup.html:14
+#: .\accounts\templates\accounts\signup.html:14
 msgid "Signing Up is Free"
 msgstr "注册免费"
 
-#: accounts/templates/accounts/signup.html:21
+#: .\accounts\templates\accounts\signup.html:21
 msgid "Already signed up?"
 msgstr "已经注册了？"
 
-#: accounts/views.py:88
+#: .\accounts\views.py:88
 msgid ""
 "Your password was changed, hence you have been logged out. Please relogin"
 msgstr "您的密码已更改，因此您已注销。请重新登录"
 
-#: django_skeleton/settings/base.py:144
+#: .\django_skeleton\settings\base.py:144
 msgid "English"
 msgstr "英语"
 
-#: django_skeleton/settings/base.py:145
+#: .\django_skeleton\settings\base.py:145
 msgid "French"
 msgstr "法语"
 
-#: django_skeleton/settings/base.py:146
+#: .\django_skeleton\settings\base.py:146
 msgid "Simplified Chinese"
 msgstr "简体中文"
 
-#: django_skeleton/views.py:18
+#: .\django_skeleton\views.py:18
 msgid ""
 "Your account has been created, and activation email had been sent to your "
 "email address. Please check your email and activate your account."
 msgstr "您的帐户已创建，激活电子邮件已发送到您的电子邮件地址。请检查您的电子邮件并激活您的帐户。"
 
-#: django_skeleton/views.py:23
+#: .\django_skeleton\views.py:23
 msgid "Your account is now activated."
 msgstr "您的帐户现已激活。"
 
-#: profiles/forms.py:50
+#: .\profiles\forms.py:50
 msgid "Update"
 msgstr "更新"
 
-#: profiles/models.py:34
+#: .\profiles\models.py:34
 msgid "Profile Picture"
 msgstr "个人资料图片"
 
-#: profiles/models.py:35
+#: .\profiles\models.py:35
 msgid "Short Bio"
 msgstr "短生物"
 
-#: profiles/models.py:36
+#: .\profiles\models.py:36
 msgid "Email Verified"
 msgstr "已验证的电子邮件"
 
-#: profiles/models.py:37
+#: .\profiles\models.py:37
 msgid "Phone Number"
 msgstr "电话号码"
 
-#: profiles/models.py:38
+#: .\profiles\models.py:38
 msgid "P.O. Box"
 msgstr "邮政信箱"
 
-#: profiles/models.py:39
+#: .\profiles\models.py:39
 msgid "Apt/Unit"
 msgstr "公寓/单元"
 
-#: profiles/models.py:40
+#: .\profiles\models.py:40
 msgid "Street Number"
 msgstr "街道编号"
 
-#: profiles/models.py:41
+#: .\profiles\models.py:41
 msgid "Street Name"
 msgstr "街道名称"
 
-#: profiles/models.py:42
+#: .\profiles\models.py:42
 msgid "City/Town"
 msgstr "城市/城市"
 
-#: profiles/models.py:43
+#: .\profiles\models.py:43
 msgid "Province"
 msgstr "省"
 
-#: profiles/models.py:45
+#: .\profiles\models.py:45
 msgid "Postal Code"
 msgstr "邮政编码"
 
-#: profiles/templates/profiles/edit_profile.html:6
-#: profiles/templates/profiles/show_profile.html:5
+#: .\profiles\templates\profiles\edit_profile.html:6
+#: .\profiles\templates\profiles\show_profile.html:5
 msgid "Profile"
 msgstr "配置 文件"
 
-#: profiles/templates/profiles/edit_profile.html:18
+#: .\profiles\templates\profiles\edit_profile.html:18
 msgid "Edit Profile"
 msgstr "编辑配置文件"
 
-#: profiles/templates/profiles/edit_profile.html:32
+#: .\profiles\templates\profiles\edit_profile.html:32
 msgid "Personal Information"
 msgstr "个人信息"
 
-#: profiles/views.py:57
+#: .\profiles\views.py:57
 msgid "There was a problem with the form. Please check the details."
 msgstr "表单有问题。请检查详细信息。"
 
-#: profiles/views.py:75
+#: .\profiles\views.py:75
 msgid "Profile details saved!"
 msgstr "保存了配置文件详细信息！"
 
-#: templates/_navbar.html:3
+#: .\templates\_navbar.html:3
 msgid "Home"
 msgstr "家"
 
-#: templates/_navbar.html:4
+#: .\templates\_navbar.html:4
 msgid "About us"
 msgstr "关于我们"
 
-#: templates/base.html:90
+#: .\templates\base.html:90
 msgid "Admin"
 msgstr "管理"
 
-#: templates/base.html:110
+#: .\templates\base.html:110
 msgid "Logout"
 msgstr "注销"
 
-#: templates/registration/activate.html:7
-#: templates/registration/activation_email.txt:3
+#: .\templates\registration\activate.html:7
+#: .\templates\registration\activation_email.txt:3
 msgid "Hi,"
 msgstr "你好"
 
-#: templates/registration/activate.html:8
+#: .\templates\registration\activate.html:8
 msgid "Account activation failed."
 msgstr "帐户激活失败。"
 
-#: templates/registration/activate.html:9
+#: .\templates\registration\activate.html:9
 msgid ""
 "Your account may have been activated, please contact us if you are unable to"
 " activate your account"
 msgstr "您的帐户可能已被激活，如果您无法激活您的帐户，请联系我们"
 
-#: templates/registration/activate.html:11
-#: templates/registration/activation_email.txt:18
+#: .\templates\registration\activate.html:11
+#: .\templates\registration\activation_email.txt:18
 msgid "Sincerely,"
 msgstr "真诚"
 
-#: templates/registration/activation_email.txt:5
+#: .\templates\registration\activation_email.txt:5
 msgid ""
 "You (or someone pretending to be you) have asked to register an account at"
 msgstr "您（或冒充您的人）已要求在"
 
-#: templates/registration/activation_email.txt:6
+#: .\templates\registration\activation_email.txt:6
 msgid ""
 "If this wasn't you, please ignore this email and your address will be "
 "removed from our records."
 msgstr "如果这不是您，请忽略此电子邮件，您的地址将从我们的记录中删除。"
 
-#: templates/registration/activation_email.txt:9
+#: .\templates\registration\activation_email.txt:9
 msgid ""
 "Your account has been created, please activate your account by clicking the "
 "link below."
 msgstr "您的帐户已创建，请点击下面的链接激活您的帐户。"
 
-#: templates/registration/activation_email.txt:13
+#: .\templates\registration\activation_email.txt:13
 msgid "Link is valid for 24 hours."
 msgstr "链接的有效期为 24 小时。"
 
-#: templates/registration/activation_email.txt:15
+#: .\templates\registration\activation_email.txt:15
 msgid ""
 "Before logging in, you must activate your account, Once your account has "
 "been activated, please update your personal profile."
 msgstr "登录前，您必须激活您的帐户，帐户激活后，请更新您的个人个人资料。"
 
-#: templates/registration/activation_email.txt:16
+#: .\templates\registration\activation_email.txt:16
 msgid "If you have any questions, please contact us."
 msgstr "如果您有任何问题，请联系我们。"

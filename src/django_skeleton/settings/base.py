@@ -172,6 +172,6 @@ RECAPTCHA_SECRET_KEY = env('RECAPTCHA_SECRET_KEY')
 GOOGLE_ANALYTICS_TRACKING_ID = env('GOOGLE_ANALYTICS_TRACKING_ID')
 
 # django-autotranslate change translation service
-# AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.GoogleWebTranslatorService'
-AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.AzureAPITranslatorService'
-AZURE_TRANSLATOR_SECRET_KEY = env('AZURE_TRANSLATOR_SECRET_KEY')
+AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.GoogleWebTranslatorService'
+# AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.AzureAPITranslatorService'
+# AZURE_TRANSLATOR_SECRET_KEY = env('AZURE_TRANSLATOR_SECRET_KEY')
