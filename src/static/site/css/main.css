@@ -32,6 +32,56 @@ html, body {
     font-weight: bold;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* @media (min-width: 768px) and (max-width: 1210px) { */
+@media (max-width: 1210px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+        background-color:  rgb(250, 250, 250) !important;
+        padding: 0px 0px 20px 0px !important;
+        max-height: 100% !important;
+    }
+    .navbar-toggle{
+        display: block !important;
+        background-color: white;
+        border-color: rgba(0, 0, 0, 0.5) !important;
+    }
+    .navbar-header{
+        float: none;
+        background-color: rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .navbar-nav {
+        margin: 0px 0px !important;
+        padding: 0px 0px !important;
+    }
+    .navbar-nav ul {
+        float: none;
+    }
+    .navbar-nav ul:not {
+        display: block;
+    }
+    .navbar-nav li {
+        float: none;
+        display: block;
+    }
+    .navbar-nav li a {
+        margin-top: 5px !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 5px !important;
+    }
+
+}
+
 body>.navbar-transparent {
     background-color: transparent;
     border-color: transparent;
