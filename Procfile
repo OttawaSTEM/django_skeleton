@@ -1,1 +1,1 @@
-web: gunicorn src/django_skeleton.wsgi
+web: gunicorn src/django_skeleton.wsgi --log-file -
