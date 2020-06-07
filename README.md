@@ -22,12 +22,7 @@
 ## Installation
 1. Change project name and src/django_skeleton folder name
 
-### Deploy in Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/OttawaSTEM/django_skeleton/)
-Heroku deploy everytime will clean the data!
-
 ### Quick start
-
 To set up a development environment quickly, first install Python 3. It
 comes with virtualenv built-in. So create a virtual env by:
 

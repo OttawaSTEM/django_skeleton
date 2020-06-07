@@ -1,9 +1,6 @@
 # In production set the environment variable like this:
 #    DJANGO_SETTINGS_MODULE=django_skeleton.settings.production
 
-# Deploy in Heroku for collcet static files 
-import django_heroku
-
 from .base import *             # NOQA
 import logging.config
 
@@ -68,7 +65,3 @@ LOGGING = {
 }
 
 logging.config.dictConfig(LOGGING)
-
-# Need to put this at the end of settings.py
-django_heroku.settings(locals())
-del DATABASES['default']['OPTIONS']['sslmode']
