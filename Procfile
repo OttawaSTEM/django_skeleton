@@ -1,1 +1,1 @@
-web: gunicorn django_skeleton/src/django_skeleton.wsgi --log-file -
+web: gunicorn --pythonpath="$PWD/src" django_skeleton.wsgi
