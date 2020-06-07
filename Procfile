@@ -1,2 +1,2 @@
-release: mkdir logs | python $PWD/src/manage.py migrate
+release: ./release-tasks.sh
 web: gunicorn --pythonpath="$PWD/src" django_skeleton.wsgi
