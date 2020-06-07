@@ -71,3 +71,4 @@ logging.config.dictConfig(LOGGING)
 
 # Need to put this at the end of settings.py
 django_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']
