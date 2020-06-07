@@ -1,2 +1,2 @@
-bash mkdir $PWD/logs
+mkdir $PWD/logs
 python $PWD/src/manage.py migrate
