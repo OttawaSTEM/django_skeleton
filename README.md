@@ -24,7 +24,7 @@
 
 ### Deploy in Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/OttawaSTEM/django_skeleton/)
-
+Heroku deploy everytime will clean the data!
 
 ### Quick start
 
