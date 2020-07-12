@@ -22,14 +22,22 @@
         <meta name="twitter:image" content="{% block twitter_meta_image %}{{ SITE_URL }}static/site/img/logo.png{% endblock %}">
         <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
 
-        {% comment %} Bootstrap core CSS {% endcomment %}
-        {% comment %} <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+
         {% comment %} Custom styles for this site {% endcomment %}
         {% block styles %}
             <link href="{% static 'site/css/main.css' %}" rel="stylesheet">
         {% endblock styles %}
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_TRACKING_ID }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', '{{ GOOGLE_ANALYTICS_TRACKING_ID }}');
+        </script>
 
         {% comment %} Custom tags for the head tag {% endcomment %}
         {% block extrahead %}
@@ -38,6 +46,57 @@
     <body>
         <div id="div_id_language" style="display: none;">{{ LANGUAGE_CODE }}</div>
         {% block navbar %}
+            <nav id="main_menu" class="navbar navbar-expand-xl navbar-light fixed-top bg-light" style="font-weight: bold; padding: 4px 0px;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">
+                        <img src="{% static 'site/img/logo.png' %}" alt="logo" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                        <span style="margin-left: 5px; color: rgb(0, 0, 0, 0.7);">{{ SITE_NAME }}</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            {% block navbar_left %}{% endblock %}
+                        </ul>
+
+                        <ul class="navbar-nav ml-auto">
+                            {% block navbar_right %} 
+                                {% if user.is_authenticated %}
+                                    {% if user.is_staff %}
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
+                                    {% endif %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                                            {% if user.profile.picture %}
+                                                <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }}
+                                            {% else %}
+                                                <img src="{% static 'site/img/profile_default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }}
+                                            {% endif%}
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="{% url 'profiles:show_self' %}">My Profile</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a></li>
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    {% comment %} 
+                                        <button type="button" class="btn btn-outline-primary btn-sm" href="{% url 'accounts:login' %}">{% trans "Log in" %}</button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm" href="{% url 'accounts:signup' %}">{% trans "Sign up" %}</button>
+                                    {% endcomment %}
+                                {% endif %}
+                            {% endblock navbar_right %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+
+{% comment %} 
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <a class="navbar-brand" href="{% url 'home' %}">
                     <img src="{% static 'site/img/logo.png' %}" alt="logo" width="30px" height="30px" style="margin-top: -5px;">
@@ -119,6 +178,7 @@
                     </div>
                 {% endblock navbar_menu %}
             </div>
+{% endcomment %}
         {% endblock navbar %}
         
         {% block messages %}
@@ -147,37 +207,27 @@
 
         {% comment %} Site footer {% endcomment %}
         {% block footer %}
-            {% comment %} Some social button for contact will do {% endcomment %}
-            <a name="contact"></a>
-            <div class="container">
-                <div class="footer">
+            <footer class="footer">
+                <div class="container">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <p>django_skeleton.com &copy; {% now 'Y' %}</p>
+                        <div class="col-8">
+                            <p style="margin-bottom: 0px; font-size: 0.8em;"><img src="{% static 'site/img/logo.png' %}" alt="logo" width="30" height="30" style="margin-top: -10px"> &copy; {% now 'Y' %} django_skeleton.com All Rights Reserved.</p>
                         </div>
-                        <div class="col-sm-6 text-right">
+                        <div class="col-4 text-right">
                             <ul class="social">
-                                <li><a href="https://www.youtube.com/" target="_blank" class="social-youtube"></a></li>
-                                <li><a href="https://twitter.com/" target="_blank" class="social-twitter"></a></li>
-                                <li><a href="https://www.facebook.com/" target="_blank" class="social-facebook"></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCLz5ZgXBX4g9fEwnS7jmIvQ/" target="_blank" class="social-youtube"></a></li>
+                                <li><a href="https://twitter.com/OttawaStem/" target="_blank" class="social-twitter"></a></li>
+                                <li><a href="https://www.facebook.com/ottawastem/" target="_blank" class="social-facebook"></a></li>
                             </ul>
-                            {% comment %} 
-                                Connect with us on
-                                <a href="#"><i class="fa fa-facebook"></i> Facebook</a> or
-                                <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
-                            {% endcomment %}
                         </div>
-                    </div>
-                    <div class="row">
                     </div>
                 </div>
-            </div>
+            </footer>
         {% endblock footer%}
 
-        {% comment %} Bootstrap core JavaScript {% endcomment %}
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script> 
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
         {% block scripts %} 
         {% endblock scripts %}
     </body>

@@ -1,12 +1,13 @@
 (function () {
-    $(window).scroll(function () {
-        var top = $(document).scrollTop();
-        $('.corporate-jumbo').css({
-            'background-position': '0px -' + (top / 3).toFixed(2) + 'px'
-        });
-        if (top > 50)
-            $('.navbar').removeClass('navbar-transparent');
+    let top = window.scrollY;
+    if (top < 50)
+        document.getElementById("main_menu").classList.remove("bg-light");
+
+    window.onscroll = function() {
+        top = window.scrollY;
+        if (top < 50)
+            document.getElementById("main_menu").classList.remove("bg-light");
         else
-            $('.navbar').addClass('navbar-transparent');
-    }).trigger('scroll');
+            document.getElementById("main_menu").classList.add("bg-light");
+    };
 })();
