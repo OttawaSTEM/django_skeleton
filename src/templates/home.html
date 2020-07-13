@@ -26,23 +26,22 @@
 {% endblock navbar_left%}
 
 {% block splash %}
-    <div class="corporate-jumbo">
-        {% comment %} 
-            <div class="water"></div>
-            <svg>
-                <filter id="turbulence" x="0" y="0" width="100%" height="100%">
-                <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
-                <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
-                <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" 
-                keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite"/>
-                </filter>
-            </svg>
-        {% endcomment %}
-    </div>
+        <div class="corporate-jumbo">
+            <div class="water">
+                <svg>
+                    <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                    <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
+                    <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+                    <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" 
+                    keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite"/>
+                    </filter>
+                </svg>
+            </div>
+        </div>
 {% endblock splash %}
 
 {% block container %}
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
         <div class="row">
             <div class="col-lg-4">
                 <h2>Heading</h2>
