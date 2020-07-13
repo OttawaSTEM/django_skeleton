@@ -26,27 +26,19 @@
 {% endblock navbar_left%}
 
 {% block splash %}
-    <div class="jumbotron jumbotron-carousel corporate-jumbo">
-        <div class="water"></div>
-        <svg>
-            <filter id="turbulence" x="0" y="0" width="100%" height="100%">
-              <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
-              <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
-              <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" 
-              keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite"/>
-            </filter>
-        </svg>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-8">
-                </div>
-                <div class="col-md-4 col-sm-4">
-                </div>
-            </div>
-        </div>
+    <div class="corporate-jumbo">
+        {% comment %} 
+            <div class="water"></div>
+            <svg>
+                <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
+                <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+                <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" 
+                keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite"/>
+                </filter>
+            </svg>
+        {% endcomment %}
     </div>
-
-
 {% endblock splash %}
 
 {% block container %}
@@ -72,5 +64,5 @@
 {% endblock container %}
 
 {% block scripts %}
-    <script src="{% static 'site/js/site.min.js' %}"></script>
+    <script src="{% static 'site/js/site.js' %}"></script>
 {% endblock scripts %}

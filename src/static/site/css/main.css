@@ -56,14 +56,24 @@ a.dropdown-item:hover {
 
 /* Home page styling */
 .corporate-jumbo {
-    /* background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)), url("/static/site/img/banner-1.jpg"); */
-    /* background-image: url("/static/site/img/see.jpg"); */
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.3), 
-        rgba(255, 255, 255, 0)
-        80px), 
+    /* background-image: url("/static/site/img/banner-2.jpg"); */
+    background-image: 
+        linear-gradient(
+            rgba(255, 255, 255, 00), 
+            rgba(255, 255, 255, 0)
+            50px
+        ), 
+        url("/static/site/img/banner-2.jpg"
+        );
+
+    /* background-image: 
+        linear-gradient(
+            rgba(255, 255, 255, 0), 
+            rgba(255, 255, 255, 0)
+            80px
+        ), 
         url("/static/site/img/sea.jpg"
-    );
+    ); */
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;

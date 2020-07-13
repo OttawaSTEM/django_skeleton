@@ -1,4 +1,5 @@
 {% load i18n %}
 
-<li {% if active_link == "home" or active_link == "locations" %} class="active" {% endif %}><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
-<li {% if active_link == "about" %} class="active" {% endif %}><a href="{% url 'about' %}">{% trans "About us" %}</a></li>
+{% load i18n %}
+
+<li class="nav-item"><a {% if active_link == "about" %}  class="nav-link active" {% else %} class="nav-link" {% endif %} href="{% url 'about' %}">About</a></li>
