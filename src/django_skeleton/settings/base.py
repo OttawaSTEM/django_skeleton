@@ -85,13 +85,11 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    ...
-    # Needed to login by username in Django admin, regardless of `allauth`
+    # Needed to login by username in Django admin, regardless of django-allauth
     'django.contrib.auth.backends.ModelBackend',
 
-    # `allauth` specific authentication methods, such as login by e-mail
+    # django-allauth specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-    ...
 ]
 
 # Application definition
@@ -106,6 +104,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
   
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
     # 'authtools',
     'autotranslate',
     'crispy_forms',
@@ -114,6 +117,16 @@ INSTALLED_APPS = (
     'accounts',
     'profiles',
 )
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': env('GOOGLE_AUTH_CLIENT_ID'),
+            'secret': env('GOOGLE_AUTH_SECRET'),
+            'key': env('GOOGLE_AUTH_KEY'),
+        }
+    }
+}
 
 MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',

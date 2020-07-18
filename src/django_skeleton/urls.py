@@ -17,11 +17,13 @@ urlpatterns += i18n_patterns(
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
-    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('accounts/', include('allauth.urls')),
+
+    # path('accounts/', include('accounts.urls', namespace='accounts')),
     # path('registration/register/complete/', views.RegisterCompleteView, name='register-complete'),
     # path('registration/activate/complete/', views.ActivationCompleteView, name='activate-complete'),
     # path('registration/', include('registration.backends.default.urls')),
-    # path('webadmin/', admin.site.urls),
+    path('webadmin/', admin.site.urls),
     # path('users/', include('profiles.urls', namespace='profiles')),
 )
 
