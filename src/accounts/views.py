@@ -1,13 +1,12 @@
+import requests
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.translation import ugettext as _
-from authtools import views as authviews
-# from braces import views as bracesviews
 from django.conf import settings
 from django.http import HttpResponseRedirect
-import requests
-from registration.backends.default.views import RegistrationView
 from . import forms
+# from registration.backends.default.views import RegistrationView
+# from authtools import views as authviews
 
 # User = get_user_model()
 
@@ -27,7 +26,8 @@ from . import forms
 #         return redirect
 
 
-class SignUpView(RegistrationView):
+# class SignUpView(RegistrationView):
+class SignUpView():
     form_class = forms.SignupForm
     template_name = 'accounts/signup.html'
     success_url = reverse_lazy('home')
@@ -48,8 +48,8 @@ class SignUpView(RegistrationView):
 
 
 
-# class LoginView(bracesviews.AnonymousRequiredMixin, authviews.LoginView):
-class LoginView(authviews.LoginView):
+# class LoginView(authviews.LoginView):
+class LoginView():
     template_name = 'accounts/login.html'
     form_class = forms.LoginForm
 
@@ -74,11 +74,13 @@ class LoginView(authviews.LoginView):
             return HttpResponseRedirect('/')
 
 
-class LogoutView(authviews.LogoutView):
+# class LogoutView(authviews.LogoutView):
+class LogoutView():
     url = reverse_lazy('home')
 
 
-class PasswordChangeView(authviews.PasswordChangeView):
+# class PasswordChangeView(authviews.PasswordChangeView):
+class PasswordChangeView():
     form_class = forms.PasswordChangeForm
     template_name = 'accounts/password_change.html'
     success_url = reverse_lazy('home')
@@ -89,7 +91,8 @@ class PasswordChangeView(authviews.PasswordChangeView):
         return super(PasswordChangeView, self).form_valid(form)
 
 
-class PasswordResetView(authviews.PasswordResetView):
+# class PasswordResetView(authviews.PasswordResetView):
+class PasswordResetView():
     form_class = forms.PasswordResetForm
     template_name = 'accounts/password_reset.html'
     success_url = reverse_lazy('accounts:password-reset-done')
@@ -97,11 +100,13 @@ class PasswordResetView(authviews.PasswordResetView):
     email_template_name = 'accounts/emails/password_reset_email.html'
 
 
-class PasswordResetDoneView(authviews.PasswordResetDoneView):
+# class PasswordResetDoneView(authviews.PasswordResetDoneView):
+class PasswordResetDoneView():
     template_name = 'accounts/password_reset_done.html'
 
 
-class PasswordResetConfirmView(authviews.PasswordResetConfirmAndLoginView):
+# class PasswordResetConfirmView(authviews.PasswordResetConfirmAndLoginView):
+class PasswordResetConfirmView():
     template_name = 'accounts/password_reset_confirm.html'
     form_class = forms.SetPasswordForm
     

@@ -1,6 +1,4 @@
 """
-Django settings for baiju project.
-
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
 
@@ -43,10 +41,17 @@ MEDIA_ROOT = join(BASE_DIR, 'media')
 STATIC_URL = '/static/'                 # Local
 MEDIA_URL = '/media/'                 # Local
 
-# To use this setting, install the Argon2 password hashing algorithm.
+# Use PBKDF2 algorithm with a SHA256 hash
 PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
 ]
+
+# SECURITY WARNING: keep the secret key used in production secret!
+# Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
+SECRET_KEY = env('SECRET_KEY')
+
+# ALLOWED_HOSTS
+ALLOWED_HOSTS = eval(env('ALLOWED_HOSTS'))
 
 # Use Django templates using the new Django 1.8 TEMPLATES settings
 TEMPLATES = [
@@ -70,23 +75,28 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 
                 # Need update django_skeleton to project folder name
-                'django_skeleton.context_processors.global_settings'
+                'django_skeleton.context_processors.global_settings',
+
+                # django-allauth needs this from django
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    ...
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env('SECRET_KEY')
-
-# ALLOWED_HOSTS
-ALLOWED_HOSTS = eval(env('ALLOWED_HOSTS'))
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    ...
+]
 
 # Application definition
 INSTALLED_APPS = (
-    'registration',
+    # 'registration',
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
@@ -96,7 +106,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
   
-    'authtools',
+    # 'authtools',
     'autotranslate',
     'crispy_forms',
     # 'dbbackup',
@@ -118,7 +128,7 @@ MIDDLEWARE = (
 
 ROOT_URLCONF = 'django_skeleton.urls'
 
-WSGI_APPLICATION = 'django_skeleton.wsgi.application'
+ASGI_APPLICATION = 'django_skeleton.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -147,17 +157,17 @@ LANGUAGES = (
 )
 
 
-# Crispy Form Theme - Bootstrap 3
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+# Crispy Form Theme - Bootstrap 4
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# For Bootstrap 3, change error alert to 'danger'
+# For Bootstrap 4, change error alert to 'danger'
 from django.contrib import messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
 # Authentication Settings
-AUTH_USER_MODEL = 'authtools.User'
+# AUTH_USER_MODEL = 'authtools.User'
 LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 

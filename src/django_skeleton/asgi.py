@@ -1,16 +1,16 @@
 """
-WSGI config for django_skeleton project.
+ASGI config for django_skeleton project.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+It exposes the ASGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/dev/howto/deployment/wsgi/
+https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 """
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_skeleton.settings.production")
 
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+from django.core.asgi import get_asgi_application
+application = get_asgi_application()
 
 # Wrap werkzeug debugger if DEBUG is on
 from django.conf import settings

@@ -3,14 +3,15 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
-from authtools import forms as authtoolsforms
+# from authtools import forms as authtoolsforms
 from django.contrib.auth import forms as authforms
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 
-class SignupForm(authtoolsforms.UserCreationForm):
+# class SignupForm(authtoolsforms.UserCreationForm):
+class SignupForm():
     def __init__(self, *args, **kwargs):
         super(SignupForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -43,7 +44,8 @@ class LoginForm(AuthenticationForm):
         )
 
 
-class PasswordChangeForm(authforms.PasswordChangeForm):
+# class PasswordChangeForm(authforms.PasswordChangeForm):
+class PasswordChangeForm():
     def __init__(self, *args, **kwargs):
         super(PasswordChangeForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -56,7 +58,8 @@ class PasswordChangeForm(authforms.PasswordChangeForm):
         )
 
 
-class PasswordResetForm(authtoolsforms.FriendlyPasswordResetForm):
+# class PasswordResetForm(authtoolsforms.FriendlyPasswordResetForm):
+class PasswordResetForm():
     def __init__(self, *args, **kwargs):
         super(PasswordResetForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -67,7 +70,8 @@ class PasswordResetForm(authtoolsforms.FriendlyPasswordResetForm):
         )
 
 
-class SetPasswordForm(authforms.SetPasswordForm):
+# class SetPasswordForm(authforms.SetPasswordForm):
+class SetPasswordForm():
     def __init__(self, *args, **kwargs):
         super(SetPasswordForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()

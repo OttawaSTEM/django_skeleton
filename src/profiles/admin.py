@@ -1,5 +1,5 @@
 from django.contrib import admin
-from authtools.admin import NamedUserAdmin
+# from authtools.admin import NamedUserAdmin
 from .models import Profile
 from django.contrib.auth import get_user_model
 from django.utils.html import format_html
@@ -12,7 +12,8 @@ class UserProfileInline(admin.StackedInline):
     model = Profile
 
 
-class NewUserAdmin(NamedUserAdmin):
+# class NewUserAdmin(NamedUserAdmin):
+class NewUserAdmin():
     inlines = [UserProfileInline]
     list_display = ('is_active', 'email', 'name', 'permalink', 'is_superuser', 'is_staff',)
 
@@ -25,5 +26,5 @@ class NewUserAdmin(NamedUserAdmin):
         return format_html('<a href="{}">{}</a>'.format(url, '&#x1f517;'))
     permalink.allow_tags = True
 
-admin.site.unregister(User)
-admin.site.register(User, NewUserAdmin)
+# admin.site.unregister(User)
+# admin.site.register(User, NewUserAdmin)

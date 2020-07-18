@@ -46,7 +46,7 @@
     <body>
         <div id="div_id_language" style="display: none;">{{ LANGUAGE_CODE }}</div>
         {% block navbar %}
-            <nav id="main_menu" class="navbar navbar-expand-xl navbar-light fixed-top bg-light" style="font-weight: bold; padding: 4px 0px;">
+            <nav id="main_menu" class="navbar navbar-expand-md navbar-light fixed-top bg-light" style="font-weight: bold; padding: 4px 0px;">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/">
                         <img src="{% static 'site/img/logo.png' %}" alt="logo" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
@@ -58,71 +58,55 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        {% comment %} Main menu {% endcomment %}
                         <ul class="navbar-nav">
                             {% block navbar_left %}{% endblock %}
                         </ul>
 
+                        {% comment %} Language and User profile {% endcomment %}
                         <ul class="navbar-nav ml-auto">
-                            {% block navbar_right %} 
-                                {% if user.is_authenticated %}
-                                    {% if user.is_staff %}
-                                        <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
-                                    {% endif %}
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-                                            {% if user.profile.picture %}
-                                                <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }}
-                                            {% else %}
-                                                <img src="{% static 'site/img/profile_default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }}
-                                            {% endif%}
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="{% url 'profiles:show_self' %}">My Profile</a></li>
-                                            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a></li>
-                                        </ul>
-                                    </li>
-                                {% else %}
-                                    {% comment %} 
-                                        <button type="button" class="btn btn-outline-primary btn-sm" href="{% url 'accounts:login' %}">{% trans "Log in" %}</button>
-                                        <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button>
-                                        <button type="button" class="btn btn-outline-primary btn-sm" href="{% url 'accounts:signup' %}">{% trans "Sign up" %}</button>
-                                    {% endcomment %}
+                            {% comment %} User profile {% endcomment %}
+                            {% if user.is_authenticated %}
+                                {% if user.is_staff %}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
                                 {% endif %}
-                            {% endblock navbar_right %}
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                                        {% if user.profile.picture %}
+                                            <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }}
+                                        {% else %}
+                                            <img src="{% static 'site/img/profile_default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }}
+                                        {% endif%}
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="{% url 'profiles:show_self' %}">My Profile</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                {% comment %} <button type="button" class="btn btn-primary btn-sm" href="{% url 'accounts:login' %}">{% trans "Log in" %}</button> {% endcomment %}
+                                {% comment %} <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button> {% endcomment %}
+                                {% comment %} <button type="button" class="btn btn-primary btn-sm" href="{% url 'accounts:signup' %}">{% trans "Sign up" %}</button> {% endcomment %}
+                            {% endif %}
 
+                            {% comment %} Language {% endcomment %}
+                            
+                            <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button>
+                            <form action="{% url 'set_language' %}" method="POST">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="" />
+                                
+                                <div class="input-group">
+                                    <select class="form-select form-select-sm">
+                                        <option selected><i class="flag flag-en">
+                                        </i> English</option>
+                                        <option value="1"><i class="flag flag-fr"></i> Français</option>
+                                        <option value="2"><i class="flag flag-cn"></i> 简体中文</option>
+                                    </select>
+                                </div>
 
 
 {% comment %} 
-            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <a class="navbar-brand" href="{% url 'home' %}">
-                    <img src="{% static 'site/img/logo.png' %}" alt="logo" width="30px" height="30px" style="margin-top: -5px;">
-                    <span style="margin: 15px 0px 0px 15px; color: #333333">{% include "_brandname.html" %}</span>
-                </a>
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-
-                {% block navbar_menu %}
-                    <div class="collapse navbar-collapse">
-                        <!-- Menu -->
-                        <ul class="nav navbar-nav">
-                            {% block navbar_left %}{% endblock %}
-                        </ul>
-
-                        <!-- Language -->
-                        <ul class="nav navbar-nav navbar-right" style="margin: 8px 10px 0px 0px;">
-                            <form action="{% url 'set_language' %}" method="post">
-                                {% csrf_token %}
-                                <input name="next" type="hidden" value="" />
                                 <select name="language" class="selectpicker" data-width="120" onchange="this.form.submit();">
                                     {% get_current_language as LANGUAGE_CODE %}
                                     {% get_available_languages as LANGUAGES %}
@@ -136,49 +120,14 @@
                                         </option>
                                     {% endfor %}
                                 </select>
+ {% endcomment %}
+
+
                             </form>
-                        </ul>   
-                        
-                        <!-- Sign up, Log in, Log out and Profile -->
-                        <ul class="nav navbar-nav navbar-right">
-                            {% block navbar_right %} 
-                                {% if user.is_authenticated %}
-                                    {% if user.is_staff %}
-                                        <li>
-                                            <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
-                                        </li>
-                                    {% endif %}
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle profile-menu" data-toggle="dropdown">
-                                            {% if user.profile.picture %}
-                                                <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" class="img-circle" height="30px" width="30px" alt="avatar"/> {{ user.get_full_name|truncatechars:20 }}
-                                            {% else %}
-                                                <img src="{% static 'site/img/profile_default.png' %}" class="img-circle" alt="avatar" width="30px" height="30px"> {{ user.get_full_name|truncatechars:20 }}
-                                            {% endif%}
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <a href="{% url 'profiles:show_self' %}">My Profile</a>
-                                            </li>
-                                            <li>
-                                                <a href="{% url 'profiles:show_self' %}"></a>
-                                            </li>
-                                            <li>
-                                                <a href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                {% else %}
-                                    <a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">{% trans "Log in" %}</a>
-                                    <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">{% trans "Sign up" %}</a>
-                                {% endif %}
-                            {% endblock navbar_right %}
                         </ul>
                     </div>
-                {% endblock navbar_menu %}
-            </div>
-{% endcomment %}
+                </div>
+            </nav>
         {% endblock navbar %}
         
         {% block messages %}
