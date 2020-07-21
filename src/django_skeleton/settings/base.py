@@ -46,6 +46,16 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
 ]
 
+# Password validation
+# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/3.0/topics/auth/passwords/#password-validation
+# AUTH_PASSWORD_VALIDATORS = [
+#     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+#     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+#     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+#     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+# ]
+
 # SECURITY WARNING: keep the secret key used in production secret!
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
 SECRET_KEY = env('SECRET_KEY')
@@ -64,8 +74,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
-                # list if you haven't customized them:
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this list if you haven't customized them:
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.i18n',
@@ -91,6 +100,15 @@ AUTHENTICATION_BACKENDS = [
     # django-allauth specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+# For email sent to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 
 # Application definition
 INSTALLED_APPS = (
@@ -108,14 +126,16 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-
+    # 'accounts',
     # 'authtools',
-    'autotranslate',
+
+    'bootstrap4',
+
+    # 'autotranslate',
     'crispy_forms',
     # 'dbbackup',
     
-    'accounts',
-    'profiles',
+    # 'profiles',
 )
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -127,6 +147,9 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+
+
 
 MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -179,14 +202,13 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-# Authentication Settings
+# django-authtools Authentication Settings
 # AUTH_USER_MODEL = 'authtools.User'
-LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
-LOGIN_URL = reverse_lazy("accounts:login")
-
+# LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
+# LOGIN_URL = reverse_lazy("accounts:login")
 # For django-registration-redux Settings
-ACCOUNT_ACTIVATION_DAYS = 1         # One-day activation window
-REGISTRATION_EMAIL_HTML = False     # Only use templates/registration/activation_email.txt
+# ACCOUNT_ACTIVATION_DAYS = 1         # One-day activation window
+# REGISTRATION_EMAIL_HTML = False     # Only use templates/registration/activation_email.txt
 
 # Google reCAPTCHA
 RECAPTCHA_SITE_KEY = env('RECAPTCHA_SITE_KEY')

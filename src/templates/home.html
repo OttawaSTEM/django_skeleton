@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}{{ block.super }}{% endblock title %}
+{% block head_title %}{{ block.super }}{% endblock head_title %}
 
 {% block meta_url %}{{ block.super }}{% endblock meta_url %}
 {% block meta_title %}{{ block.super }}{% endblock meta_title %}
@@ -18,8 +18,8 @@
 {% block twitter_meta_image %}{{ block.super }}{% endblock twitter_meta_image%}
 
 
-{% block extrahead %}
-{% endblock extrahead %}
+{% block head_script %}
+{% endblock head_script %}
 
 {% block navbar_left %}
     {% include "_navbar.html" with active_link="home" %}

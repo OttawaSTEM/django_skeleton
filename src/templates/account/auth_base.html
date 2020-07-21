@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block container %}
+    <div class="container" style="max-width: 450px;">
+        <div class="text-center">
+            <br>
+            <h1><a href="{% url 'home' %}"><img src="{% static 'site/img/logo.png' %}" width="50px" height="50px"> django_skeleton.com</a></h1>
+            <h2>{% block form_heading %}{% endblock form_heading %}</h2>
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+{% endblock container %}
+
+{% comment %} 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+        {% if messages %}
+            <div>
+                <strong>Messages:</strong>
+                <ul>
+                    {% for message in messages %}
+                    <li>{{message}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <div>
+            <strong>Menu:</strong>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+                    <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                {% else %}
+                    <li><a href="{% url 'account_login' %}">Sign In</a></li>
+                    <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+    {% endblock %}
+
+    {% block extra_body %}
+    {% endblock %}
+</body>
+
+</html> {% endcomment %}

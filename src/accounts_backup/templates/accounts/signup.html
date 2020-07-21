@@ -3,21 +3,20 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}{{ block.super }}Log In{% endblock %}
+{% block head_title %}{{ block.super }}Sign Up{% endblock head_title %}
 
-{% block extrahead %}
-    <!-- Google recaptcha -->
+{% block head_script %}
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
-{% endblock extrahead %}
+{% endblock head_script %}
 
 {% block form_heading %}
-    {% trans "Please Log In" %}
+    {% trans "Signing Up is Free" %}
 {% endblock %}
 
 {% block form %}
     {% csrf_token %}
     {% crispy form %}
     <div class="form-message">
-        <p>{% trans "Don't have an account?" %} <a href="{% url 'accounts:signup' %}">{% trans "Sign up" %}</a></p>
+        <p>{% trans "Already signed up?" %} <a href="{% url 'accounts:login' %}">{% trans "Log in" %}</a>.</p>
     </div>
 {% endblock form %}

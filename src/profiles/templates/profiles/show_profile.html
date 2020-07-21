@@ -2,14 +2,14 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}{{ block.super }}{% trans "Profile" %}{% endblock %}
+{% block head_title %}{{ block.super }}{% trans "Profile" %}{% endblock head_title %}
 
 {% block navbar_left %}
     {% include "_navbar.html" %}
 {% endblock %}
 
-{% block extrahead %}
-{% endblock extrahead %}
+{% block head_script %}
+{% endblock head_script %}
 
 {% block container %}
     <div class="container profile-head">
