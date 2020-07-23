@@ -72,19 +72,19 @@
                             {% comment %} User profile {% endcomment %}
                             {% if user.is_authenticated %}
                                 {% if user.is_staff %}
-                                    {% comment %} <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li> {% endcomment %}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
                                 {% endif %}
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                                         {% if user.profile.picture %}
-                                            {% comment %} <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }} {% endcomment %}
+                                            <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }}
                                         {% else %}
-                                            {% comment %} <img src="{% static 'site/img/profile_default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }} {% endcomment %}
+                                            <img src="{% static 'site/img/profile_default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }}
                                         {% endif%}
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                         {% comment %} <li><a class="dropdown-item" href="{% url 'profiles:show_self' %}">My Profile</a></li> {% endcomment %}
-                                        {% comment %} <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans "Logout" %}</a></li> {% endcomment %}
+                                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
                                     </ul>
                                 </li>
                             {% else %}

@@ -31,7 +31,7 @@ SITE_URL = 'https://django_skeleton.com/'
 
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
-# Local - Build paths inside the project like this: join(BASE_DIR, "directory")
+# Local - Build paths inside the project like this: join(BASE_DIR, 'directory')
 STATICFILES_DIRS = [join(BASE_DIR, 'static')]           # For ./manager.py collectstatic
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
@@ -100,13 +100,21 @@ AUTHENTICATION_BACKENDS = [
     # django-allauth specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'      # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+ACCOUNT_LOGOUT_ON_GET = True                    # Logout without confirm
+ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
+# LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')
+LOGIN_REDIRECT_URL = '/'        # Redirect after sign up
+LOGOUT_REDIRECT_URL = '/'
 # For email sent to console
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 
@@ -128,8 +136,6 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.google',
     # 'accounts',
     # 'authtools',
-
-    'bootstrap4',
 
     # 'autotranslate',
     'crispy_forms',
@@ -204,8 +210,8 @@ MESSAGE_TAGS = {
 
 # django-authtools Authentication Settings
 # AUTH_USER_MODEL = 'authtools.User'
-# LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
-# LOGIN_URL = reverse_lazy("accounts:login")
+# LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')
+# LOGIN_URL = reverse_lazy('accounts:login')
 # For django-registration-redux Settings
 # ACCOUNT_ACTIVATION_DAYS = 1         # One-day activation window
 # REGISTRATION_EMAIL_HTML = False     # Only use templates/registration/activation_email.txt
