@@ -14,8 +14,7 @@ from os.path import dirname, join, exists, abspath
 import environ
 env = environ.Env()
 
-# Ideally move env file should be outside the git repo
-# i.e. BASE_DIR.parent.parent
+# Ideally move env file should be outside the git repo, i.e. BASE_DIR.parent.parent
 env_file = join(dirname(__file__), 'local.env')
 if exists(env_file):
     environ.Env.read_env(str(env_file))
@@ -103,7 +102,7 @@ AUTHENTICATION_BACKENDS = [
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'      # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
-ACCOUNT_EMAIL_VERIFICATION = 'optional'
+# ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
@@ -112,7 +111,7 @@ ACCOUNT_LOGOUT_ON_GET = True                    # Logout without confirm
 ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
 # LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')
 LOGIN_REDIRECT_URL = '/'        # Redirect after sign up
-LOGOUT_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = '/'
 # For email sent to console
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -141,7 +140,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     # 'dbbackup',
     
-    # 'profiles',
+    'profiles',
 )
 
 SOCIALACCOUNT_PROVIDERS = {

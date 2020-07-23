@@ -2,6 +2,7 @@ import os, uuid
 from io import BytesIO
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.utils.deconstruct import deconstructible
@@ -26,7 +27,8 @@ def upload_to(instance, filename):      # Convert to (private) path, not full pr
 
 
 class BaseProfile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, primary_key=True, on_delete=models.CASCADE)
+    # user = models.OneToOneField(settings.AUTH_USER_MODEL, primary_key=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     slug = models.UUIDField(default=uuid.uuid4, blank=True, editable=False)
     # Add more user profile fields here with default values,
     # CharFiled and TextFiled discouraged to use null=True in Django, avoid two possible values for “no data”: null and the empty string
@@ -40,7 +42,8 @@ class BaseProfile(models.Model):
     street_num = models.CharField(_('Street Number'), max_length=20, blank=True)
     street_name = models.CharField(_('Street Name'), max_length=50, blank=True)
     city = models.CharField(_('City/Town'), max_length=30, blank=True)
-    province = models.CharField(_('Province'), max_length=2, blank=True, db_index=True, choices=PROVINCE)
+    # subdivision = models.CharField(_('Province'), max_length=2, blank=True, db_index=True, choices=PROVINCE)    # For Territory, Province, State, District, etc. 
+    province = models.CharField(_('Province'), max_length=2, blank=True, db_index=True, choices=PROVINCE)    # For Territory, Province, State, District, etc. 
     country = CountryField(default='CA')
     post_code = models.CharField(_('Postal Code'), max_length=7, blank=True)
 

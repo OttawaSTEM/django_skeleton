@@ -22,9 +22,8 @@ urlpatterns += i18n_patterns(
     path('webadmin/', admin.site.urls),
 
 
-    # path('accounts/login/', login_required(allauth_views.LoginView.as_view(success_url=reverse_lazy('home')))),
     path('accounts/', include('allauth.urls')),
-    # path('accounts/profile', include('profiles.urls', namespace='profiles')),
+    path('accounts/profile/', include('profiles.urls', namespace='profiles')),
 
     # path('accounts/', include('accounts.urls', namespace='accounts')),
     # path('registration/register/complete/', views.RegisterCompleteView, name='register-complete'),

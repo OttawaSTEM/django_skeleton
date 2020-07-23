@@ -6,3 +6,4 @@
 Werkzeug
 django-debug-toolbar
 pylint-django
+django-autotranslate     # Language translation

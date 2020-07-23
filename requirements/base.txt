@@ -14,7 +14,6 @@ requests>=2.19.1                # HTTP requests
 Django>=3.0.0
 daphne>=2.5.0                   # Django ASGI deployment for production
 django-allauth>=0.42.0          # Authentication, registration, account management as well as 3rd party (social) account authentication
-django-autotranslate==1.1.1     # Language translation
 django-countries>=5.3.2         # Country for use with forms, flag icons static files, and a country field for models
 django-crispy-forms>=1.7.2      # For Django forms
 django-dbbackup>=3.2.0          # Backup and restore Django

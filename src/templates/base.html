@@ -95,7 +95,7 @@
 
                             {% comment %} Language {% endcomment %}
                             
-                            {% comment %} <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button> {% endcomment %}
+                            <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button>
                             <form action="{% url 'set_language' %}" method="POST">
                                 {% csrf_token %}
                                 <input name="next" type="hidden" value="" />

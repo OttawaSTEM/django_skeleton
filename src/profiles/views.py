@@ -12,9 +12,8 @@ from django.views import generic
 from . import forms
 from . import models
 
-import logging
-logger = logging.getLogger('project')
-log = logger.debug
+# import logging
+# log = logging.getLogger('project').debug
 
 class ShowProfile(LoginRequiredMixin, generic.TemplateView):
     template_name = 'profiles/show_profile.html'
