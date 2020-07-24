@@ -50,3 +50,6 @@ https://www.youtube.com/watch?v=NG48CLLsb1A
 
 https://developers.google.com/gmail/api/quickstart/js
 https://console.developers.google.com/
+
+# Django-autotranslate
+User custom version

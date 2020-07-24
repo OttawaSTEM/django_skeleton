@@ -13,6 +13,7 @@ DEBUG_TOOLBAR_CONFIG = {
 # Django Debug Toolbar
 INSTALLED_APPS += (
     'debug_toolbar',
+    'autotranslate',
 )
 
 # Additional middleware introduced by debug toolbar
@@ -26,6 +27,13 @@ INTERNAL_IPS = [
     '127.0.0.1',
     '0.0.0.1',
 ]
+
+
+# django-autotranslate change translation service
+AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.GoogleWebTranslatorService'
+# AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.AzureAPITranslatorService'
+# AZURE_TRANSLATOR_SECRET_KEY = env('AZURE_TRANSLATOR_SECRET_KEY')
+
 
 # Log everything to the logs directory at the top
 LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')

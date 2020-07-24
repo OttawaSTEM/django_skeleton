@@ -21,9 +21,9 @@
 
 {{ emailaddress.email }}
     {% if emailaddress.verified %}
-    <span class="verified">{% trans "Verified" %}</span>
+    <span class="verified">{% trans "Email verified" %}</span>
     {% else %}
-    <span class="unverified">{% trans "Unverified" %}</span>
+    <span class="unverified">{% trans "Email unverified" %}</span>
     {% endif %}
       {% if emailaddress.primary %}<span class="primary">{% trans "Primary" %}</span>{% endif %}
 </label>
@@ -31,8 +31,8 @@
   {% endfor %}
 
 <div class="buttonHolder">
-      <button class="secondaryAction" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
-      <button class="secondaryAction" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+      <button class="secondaryAction" type="submit" name="action_primary" >{% trans 'Make primary' %}</button>
+      <button class="secondaryAction" type="submit" name="action_send" >{% trans 'Re-send verification' %}</button>
       <button class="primaryAction" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
 </div>
 

@@ -25,8 +25,10 @@
         <meta name="twitter:image" content="{% block twitter_meta_image %}{{ SITE_URL }}static/site/img/logo.png{% endblock twitter_meta_image %}">
         <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-        {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> {% endcomment %}
+        {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css"> {% endcomment %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
 
         {% comment %} Custom styles for this site {% endcomment %}
         {% block head_style %}
@@ -93,39 +95,38 @@
                                 {% comment %} <a class="btn btn-primary btn-sm" href="{% url 'account_signup' %}">{% trans "Sign up" %}</a> {% endcomment %}
                             {% endif %}
 
-                            {% comment %} Language {% endcomment %}
-                            
                             <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button>
+                            {% comment %} Language {% endcomment %}
                             <form action="{% url 'set_language' %}" method="POST">
                                 {% csrf_token %}
-                                <input name="next" type="hidden" value="" />
-                                
-                                <div class="input-group">
-                                    <select class="form-select">
-                                        <option selected><i class="flag flag-en">
-                                        </i> English</option>
-                                        <option value="1"><i class="flag flag-fr"></i> Français</option>
-                                        <option value="2"><i class="flag flag-cn"></i> 简体中文</option>
-                                    </select>
-                                </div>
+                                <input name="next" type="hidden" value="{{ redirect_to }}">
+                               
+                                <select name="language" class="selectpicker" data-width="120" onchange="this.form.submit();">
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    {% get_available_languages as LANGUAGES %}
+                                    {% get_language_info_list for LANGUAGES as languages %}
+                                    {% for language in languages %}
+                                        <option value="{{ language.code }}" 
+                                            {% if language.code == LANGUAGE_CODE %} selected {% endif %} 
+                                            {% with 'site/img/flags/'|add:language.code|add:'.png' as image_lang %}
+                                                data-content="<span><img src=' {% static image_lang %}'> {{ language.name_local|capfirst }}</span>">
+                                            {% endwith %}
+                                        </option>
+                                    {% endfor %}
+                                </select>
 
-
-                                {% comment %} 
-                                    <select name="language" class="selectpicker" data-width="120" onchange="this.form.submit();">
-                                        {% get_current_language as LANGUAGE_CODE %}
-                                        {% get_available_languages as LANGUAGES %}
-                                        {% get_language_info_list for LANGUAGES as languages %}
-                                        {% for language in languages %}
-                                            <option value="{{ language.code }}" 
-                                                {% if language.code == LANGUAGE_CODE %} selected {% endif %} 
-                                                {% with 'site/img/flags/'|add:language.code|add:'.png' as image_lang %}
-                                                    data-content="<span><img src=' {% static image_lang %}'> {{ language.name_local|capfirst }}</span>">
-                                                {% endwith %}
-                                            </option>
-                                        {% endfor %}
-                                    </select>
-                                {% endcomment %}
-
+{% comment %} 
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% get_available_languages as LANGUAGES %}
+                                {% get_language_info_list for LANGUAGES as languages %}
+                                {% for language in languages %}
+                                    <li>
+                                        <a href="/{{ language.code }}/{{ request.get_full_path |slice:'4:'}}" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                                        {{ language.name_local }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+ {% endcomment %}
 
                             </form>
                         </ul>
@@ -178,11 +179,13 @@
             </footer>
         {% endblock footer%}
 
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+        {% comment %} <script src="https://unpkg.com/@popperjs/core@2"></script> {% endcomment %}
+        {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script> {% endcomment %}
 
-        {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> {% endcomment %}
-        {% comment %} <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script> {% endcomment %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
 
         {% block scripts %} 
         {% endblock scripts %}
