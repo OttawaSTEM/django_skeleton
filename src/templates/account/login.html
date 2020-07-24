@@ -4,6 +4,10 @@
 
 {% block head_title %}{{ block.super }} - {% trans "Sign In" %}{% endblock %}
 
+{% block head_script %}
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+{% endblock head_script %}
+
 {% block content %}
     <script type="text/javascript">
         (function () {
@@ -72,11 +76,16 @@
                 <label class="form-check-label">Remember me</label>
             </div>
         </div>
+
+        <div class="form-group"><div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}"></div></div>
+        <br>
+        
         <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
         {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         {% comment %} <input  type="hidden" name="next" value="{% url 'profiles:show_self' %}" /> {% endcomment %}
+
     </form>
     <br>
     <div>

@@ -43,3 +43,10 @@ Run migrations:
 
 # Production Deployment
 daphne myproject.asgi:application
+
+
+# Google Authenticate
+https://www.youtube.com/watch?v=NG48CLLsb1A
+
+https://developers.google.com/gmail/api/quickstart/js
+https://console.developers.google.com/

@@ -1,7 +1,6 @@
 {% extends "account/auth_base.html" %}
 {% load i18n %}
 {% load static %}
-{% load crispy_forms_tags %}
 
 {% block head_title %}{{ block.super }} - {% trans "Signup" %}{% endblock %}
 
@@ -9,16 +8,20 @@
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 {% endblock head_script %}
 
-{% block form_heading %}
-    {% trans "Signing Up is Free" %}
-{% endblock form_heading %}
-
 {% block content %}
-    <h1>{% trans "Sign Up" %}</h1>
+    <script type="text/javascript">
+        (function () {
+            window.onload = function(){
+                document.getElementById("id_login").className = "form-control";
+                document.getElementById("id_password").className = "form-control";
+                document.getElementById("id_remember").className = ("form-check-input");
+            };
+        })();
+    </script>
 
+    <h1>{% trans "Sign Up" %}</h1>
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        {% comment %} {% crispy form %} {% endcomment %}
         {{ form.as_p }}
         {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />

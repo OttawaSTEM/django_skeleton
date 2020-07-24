@@ -12,7 +12,6 @@ from .utils import SendEmail
 class HomePage(generic.TemplateView):
     template_name = 'home.html'
 
-
 class AboutPage(generic.TemplateView):
     template_name = 'about.html'
     http_method_names = ['get', 'post']
@@ -39,10 +38,10 @@ class AboutPage(generic.TemplateView):
             messages.error(request, _('There was a problem with the form. Please check the details.'))
             return super(AboutPage, self).get(request, contact_form=contact_form)
 
+
 def RegisterCompleteView(request):
     messages.success(request, _('Your account has been created, and activation email had been sent to your email address. Please check your email and activate your account.'))
     return render(request, 'home.html', {})
-
 
 def ActivationCompleteView(request):
     messages.success(request, _('Your account is now activated.'))

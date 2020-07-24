@@ -82,7 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 
-                # Need update django_skeleton to project folder name
+                # global settings for templates. Need update django_skeleton to project folder name
                 'django_skeleton.context_processors.global_settings',
 
                 # django-allauth needs this from django
@@ -105,15 +105,25 @@ ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+# ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'         # For production only
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 ACCOUNT_LOGOUT_ON_GET = True                    # Logout without confirm
 ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
 # LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')
-LOGIN_REDIRECT_URL = '/'        # Redirect after sign up
+LOGIN_REDIRECT_URL = '/'        # Redirect after sign 
 # LOGOUT_REDIRECT_URL = '/'
 # For email sent to console
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SOCIALACCOUNT_PROVIDERS = dict
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': env('GOOGLE_AUTH_CLIENT_ID'),
+            'secret': env('GOOGLE_AUTH_SECRET'),
+            'key': env('GOOGLE_AUTH_KEY'),
+        }
+    }
+}
 
 
 
@@ -143,15 +153,6 @@ INSTALLED_APPS = (
     'profiles',
 )
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': env('GOOGLE_AUTH_CLIENT_ID'),
-            'secret': env('GOOGLE_AUTH_SECRET'),
-            'key': env('GOOGLE_AUTH_KEY'),
-        }
-    }
-}
 
 
 
