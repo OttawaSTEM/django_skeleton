@@ -98,6 +98,21 @@ a.dropdown-item:hover {
 /*  End of Home page styling */
 
 
+/* Crispy Custom Form */
+.asteriskField {
+    color: red;
+}
+/* End of Crispy Custom Form */
+
+
+/* Profile page styling */
+.profile-head {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJklEQVQIW2NkAIILFy78NzAwYATRjCABZEGwAEwFiA1WBlIOUwkA72gTdDIYVO4AAAAASUVORK5CYII=) repeat;
+    padding: 60px 0px 10px 20px;
+}
+/* Profile page styling */
+
+
 /* Style the Courses Cards */
 .card-course {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -215,8 +230,4 @@ a.dropdown-item:hover {
 }
 /* End of Footer Social Media */
 
-/* Crispy Custom Form */
-.asteriskField {
-    color: red;
-}
-/* End of Crispy Custom Form */
+

@@ -3,7 +3,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{{ block.super }} - {% trans "Sign up" %}{% endblock %}
+{% block head_title %}{{ block.super }} - {% trans "Sign up" %}{% endblock head_title %}
 
 {% block head_script %}
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>

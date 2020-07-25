@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% load account socialaccount %}
 
-{% block head_title %}{{ block.super }} - {% trans "Sign in" %}{% endblock %}
+{% block head_title %}{{ block.super }} - {% trans "Sign in" %}{% endblock head_title %}
 
 {% block head_script %}
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
