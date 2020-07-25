@@ -101,16 +101,20 @@ AUTHENTICATION_BACKENDS = [
 ]
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'      # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
-# ACCOUNT_EMAIL_VERIFICATION = 'optional'
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'          # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_FORMS = {
+    'signup': 'django_skeleton.forms.AllauthSignupForm',
+    'login': 'django_skeleton.forms.AllauthLoginForm',
+}
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
-# ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'         # For production only
+# ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'                   # For production only
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
-ACCOUNT_LOGOUT_ON_GET = True                    # Logout without confirm
+LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')     # Redirect after sign 
+# LOGIN_REDIRECT_URL = '/'        
+ACCOUNT_LOGOUT_ON_GET = True                                # Logout without confirm
 ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
-# LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')
-LOGIN_REDIRECT_URL = '/'        # Redirect after sign 
 # LOGOUT_REDIRECT_URL = '/'
 # For email sent to console
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -124,8 +128,6 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-
-
 
 # Application definition
 INSTALLED_APPS = (
@@ -143,6 +145,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'captcha',
     # 'accounts',
     # 'authtools',
 
@@ -216,9 +219,13 @@ MESSAGE_TAGS = {
 # ACCOUNT_ACTIVATION_DAYS = 1         # One-day activation window
 # REGISTRATION_EMAIL_HTML = False     # Only use templates/registration/activation_email.txt
 
-# Google reCAPTCHA
-RECAPTCHA_SITE_KEY = env('RECAPTCHA_SITE_KEY')
-RECAPTCHA_SECRET_KEY = env('RECAPTCHA_SECRET_KEY')
+# Google reCAPTCHA & Google Analytics
+RECAPTCHA_SITE_KEY  = env('RECAPTCHA_SITE_KEY')
+RECAPTCHA_SECRET_KEY  = env('RECAPTCHA_SECRET_KEY')
+
+RECAPTCHA_PUBLIC_KEY  = env('RECAPTCHA_SITE_KEY')
+RECAPTCHA_PRIVATE_KEY  = env('RECAPTCHA_SECRET_KEY')
+RECAPTCHA_USE_SSL = True                # Defaults to False
 
 GOOGLE_ANALYTICS_TRACKING_ID = env('GOOGLE_ANALYTICS_TRACKING_ID')
 

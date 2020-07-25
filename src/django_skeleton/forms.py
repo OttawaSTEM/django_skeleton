@@ -1,8 +1,25 @@
+import requests
 from django import forms
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, Field, HTML
+
+from allauth.account.forms import SignupForm, LoginForm
+from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV2Checkbox
+
+class AllauthSignupForm(SignupForm):
+    captcha = ReCaptchaField(label='', widget=ReCaptchaV2Checkbox)
+
+    def signup(self, *args, **kwargs):
+        return super(AllauthSignupForm, self).login(*args, **kwargs)
+
+class AllauthLoginForm(LoginForm):
+    captcha = ReCaptchaField(label='', widget=ReCaptchaV2Checkbox)
+
+    def login(self, *args, **kwargs):
+        return super(AllauthLoginForm, self).login(*args, **kwargs)
 
 
 class ContactForm(forms.Form):

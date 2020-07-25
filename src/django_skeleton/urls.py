@@ -21,7 +21,6 @@ urlpatterns += i18n_patterns(
 
     path('webadmin/', admin.site.urls),
 
-
     path('accounts/', include('allauth.urls')),
     path('accounts/profile/', include('profiles.urls', namespace='profiles')),
 
