@@ -5,11 +5,13 @@ from django.utils.translation import ugettext_lazy as _
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, Field, HTML
 
-from allauth.account.forms import SignupForm, LoginForm
+from allauth.account.forms import SignupForm, LoginForm, PasswordField
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
 
 class AllauthSignupForm(SignupForm):
+    password1 = PasswordField(label=_("Password"))
+    password2 = PasswordField(label=_("Password (again)"))
     captcha = ReCaptchaField(label='', widget=ReCaptchaV2Checkbox)
 
     def signup(self, *args, **kwargs):
