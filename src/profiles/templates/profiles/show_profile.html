@@ -21,7 +21,8 @@
                     {% else %}
                         <img title="profile picture" src="{% static '/site/img/profile_default.png' %}" alt="avatar" height="80" width="80" style="margin-right: 15px;">
                     {% endif%}
-                    <h5 class="mt-4">{{ show_user.get_full_name }}</h5>
+                    {% comment %} <h5 class="mt-4">{{ show_user.get_full_name }}</h5> {% endcomment %}
+                    <h5 class="mt-4">{{ show_user.get_username }}</h5>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -52,11 +53,12 @@
             </div>
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ show_user.get_full_name }}'s {% trans "Profile" %}
+                    {% comment %} <div class="card-header">{{ show_user.get_full_name }}'s {% trans "Profile" %} {% endcomment %}
+                    <div class="card-header">{{ show_user.get_username }}'s {% trans "Profile" %}
                         {% if show_user.profile.slug %}
                             <a href="{% url 'profiles:show' show_user.profile.slug %}">
                             <span class="glyphicon glyphicon-link" aria-hidden="true" title="Profile permalink"></span>
-                            <span class="sr-only">Permalink</span></a>{{ show_user.profile.get_absolute_url }}
+                            <span class="sr-only">{% trans "Permalink" %}</span></a>{{ show_user.profile.get_absolute_url }}
                         {% endif %}
                     </div>
                     <div class="card-body" style="height: 145px;">
