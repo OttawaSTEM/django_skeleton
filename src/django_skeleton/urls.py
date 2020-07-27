@@ -19,11 +19,11 @@ urlpatterns += i18n_patterns(
     path('about/', views.AboutPage.as_view(), name='about'),
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-
-    path('webadmin/', admin.site.urls),
+    path('admin/', admin.site.urls),          # Remove Django admin login for security reason
 
     path('accounts/', include('allauth.urls')),
     path('accounts/profile/', include('profiles.urls', namespace='profiles')),
+
 
     # path('accounts/', include('accounts.urls', namespace='accounts')),
     # path('registration/register/complete/', views.RegisterCompleteView, name='register-complete'),
