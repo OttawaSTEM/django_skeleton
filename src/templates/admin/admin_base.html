@@ -1,26 +1,14 @@
 {% extends "admin/base.html" %}
 {% load i18n static %}
 
-{% block extrastyle %}
-    <style>
-        #header {
-            background-color: #3f4345;
-        }
-        div.breadcrumbs {
-            background-color: #888888;
-        }
-        .module h2, .module caption, .inline-group h2 {
-            background-color: #888888;
-        }
-    </style>
-{% endblock extrastyle %}
-
 {% block title %}{% include "_brandname.html" %} - {% trans "Admin" %}{% endblock title%}
 
 {% block branding %}
     <div>
-        <img style="vertical-align: middle; margin-right: 5px;" src="{% static 'site/img/logo.png' %}" alt="logo" width="30" height="30">
-        <span>{% include "_brandname.html" %} {% trans "Admin" %}</span>
+        <a href="{% url 'home' %}">
+            <img style="vertical-align: middle; margin-right: 5px;" src="{% static 'site/img/logo.png' %}" alt="logo" width="30" height="30">
+            <span>{% include "_brandname.html" %} {% trans "Admin" %}</span>
+        </a>
     </div>
 {% endblock branding%}
 
