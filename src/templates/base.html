@@ -97,8 +97,8 @@
                                 {% comment %} <a class="btn btn-primary btn-sm" href="{% url 'account_signup' %}">{% trans "Sign up" %}</a> {% endcomment %}
                             {% endif %}
 
-                            <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button>
                             {% comment %} Language {% endcomment %}
+                            <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button>
                             <form action="{% url 'set_language' %}" method="POST">
                                 {% csrf_token %}
                                 <input name="next" type="hidden" value="{{ redirect_to }}">

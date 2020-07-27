@@ -12,6 +12,7 @@ sitemaps = {
     'static': sitemaps.StaticViewSitemap,
 }
 
+# urlpatterns = [         # Switch to single language (English)
 urlpatterns = [path('i18n/', include('django.conf.urls.i18n'))]
 urlpatterns += i18n_patterns(
     path('', views.HomePage.as_view(), name='home'),
