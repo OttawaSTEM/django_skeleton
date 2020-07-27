@@ -101,8 +101,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'          # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
-ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'          # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
+# ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_FORMS = {
     'signup': 'django_skeleton.forms.AllauthSignupForm',
     'login': 'django_skeleton.forms.AllauthLoginForm',
@@ -116,8 +116,6 @@ LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')     # Redirect after sig
 ACCOUNT_LOGOUT_ON_GET = True                                # Logout without confirm
 ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
 # LOGOUT_REDIRECT_URL = '/'
-# For email sent to console
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SOCIALACCOUNT_PROVIDERS = dict
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -128,6 +126,15 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'      # For developing, email sent to console
+EMAIL_CONFIG = env.email_url('EMAIL_URL', default='consolemail://')
+EMAIL_USE_TLS = EMAIL_CONFIG['EMAIL_USE_TLS']
+EMAIL_HOST = EMAIL_CONFIG['EMAIL_HOST']
+EMAIL_PORT = EMAIL_CONFIG['EMAIL_PORT']
+EMAIL_HOST_USER = EMAIL_CONFIG['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = EMAIL_CONFIG['EMAIL_HOST_PASSWORD']
+EMAIL_WEBMASTER_1 = env('EMAIL_WEBMASTER_1')
+EMAIL_WEBMASTER_2 = env('EMAIL_WEBMASTER_2')
 
 # Application definition
 INSTALLED_APPS = (
