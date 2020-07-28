@@ -15,6 +15,14 @@ html, body {
     background-color: #008ffc !important;
 }
 
+/* .alert .alert-info{
+    margin-top: 51px;
+    margin-bottom: -55px;
+    position: relative;
+    z-index: 1000;
+    text-align: center;
+} */
+
 /* Menu styling */
 .navbar-light .navbar-nav .nav-link {
     color: rgba(0, 0, 0, .7);

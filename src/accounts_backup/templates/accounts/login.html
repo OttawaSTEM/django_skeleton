@@ -3,7 +3,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{{ block.super }}Log In{% endblock head_title %}
+{% block head_title %}{{ block.super }} - {{ block.super }}Log In{% endblock head_title %}
 
 {% block head_script %}
     <!-- Google recaptcha -->
@@ -16,7 +16,7 @@
 
 {% block form %}
     {% csrf_token %}
-    {% crispy form %}
+    {{ form | crispy }}
     <div class="form-message">
         <p>{% trans "Don't have an account?" %} <a href="{% url 'accounts:signup' %}">{% trans "Sign up" %}</a></p>
     </div>

@@ -3,7 +3,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{{ block.super }}{% trans "Profile" %}{% endblock head_title %}
+{% block head_title %}{{ block.super }} - {{ block.super }}{% trans "Profile" %}{% endblock head_title %}
 
 {% block navbar_left %}
     {% include "_navbar.html" %}

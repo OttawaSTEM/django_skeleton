@@ -24,6 +24,11 @@ class AllauthLoginForm(LoginForm):
         return super(AllauthLoginForm, self).login(*args, **kwargs)
 
 
+
+
+
+
+
 class ContactForm(forms.Form):
     from_email = forms.EmailField(required=True)
     subject = forms.CharField(required=True)

@@ -1,11 +1,9 @@
-{% extends "account/base.html" %}
-
+{% extends "account/auth_base.html" %}
 {% load i18n %}
 
-{% block head_title %}{% trans "Account Inactive" %}{% endblock %}
+{% block head_title %}{{ block.super }} - {% trans "Account Inactive" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Account Inactive" %}</h1>
-
-<p>{% trans "This account is inactive." %}</p>
-{% endblock %}
+    <h3 class="text-center mt-5">{% trans "Account Inactive" %}</h3>
+    <p>{% trans "This account is inactive." %}</p>
+{% endblock content%}
