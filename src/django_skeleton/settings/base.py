@@ -160,10 +160,6 @@ INSTALLED_APPS = (
     'profiles',
 )
 
-
-
-
-
 MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -176,7 +172,6 @@ MIDDLEWARE = (
 )
 
 ROOT_URLCONF = 'django_skeleton.urls'
-
 ASGI_APPLICATION = 'django_skeleton.asgi.application'
 
 # Database
@@ -204,7 +199,6 @@ LANGUAGES = (
     ('fr', _('French')),
     ('zh-hans', _('Simplified Chinese')),
 )
-
 
 # Crispy Form Theme - Bootstrap 4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
