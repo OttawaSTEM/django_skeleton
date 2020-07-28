@@ -13,7 +13,7 @@ DEBUG_TOOLBAR_CONFIG = {
 # Django Debug Toolbar
 INSTALLED_APPS += (
     'debug_toolbar',
-    'autotranslate',
+    'autotranslate',            # No need to deploy in production
 )
 
 # Additional middleware introduced by debug toolbar

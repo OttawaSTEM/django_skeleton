@@ -153,12 +153,9 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'captcha',
-    # 'accounts',
-    # 'authtools',
 
-    # 'autotranslate',
     'crispy_forms',
-    # 'dbbackup',
+    'dbbackup',
     
     'profiles',
 )
