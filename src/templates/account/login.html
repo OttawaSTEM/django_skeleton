@@ -10,7 +10,7 @@
 {% endblock head_script %}
 
 {% block content %}
-    <h1 class="text-center">{% trans "Sign in" %}</h1>
+    <h3 class="text-center">{% trans "Sign in" %}</h3>
     {% get_providers as socialaccount_providers %}
     {% if socialaccount_providers %}
         <div class="list-group">
