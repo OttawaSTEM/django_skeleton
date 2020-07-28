@@ -18,4 +18,8 @@
         {% endif %}
         <button class="btn btn-primary" type="submit">{% trans "Sign up" %} &raquo;</button>
     </form>
+
+    <hr class="my-3">
+    {% url 'account_login' as url_login %}
+    <p>{% blocktrans %}Already have an account? Then please <a href="{{ url_login }}">Sign in</a>.{% endblocktrans %}</p>
 {% endblock %}
