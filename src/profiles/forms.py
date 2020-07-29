@@ -22,8 +22,7 @@ class UserForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_tag = False
         # self.helper.layout = Layout(Field('name')
-        self.helper.layout = Layout(Field('username')
-        )
+        self.helper.layout = Layout(Field('username'))
 
 
 class ProfileForm(forms.ModelForm):

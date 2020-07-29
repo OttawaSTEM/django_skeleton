@@ -19,7 +19,7 @@
         <hr>
         <div class="row">
             <!-- left column -->
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 {% if user.profile.picture %}
                     <img title="profile picture" src="{{ MEDIA_URL }}{{ user.profile.picture }}" height="140px" width="140px" alt="avatar">
                 {% else %}
@@ -28,12 +28,14 @@
             </div>
 
             <!-- edit form column -->
-            <div class="col-sm-9">
+            <div class="col-md-9">
                 <h3 style="font-weight: bold;">{% trans "Personal Information" %}</h3>
                 <form enctype="multipart/form-data" method="post">
                     {% csrf_token %}
                     {% crispy user_form %}
                     {% crispy profile_form %}
+                    {% comment %} {{ user_form | crispy }} {% endcomment %}
+                    {% comment %} {{ profile_form | crispy }} {% endcomment %}
                 </form>
             </div>
         </div>
@@ -42,15 +44,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a class="btn btn-primary pull-right" href="{% url 'accounts:password-change' %}">{% trans "Change Password" %}</a>
+                <a class="btn btn-primary float-right" href="{% url 'account_reset_password' %}">{% trans "Change Password" %}</a>
             </div>
         </div>
     </div>
 {% endblock container%}
 
 {% block scripts %}
-    <script>
-        $(document).ready(function () {
-        });
-    </script>
 {% endblock scripts %}

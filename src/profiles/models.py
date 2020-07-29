@@ -19,7 +19,7 @@ class UploadStorage(FileSystemStorage):
         super(UploadStorage, self).__init__(location=settings.MEDIA_ROOT, base_url='/media/')
 
 def upload_to(instance, filename):      # Convert to (private) path, not full private yet
-    profile_img = 'users/{}/profile_pics/{}'.format(instance.user.profile.slug, 'avatar.jpg')
+    profile_img = 'users/{}/profile_pics/{}'.format(instance.user.profile.slug, 'avatar.png')
     profile_img_path = os.path.join(settings.MEDIA_ROOT, profile_img)
     if os.path.exists(profile_img_path):
         os.remove(profile_img_path)
@@ -55,9 +55,9 @@ class BaseProfile(models.Model):
             image = Image.open(BytesIO(self.picture.read()))
             image.thumbnail((140,140))
             output = BytesIO()
-            image.save(output, format='JPEG')
+            image.save(output, format='PNG')
             output.seek(0)
-            self.picture= InMemoryUploadedFile(output, 'ImageField', '{}.jpg'.format('avatar.jpg'), 'image/jpeg', len(output.getvalue()), None)
+            self.picture= InMemoryUploadedFile(output, 'ImageField', '{}.png'.format('avatar'), 'image/png', len(output.getvalue()), None)
         super(BaseProfile, self).save(*args, **kwargs)
 
 

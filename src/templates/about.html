@@ -98,7 +98,7 @@
                     <h1 style="font-weight: bold; text-align: center;">Contact Us</h1>
                     <form enctype="multipart/form-data" method="post">
                         {% csrf_token %}
-                        {% crispy contact_form %}
+                        {{ contact_form | crispy }}
                     </form>
                 </div>
             </div>

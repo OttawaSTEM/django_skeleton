@@ -76,10 +76,8 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                                         {% if user.profile.picture %}
-                                            {% comment %} <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }} {% endcomment %}
                                             <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_username|truncatechars:20 }}
                                         {% else %}
-                                            {% comment %} <img src="{% static 'site/img/profile_default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_full_name|truncatechars:20 }} {% endcomment %}
                                             <img src="{% static 'site/img/profile_default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_username|truncatechars:20 }}
                                         {% endif%}
                                     </a>
@@ -90,7 +88,6 @@
                                 </li>
                             {% else %}
                                 <a class="btn btn-primary" href="{% url 'account_login' %}">{% trans "Sign in" %}</a>
-                                {% comment %} <li class="btn btn-outline-primary btn-sm disabled" style="border: none;"></li> {% endcomment %}
                                 {% comment %} <a class="btn btn-primary btn-sm" href="{% url 'account_signup' %}">{% trans "Sign up" %}</a> {% endcomment %}
                             {% endif %}
 
