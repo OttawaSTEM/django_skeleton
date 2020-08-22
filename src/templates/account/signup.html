@@ -6,9 +6,9 @@
 
 {% block head_title %}{{ block.super }} - {% trans "Sign up" %}{% endblock head_title %}
 
-{% block head_script %}
+{% block extra_head_script %}
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
-{% endblock head_script %}
+{% endblock extra_head_script %}
 
 {% block content %}
     <h3 class="text-center mt-5">{% trans "Sign up" %}</h3>

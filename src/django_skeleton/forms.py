@@ -23,12 +23,6 @@ class AllauthLoginForm(LoginForm):
     def login(self, *args, **kwargs):
         return super(AllauthLoginForm, self).login(*args, **kwargs)
 
-
-
-
-
-
-
 class ContactForm(forms.Form):
     from_email = forms.EmailField(required=True)
     subject = forms.CharField(required=True)
@@ -43,6 +37,6 @@ class ContactForm(forms.Form):
             Field('from_email'),
             Field('subject'),
             Field('message'),
-            HTML('<div class="form-group my-4"><div class="g-recaptcha" data-sitekey="{}"></div></div>'.format(settings.RECAPTCHA_SITE_KEY)),
+            HTML('<div class="form-group my-4"><div class="g-recaptcha" data-sitekey="{}"></div></div>'.format(settings.RECAPTCHA_PUBLIC_KEY)),
             Submit('sent', _('Send'), css_class='btn-primary submit_button'),
         )

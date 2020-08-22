@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load i18n %}
+{% load static %}
 {% load crispy_forms_tags %}
-
 
 {% block head_title %}{{ block.super }} - About Us{% endblock head_title %}
 
@@ -15,8 +15,10 @@
 {% block twitter_meta_image %}{{ block.super }}{% endblock %}
 
 
-{% block head_script %}
-{% endblock head_script %}
+{% block extra_head_script %}
+    <!-- Google recaptcha -->
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+{% endblock extra_head_script %}
 
 {% block navbar_left %}
     {% include "_navbar.html" with active_link="about" %}
@@ -96,7 +98,7 @@
                     <h1 style="font-weight: bold; text-align: center;">Contact Us</h1>
                     <form enctype="multipart/form-data" method="post">
                         {% csrf_token %}
-                        {{ contact_form | crispy }}
+                        {% crispy contact_form %}
                     </form>
                 </div>
             </div>

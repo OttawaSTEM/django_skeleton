@@ -16,4 +16,4 @@ django-countries>=5.3.2         # Country for use with forms, flag icons static 
 django-crispy-forms>=1.7.2      # For Django forms
 django-dbbackup>=3.2.0          # Backup and restore Django
 django-environ>=0.4.5           # django-environ allows you to use Twelve-factor methodology, used by base.py
-django-recaptcha>=2.0.6          # Google recaptcha v3
+django-recaptcha>=2.0.6         # Google recaptcha v3

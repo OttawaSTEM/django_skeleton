@@ -167,9 +167,9 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -216,8 +216,8 @@ MESSAGE_TAGS = {
 }
 
 # Google reCAPTCHA & Google Analytics
-RECAPTCHA_SITE_KEY  = env('RECAPTCHA_SITE_KEY')
-RECAPTCHA_SECRET_KEY  = env('RECAPTCHA_SECRET_KEY')
+RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_SITE_KEY')
+RECAPTCHA_PRIVATE_KEY  = env('RECAPTCHA_SECRET_KEY')
 
 GOOGLE_ANALYTICS_TRACKING_ID = env('GOOGLE_ANALYTICS_TRACKING_ID')
 
