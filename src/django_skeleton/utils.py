@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.core import mail
+from django.core.mail import EmailMessage
 
 import logging
 logger = logging.getLogger('project')
@@ -12,7 +12,7 @@ def SendEmail(subject, body, to=None, files=None):
             subject='{} - From {}'.format(subject, settings.EMAIL_HOST_USER),
             body=body,
             from_email=settings.EMAIL_HOST_USER,
-            to=[settings.EMAIL_WEBMASTER_1, settings.EMAIL_WEBMASTER_2],
+            to=[settings.WEBMASTER_1, settings.WEBMASTER_2],
             bcc=None,
             connection=connection,
         )
@@ -25,7 +25,7 @@ def SendEmail(subject, body, to=None, files=None):
             subject='{} - From {}'.format(subject, settings.EMAIL_HOST_USER),
             body=body,
             from_email=settings.EMAIL_HOST_USER,
-            to=[settings.EMAIL_WEBMASTER_1, settings.EMAIL_WEBMASTER_2],
+            to=[settings.WEBMASTER_1, settings.WEBMASTER_2],
             bcc=None,
             connection=connection,
         )

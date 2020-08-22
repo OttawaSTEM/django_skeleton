@@ -22,6 +22,9 @@ if exists(env_file):
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
+# ALLOWED_HOSTS
+ALLOWED_HOSTS = eval(env('ALLOWED_HOSTS'))
+
 # Sitemaps
 # Need to update database table: django_site manual from example.com to domain name, which match record ID=1
 SITE_ID = 1
@@ -40,6 +43,10 @@ MEDIA_ROOT = join(BASE_DIR, 'media')
 STATIC_URL = '/static/'                 # Local
 MEDIA_URL = '/media/'                 # Local
 
+# SECURITY WARNING: keep the secret key used in production secret!
+# Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
+SECRET_KEY = env('SECRET_KEY')
+
 # Use PBKDF2 algorithm with a SHA256 hash
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
@@ -55,12 +62,56 @@ PASSWORD_HASHERS = [
 #     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 # ]
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env('SECRET_KEY')
+# django-allauth settings
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of django-allauth
+    'django.contrib.auth.backends.ModelBackend',
 
-# ALLOWED_HOSTS
-ALLOWED_HOSTS = eval(env('ALLOWED_HOSTS'))
+    # django-allauth specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'          # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
+# ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_FORMS = {
+    'signup': 'django_skeleton.forms.AllauthSignupForm',
+    'login': 'django_skeleton.forms.AllauthLoginForm',
+}
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')     # Redirect after sign 
+# LOGIN_REDIRECT_URL = '/'        
+ACCOUNT_LOGOUT_ON_GET = True                                # Logout without confirm
+ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
+# LOGOUT_REDIRECT_URL = '/'
+SOCIALACCOUNT_PROVIDERS = dict
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': env('GOOGLE_AUTH_CLIENT_ID'),
+            'secret': env('GOOGLE_AUTH_SECRET'),
+            'key': env('GOOGLE_AUTH_KEY'),
+        }
+    }
+}
+
+# Email Server Settings
+EMAIL_CONFIG = env.email_url('EMAIL_URL', default='consolemail://')
+if 'smtp' in EMAIL_CONFIG['EMAIL_BACKEND']:
+    EMAIL_USE_TLS = EMAIL_CONFIG['EMAIL_USE_TLS']
+    EMAIL_HOST = EMAIL_CONFIG['EMAIL_HOST']
+    EMAIL_PORT = EMAIL_CONFIG['EMAIL_PORT']
+    EMAIL_HOST_USER = EMAIL_CONFIG['EMAIL_HOST_USER']
+    EMAIL_HOST_PASSWORD = EMAIL_CONFIG['EMAIL_HOST_PASSWORD']
+else:
+    # For developing, email sent to console
+    # Commen local.env "EMAIL_URL" to use console Email backend
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'     
+
+WEBMASTER_1 = env('WEBMASTER_1')
+WEBMASTER_2 = env('WEBMASTER_2')
 
 # Use Django templates using the new Django 1.8 TEMPLATES settings
 TEMPLATES = [
@@ -82,63 +133,18 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 
-                # global settings for templates. Need update django_skeleton to project folder name
-                'django_skeleton.context_processors.global_settings',
-
                 # django-allauth needs this from django
                 'django.template.context_processors.request',
+
+                # global settings for templates. Need update django_skeleton to project folder name
+                'django_skeleton.context_processors.global_settings',
             ],
         },
     },
 ]
 
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of django-allauth
-    'django.contrib.auth.backends.ModelBackend',
-
-    # django-allauth specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'          # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
-# ACCOUNT_EMAIL_VERIFICATION = 'optional'
-ACCOUNT_FORMS = {
-    'signup': 'django_skeleton.forms.AllauthSignupForm',
-    'login': 'django_skeleton.forms.AllauthLoginForm',
-}
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
-# ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'                   # For production only
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
-LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')     # Redirect after sign 
-# LOGIN_REDIRECT_URL = '/'        
-ACCOUNT_LOGOUT_ON_GET = True                                # Logout without confirm
-ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
-# LOGOUT_REDIRECT_URL = '/'
-SOCIALACCOUNT_PROVIDERS = dict
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': env('GOOGLE_AUTH_CLIENT_ID'),
-            'secret': env('GOOGLE_AUTH_SECRET'),
-            'key': env('GOOGLE_AUTH_KEY'),
-        }
-    }
-}
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'      # For developing, email sent to console
-EMAIL_CONFIG = env.email_url('EMAIL_URL', default='consolemail://')
-EMAIL_USE_TLS = EMAIL_CONFIG['EMAIL_USE_TLS']
-EMAIL_HOST = EMAIL_CONFIG['EMAIL_HOST']
-EMAIL_PORT = EMAIL_CONFIG['EMAIL_PORT']
-EMAIL_HOST_USER = EMAIL_CONFIG['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = EMAIL_CONFIG['EMAIL_HOST_PASSWORD']
-EMAIL_WEBMASTER_1 = env('EMAIL_WEBMASTER_1')
-EMAIL_WEBMASTER_2 = env('EMAIL_WEBMASTER_2')
-
 # Application definition
 INSTALLED_APPS = (
-    # 'registration',
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
@@ -161,11 +167,11 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -186,10 +192,10 @@ DATABASES = {
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
 # Default data format: 2000-02-18
-USE_I18N = True
 USE_L10N = True
-TIME_ZONE = 'America/Toronto'
+USE_I18N = True
 USE_TZ = True
+TIME_ZONE = 'America/Toronto'
 
 # Language
 LOCALE_PATHS = (join(BASE_DIR, 'locale'),)
@@ -209,21 +215,9 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-# django-authtools Authentication Settings
-# AUTH_USER_MODEL = 'authtools.User'
-# LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')
-# LOGIN_URL = reverse_lazy('accounts:login')
-# For django-registration-redux Settings
-# ACCOUNT_ACTIVATION_DAYS = 1         # One-day activation window
-# REGISTRATION_EMAIL_HTML = False     # Only use templates/registration/activation_email.txt
-
 # Google reCAPTCHA & Google Analytics
 RECAPTCHA_SITE_KEY  = env('RECAPTCHA_SITE_KEY')
 RECAPTCHA_SECRET_KEY  = env('RECAPTCHA_SECRET_KEY')
-
-RECAPTCHA_PUBLIC_KEY  = env('RECAPTCHA_SITE_KEY')
-RECAPTCHA_PRIVATE_KEY  = env('RECAPTCHA_SECRET_KEY')
-RECAPTCHA_USE_SSL = True                # Defaults to False
 
 GOOGLE_ANALYTICS_TRACKING_ID = env('GOOGLE_ANALYTICS_TRACKING_ID')
 
