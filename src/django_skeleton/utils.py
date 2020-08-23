@@ -1,32 +1,24 @@
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 
 import logging
 logger = logging.getLogger('project')
 
-def SendEmail(subject, body, to=None, files=None):
+def SendEmail(subject, message, from_email=None, to=None, files=None):
     try:
-        connection = mail.get_connection()
-        connection.open()
-        email = mail.EmailMessage(
-            subject='{} - From {}'.format(subject, settings.EMAIL_HOST_USER),
-            body=body,
-            from_email=settings.EMAIL_HOST_USER,
-            to=[settings.WEBMASTER_1, settings.WEBMASTER_2],
-            bcc=None,
-            connection=connection,
-        )
-        email.send(fail_silently=False) 
+        send_mail(
+            subject,
+            f'Email From: {from_email}\n{message}',
+            settings.EMAIL_HOST_USER,
+            [settings.WEBMASTER_1, settings.WEBMASTER_2],
+            fail_silently=False,
+        )    
     except Exception as e:
-        logger.info('SendEmail Error: {} - '.format(e, subject))
-        connection = mail.get_connection()
-        connection.open()
-        email = mail.EmailMessage(
-            subject='{} - From {}'.format(subject, settings.EMAIL_HOST_USER),
-            body=body,
-            from_email=settings.EMAIL_HOST_USER,
-            to=[settings.WEBMASTER_1, settings.WEBMASTER_2],
-            bcc=None,
-            connection=connection,
-        )
-        email.send(fail_silently=False) 
+        logger.info('Error - send_email: {} - '.format(e, subject))
+        send_mail(
+            f'Error - {subject}',
+            f'Email From: {from_email}\n{message}',
+            settings.EMAIL_HOST_USER,
+            [settings.WEBMASTER_1, settings.WEBMASTER_2],
+            fail_silently=False,
+        )    
