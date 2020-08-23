@@ -33,7 +33,7 @@ class AboutPage(generic.TemplateView):
             if result['success']:
                 SendEmail(from_email=contact_form.cleaned_data['from_email'], subject=contact_form.cleaned_data['subject'], body=contact_form.cleaned_data['message'])
                 messages.success(request, _('Email sent!'))
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/about')
         else:
             messages.error(request, _('There was a problem with the form. Please check the details.'))
             return super(AboutPage, self).get(request, contact_form=contact_form)

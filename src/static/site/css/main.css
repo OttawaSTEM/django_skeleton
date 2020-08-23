@@ -15,6 +15,7 @@ html, body {
     background-color: #008ffc !important;
 }
 
+/* Message styling */
 .alert {
     margin-top: 51px;
     margin-bottom: -55px;
@@ -31,8 +32,11 @@ html, body {
     text-align: center;
 }
 
-
-
+.close {
+    float: right;
+    cursor: pointer;
+}
+/* End of Message styling */
 
 /* Menu styling */
 .navbar-light .navbar-nav .nav-link {
