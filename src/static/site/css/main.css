@@ -31,11 +31,6 @@ html, body {
     z-index: 1000;
     text-align: center;
 }
-
-.close {
-    float: right;
-    cursor: pointer;
-}
 /* End of Message styling */
 
 /* Menu styling */
