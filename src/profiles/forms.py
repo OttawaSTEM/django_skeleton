@@ -1,27 +1,22 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
-# from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, Field, HTML
 
 from . import models
 
-# User = get_user_model()
-
 
 class UserForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
-        # fields = ['name']
         fields = ['username']
 
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_tag = False
-        # self.helper.layout = Layout(Field('name')
         self.helper.layout = Layout(Field('username'))
 
 
