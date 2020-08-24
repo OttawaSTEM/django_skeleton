@@ -50,7 +50,9 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
         profile_form = forms.ProfileForm(request.POST, request.FILES, instance=user.profile)
 
         if not (user_form.is_valid() and profile_form.is_valid()):
-            messages.error(request, _('There was a problem with the form. Please check the details.'))
+            # messages.error(request, _('There was a problem with the form. Please check the details.'))
+            message = 'Username: {}'.format(user_form.errors.get_json_data()['username'][0]['message'])
+            messages.error(request, message)
             user_form = forms.UserForm(instance=user)
             profile_form = forms.ProfileForm(instance=user.profile)
             return super(EditProfile, self).get(request, user_form=user_form, profile_form=profile_form)

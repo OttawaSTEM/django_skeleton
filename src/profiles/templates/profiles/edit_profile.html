@@ -3,7 +3,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{{ block.super }} - {{ block.super }}{% trans "Profile" %}{% endblock head_title %}
+{% block head_title %}{{ block.super }} - {% trans "Profile" %}{% endblock head_title %}
 
 {% block navbar_left %}
     {% include "_navbar.html" %}
@@ -34,8 +34,6 @@
                     {% csrf_token %}
                     {% crispy user_form %}
                     {% crispy profile_form %}
-                    {% comment %} {{ user_form | crispy }} {% endcomment %}
-                    {% comment %} {{ profile_form | crispy }} {% endcomment %}
                 </form>
             </div>
         </div>
