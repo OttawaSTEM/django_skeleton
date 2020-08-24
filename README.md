@@ -51,5 +51,10 @@ https://www.youtube.com/watch?v=NG48CLLsb1A
 https://developers.google.com/gmail/api/quickstart/js
 https://console.developers.google.com/
 
-# Django-autotranslate
-User custom version
+# Django-autotranslate (User custom version)
+(venv)$ python manage.py makemessages -a
+(venv)$ python manage.py translate_messages -u -f
+(venv)$ python manage.py compilemessages
+
+# Django create app add to project
+(venv)$ python manage.py startapp poll
