@@ -17,8 +17,8 @@ html, body {
 
 /* Message styling */
 .alert {
-    margin-top: 51px;
-    margin-bottom: -55px;
+    margin-top: 50px;
+    margin-bottom: -50px;
     position: relative;
     z-index: 1000;
     text-align: center;
