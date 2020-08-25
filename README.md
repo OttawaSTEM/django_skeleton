@@ -58,3 +58,12 @@ https://console.developers.google.com/
 
 # Django create app add to project
 (venv)$ python manage.py startapp poll
+
+# Update Table (Drop Table Method)
+1. Export Data from Workbench (Data Only)
+2. Update exported data
+3. Drop Table from database
+4. Update Drop Table status in Django
+    ./manage.py migrate --fake [table_name] zero
+5. Recreate Table
+    ./manage.py migrate
