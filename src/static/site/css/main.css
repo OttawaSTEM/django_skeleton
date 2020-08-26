@@ -126,6 +126,7 @@ a.dropdown-item:hover {
 /* Crispy Custom Form */
 .asteriskField {
     color: red;
+    font-weight: bold;
 }
 /* End of Crispy Custom Form */
 
