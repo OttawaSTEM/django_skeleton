@@ -31,7 +31,8 @@ class AboutPage(generic.TemplateView):
             result = r.json()
             # End reCAPTCHA validation  
             if result['success']:
-                SendEmail(from_email=contact_form.cleaned_data['from_email'], subject=contact_form.cleaned_data['subject'], body=contact_form.cleaned_data['message'])
+                message = 'Email From: {}\n{}'.format(contact_form.cleaned_data['from_email'], contact_form.cleaned_data['message'])
+                SendEmail(subject=contact_form.cleaned_data['subject'], message=message)
                 messages.success(request, _('Email sent!'))
             return HttpResponseRedirect('/about')
         else:

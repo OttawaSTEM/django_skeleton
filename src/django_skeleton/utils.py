@@ -4,11 +4,11 @@ from django.core.mail import send_mail
 import logging
 logger = logging.getLogger('project')
 
-def SendEmail(subject, message, from_email=None, to=None, files=None):
+def SendEmail(subject, message, to=None, files=None):
     try:
         send_mail(
             subject,
-            f'Email From: {from_email}\n{message}',
+            message,
             settings.EMAIL_HOST_USER,
             [settings.WEBMASTER_1, settings.WEBMASTER_2],
             fail_silently=False,
@@ -17,7 +17,7 @@ def SendEmail(subject, message, from_email=None, to=None, files=None):
         logger.info('Error - send_email: {} - '.format(e, subject))
         send_mail(
             f'Error - {subject}',
-            f'Email From: {from_email}\n{message}',
+            message,
             settings.EMAIL_HOST_USER,
             [settings.WEBMASTER_1, settings.WEBMASTER_2],
             fail_silently=False,
