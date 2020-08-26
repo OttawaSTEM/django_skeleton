@@ -18,7 +18,6 @@ def create_profile_handler(sender, instance, created, **kwargs):
     logger.info('New user profile for {} created'.format(instance))
 
 
-# @receiver(user_logged_in, sender=settings.AUTH_USER_MODEL)
 @receiver(user_logged_in)
 def logged_in_handler(sender, user, request, **kwargs):
     # After user logged in update email_verified to True
