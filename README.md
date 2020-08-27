@@ -60,10 +60,17 @@ https://console.developers.google.com/
 (venv)$ python manage.py startapp poll
 
 # Update Table (Drop Table Method)
+## Method 1:
+1. Delete application relate tables and data
+   $ python manage.py migrate registrationform zero
+2. Recreate Table
+   $ python manage.py ./manage.py migrate
+
+## Method 2:
 1. Export Data from Workbench (Data Only)
 2. Update exported data
 3. Drop Table from database
 4. Update Drop Table status in Django
-    ./manage.py migrate --fake [table_name] zero
+   $ python manage.py ./manage.py migrate --fake [table_name] zero
 5. Recreate Table
-    ./manage.py migrate
+   $ python manage.py ./manage.py migrate
