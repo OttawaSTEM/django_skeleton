@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.contrib.auth.signals import user_logged_in
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -8,7 +9,7 @@ import logging
 logger = logging.getLogger('project')
 
 
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+@receiver(post_save, sender=User)
 def create_profile_handler(sender, instance, created, **kwargs):
     if not created:
         return

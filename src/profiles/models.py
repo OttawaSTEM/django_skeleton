@@ -27,7 +27,6 @@ def upload_to(instance, filename):      # Convert to (private) path, not full pr
 
 
 class BaseProfile(models.Model):
-    # user = models.OneToOneField(settings.AUTH_USER_MODEL, primary_key=True, on_delete=models.CASCADE)
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     slug = models.UUIDField(default=uuid.uuid4, blank=True, editable=False)
     # Add more user profile fields here with default values,
