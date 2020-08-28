@@ -39,6 +39,16 @@ html, body {
         padding-right: 10px;
         padding-left: 10px;
     }
+
+    #navbarSupportedContent {
+        margin-top: 10px;
+        background-color: #f8f9fa !important;
+        padding: 10px 10px;
+    }
+
+    .navbar-nav>.nav-item {
+        margin-bottom: 10px;
+    }
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -107,6 +117,15 @@ a.dropdown-item:hover {
     padding: 10em 0;
     margin-bottom: 0;
     height: 100%;
+}
+
+.corporate-jumbo-text {
+    margin-top: 20vh;
+    transform: translateY(-20%);
+    font-weight: bold;
+    font-size: calc(100% + 5vw);
+    text-align: center;
+    text-shadow: 0px 0px 50px #0084ff;
 }
 
 .water {
