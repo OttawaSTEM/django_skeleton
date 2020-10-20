@@ -13,9 +13,7 @@
 # keywords meant for the Logger (eg. ectra).
 #
 
-
 import logging
-
 
 class NewStyleLogMessage(object):
     def __init__(self, message, *args, **kwargs):
@@ -30,9 +28,6 @@ class NewStyleLogMessage(object):
 
         return self.message.format(*args, **kwargs)
 
-N = NewStyleLogMessage
-
-
 class StyleAdapter(logging.LoggerAdapter):
     def __init__(self, logger, extra=None):
         super(StyleAdapter, self).__init__(logger, extra or {})
@@ -40,8 +35,7 @@ class StyleAdapter(logging.LoggerAdapter):
     def log(self, level, msg, *args, **kwargs):
         if self.isEnabledFor(level):
             msg, log_kwargs = self.process(msg, kwargs)
-            self.logger._log(level, N(msg, *args, **kwargs), (), **log_kwargs)
-
+            self.logger._log(level, NewStyleLogMessage(msg, *args, **kwargs), (), **log_kwargs)
 
 logger = StyleAdapter(logging.getLogger('project'))
 # Emits "Lazily formatted log entry: 123 foo" in log

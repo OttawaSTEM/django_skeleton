@@ -34,7 +34,7 @@ html, body {
 /* End of Message styling */
 
 /* Menu styling */
-@media (max-width: 767.98px) {
+@media (max-width: 767.98px) {      /* max-width: Less than 768px, min-width: 768px and up; */
     #main_menu {
         background-color: white;
     }

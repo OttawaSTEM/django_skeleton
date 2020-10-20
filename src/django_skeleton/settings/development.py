@@ -6,6 +6,10 @@ import logging.config
 DEBUG = True
 TEMPLATES[0]['OPTIONS'].update({'debug': True})
 
+# COMPRESS_ENABLED = False
+STATIC_ROOT = join(BASE_DIR, 'static')
+MEDIA_ROOT = join(BASE_DIR, 'media')
+
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda r: False,  # Disables debug_toolbar
 }

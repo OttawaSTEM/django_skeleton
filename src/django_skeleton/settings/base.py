@@ -34,14 +34,15 @@ SITE_URL = 'https://django_skeleton.com/'
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
 # Local - Build paths inside the project like this: join(BASE_DIR, 'directory')
-STATICFILES_DIRS = [join(BASE_DIR, 'static')]           # For ./manager.py collectstatic
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/dev/howto/static-files/
-MEDIA_ROOT = join(BASE_DIR, 'media')
+STATICFILES_FINDERS = (                                 # For Django-Compressor
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
 
 # Define Local Server MEDIA_ROOT for User-uploaded files like profile pics need to be served
 STATIC_URL = '/static/'                 # Local
-MEDIA_URL = '/media/'                 # Local
+MEDIA_URL = '/media/'                   # Local
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
@@ -159,6 +160,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'captcha',
+    'compressor',
 
     'crispy_forms',
     'dbbackup',

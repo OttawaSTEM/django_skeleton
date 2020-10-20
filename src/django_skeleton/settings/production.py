@@ -8,10 +8,7 @@ import logging.config
 DEBUG = False
 TEMPLATE_DEBUG = False
 
-# Use local server Define STATIC_ROOT for the collectstatic command  - Deprecated
 STATIC_ROOT = '/usr/share/nginx/html/static/'                 # ./manager.py collectstatic to this directory
-
-# Define Local Server MEDIA_ROOT for User-uploaded files like profile pics need to be served
 MEDIA_ROOT = '/usr/share/nginx/html/media/'
 
 # Cache the templates in memory for speed-up
