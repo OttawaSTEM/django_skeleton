@@ -52,12 +52,12 @@
         {% block navbar %}
             <nav id="main_menu" class="navbar navbar-expand-md navbar-light fixed-top bg-light" style="font-weight: bold; padding: 4px 0px;">
                 <div class="container-fluid">
-                    <a href="/">
+                    <a href="/" class="ml-1">
                         <img src="{% static 'site/img/logo.png' %}" alt="logo" width="30" height="30" loading="lazy">
                         <span style="margin-left: 5px; color: rgb(0, 0, 0, 0.7);">{{ SITE_NAME }}</span>
                     </a>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler mr-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -69,7 +69,7 @@
 
                         {% comment %} Language and User profile {% endcomment %}
                         <ul class="navbar-nav ml-auto">
-                            {% comment %} User profile {% endcomment %}
+                            {% comment %} Sign in & User profile {% endcomment %}
                             {% if user.is_authenticated %}
                                 {% if user.is_staff %}
                                     <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
@@ -88,13 +88,11 @@
                                     </ul>
                                 </li>
                             {% else %}
-                                <a class="btn btn-primary" href="{% url 'account_login' %}">{% trans "Sign in" %}</a>
-                                {% comment %} <a class="btn btn-primary btn-sm" href="{% url 'account_signup' %}">{% trans "Sign up" %}</a> {% endcomment %}
+                                <button type="button" class="btn btn-primary collapse-signin" onclick="location.href = '{% url 'account_login' %}';">{% trans "Sign in" %}</button>
                             {% endif %}
 
                             {% comment %} Language {% endcomment %}
-                            <button type="button" class="btn btn-outline-primary btn-sm disabled" style="border: none;"></button>
-                            <form action="{% url 'set_language' %}" method="POST">
+                            <form action="{% url 'set_language' %}" method="POST" class="collapse-language ml-2">
                                 {% csrf_token %}
                                 <input name="next" type="hidden" value="{{ redirect_to }}">
                                 <select name="language" class="selectpicker dropdown-menu-right border border-secondary rounded" data-width="fit" onchange="this.form.submit();">

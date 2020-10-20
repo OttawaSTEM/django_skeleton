@@ -34,21 +34,32 @@ html, body {
 /* End of Message styling */
 
 /* Menu styling */
-@media (max-width: 1199.98px) {
-    .navbar-expand-xl>.container-fluid {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    #navbarSupportedContent {
-        margin-top: 10px;
-        background-color: #f8f9fa !important;
-        padding: 10px 10px;
+@media (max-width: 767.98px) {
+    #main_menu {
+        background-color: white;
     }
 
     .navbar-nav>.nav-item {
-        margin-bottom: 10px;
+        margin: 10px 10px;
     }
+    
+    .collapse-signin {
+        padding: 10px;
+        margin: 10px 10px;
+    }
+
+    .collapse-language {
+        margin: 10px 10px;
+    }
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("/static/site/img/menu_bar.svg");
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: rgba(0,0,0,.5);
 }
 
 .navbar-light .navbar-nav .nav-link {
