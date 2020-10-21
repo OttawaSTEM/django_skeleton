@@ -8,7 +8,8 @@ import logging.config
 DEBUG = False
 TEMPLATE_DEBUG = False
 
-STATIC_ROOT = '/usr/share/nginx/html/static/'                 # ./manager.py collectstatic to this directory
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]       # ./manager.py collectstatic from this directory
+STATIC_ROOT = '/usr/share/nginx/html/static/'               # ./manager.py collectstatic to this directory
 MEDIA_ROOT = '/usr/share/nginx/html/media/'
 
 # Cache the templates in memory for speed-up
