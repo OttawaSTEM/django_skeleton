@@ -1,0 +1,64 @@
+@import "vars";
+
+@media (max-width: 767.98px) {      /* max-width: Less than 768px, min-width: 768px and up; */
+    #main_menu {
+        background-color: white;
+    }
+
+    .navbar-nav>.nav-item {
+        margin: 10px 10px;
+    }
+    
+    .collapse-signin {
+        padding: 10px;
+        margin: 10px 10px;
+    }
+
+    .collapse-language {
+        margin: 10px 10px;
+    }
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("/static/site/img/menu_bar.svg");
+}
+
+.navbar-light .navbar-toggler {
+    color: $transparent_50;
+    border-color: $transparent_50;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: $transparent_75;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: $navbar_color;
+    background-color: $navbar_background_color;
+}
+
+a.nav-link:hover {
+    color: $navbar_color !important;
+    background-color: $navbar_background_color;
+}
+
+a.dropdown-item:hover {
+    color: $navbar_color !important;
+    background-color: $navbar_dropdown_background_color;
+}
+
+.nav-pills .nav-link {
+    margin: 5px 0px;
+}
+
+.nav-pills .nav-link.active {
+    color: $navbar_color;
+    border-radius: 0;
+    background-color: $navbar_background_color;
+}
+
+.nav-pills a.nav-link:hover {
+    color: $navbar_color;
+    border-radius: 0;
+    background-color: $navbar_background_color;
+}

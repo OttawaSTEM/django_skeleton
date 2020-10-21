@@ -1,0 +1,18 @@
+@import "vars";
+
+@import url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);
+
+html, body {
+    height: 100%;
+    font-family: $font-family;
+}
+
+.btn-primary {
+    border: none;
+    background-color: $light_blue;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    border: none;
+    background-color: $highlight_blue;
+}
