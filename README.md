@@ -7,15 +7,6 @@
 * Logging/Debugging Helpers
 * Works on Python 3 and Django 2
 
-## Quick start:
-
-1. `$ django-admin.py startproject --template=https://github.com/arocks/edge/archive/master.zip --extension=py,md,html,env my_proj`
-2. `$ cd my_proj`
-3. `$ pip install -r requirements.txt `
-4. `$ cd src`
-5. `$ cp my_proj/settings/local.sample.env my_proj/settings/local.env`
-6. `$ python manage.py migrate`
-
 # {{ project_name }}
 !!! project name CAN NOT use '-' due to python conflict
 
@@ -45,13 +36,13 @@ Run migrations:
 daphne myproject.asgi:application
 
 
-# Google Authenticate
+# django-allauth Google Authenticate
 https://www.youtube.com/watch?v=NG48CLLsb1A
 
 https://developers.google.com/gmail/api/quickstart/js
 https://console.developers.google.com/
 
-# Django-autotranslate (User custom version)
+# django-autotranslate (User custom version)
 (venv)$ python manage.py makemessages -a
 (venv)$ python manage.py translate_messages -u -f
 (venv)$ python manage.py compilemessages
@@ -74,3 +65,5 @@ https://console.developers.google.com/
    $ python manage.py ./manage.py migrate --fake [table_name] zero
 5. Recreate Table
    $ python manage.py ./manage.py migrate
+
+

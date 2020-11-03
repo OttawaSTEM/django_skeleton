@@ -1,6 +1,3 @@
-# Django project template
-https://github.com/arocks/edge
-
 ## Language
 - For Windows  
 extract Packages\gettext0.20.2-iconv1.16-static-64.zip to C:\>Tools\Gettext
