@@ -13,8 +13,8 @@ django-crispy-forms>=1.7.2      # For Django forms
 django-dbbackup>=3.2.0          # Backup and restore Django
 django-environ>=0.4.5           # django-environ allows you to use Twelve-factor methodology, used by base.py
 django-recaptcha>=2.0.6         # Google recaptcha v3
-django-compressor>=2.4          # Compress CSS and JS, For Windows: pip install rcssmin --install-option="--without-c-extensions" and pip install rjsmin
-django-libsass>=0.8                 # For compile scss to css
+django-compressor>=2.4          # Compress CSS and JS, $ pip install rcssmin --install-option="--without-c-extensions"
+django-libsass>=0.8             # For compile scss to css
 
 # django-multiselectfield>=0.1.12 # Multiple select model and form field
 # django-q>=1.3.3                 # Django task queue (Send Email), use local database as broker, Celery does't support local database as broker
