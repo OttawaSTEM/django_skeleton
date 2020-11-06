@@ -96,7 +96,7 @@
                 <div class="mx-4">
                     <div class="text-center"><img src="{% static '/site/img/contact.jpg' %}" class="img-fluid" width="80%"></div>
                     <h1 style="font-weight: bold; text-align: center;">Contact Us</h1>
-                    <form enctype="multipart/form-data" method="post">
+                    <form method="post">
                         {% csrf_token %}
                         {% crispy contact_form %}
                     </form>
