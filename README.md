@@ -67,3 +67,8 @@ https://console.developers.google.com/
    $ python manage.py ./manage.py migrate
 
 
+# Django SEO
+Registered your site with Google Webmaster Tools.
+[Google Search Console](https://search.google.com/)
+
+$ python manage.py ping_google
