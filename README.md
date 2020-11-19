@@ -73,5 +73,3 @@ Registered your site with Google Webmaster Tools.
 
 $ python manage.py ping_google
 
-Google & Baidu
-https://blog.csdn.net/yaerfeng/article/details/51952877
