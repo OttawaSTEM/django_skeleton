@@ -47,6 +47,9 @@ COMPRESS_CSS_FILTERS = [
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
+COMPRESS_JS_FILTERS = [     # Only compress javascript in production
+    'compressor.filters.jsmin.JSMinFilter'
+]
 
 # Define Local Server MEDIA_ROOT for User-uploaded files like profile pics need to be served
 STATIC_URL = '/static/'                 # Local
