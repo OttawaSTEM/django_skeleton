@@ -59,12 +59,14 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': join(LOGFILE_ROOT, 'django.log'),
+            'encoding': 'utf-8',
             'formatter': 'verbose'
         },
         'proj_log_file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': join(LOGFILE_ROOT, 'project.log'),
+            'encoding': 'utf-8',
             'formatter': 'verbose'
         },
         'console': {

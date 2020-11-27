@@ -48,6 +48,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': join(LOGFILE_ROOT, 'project.log'),
+            'encoding': 'utf-8',
             'formatter': 'verbose'
         },
         'console': {
