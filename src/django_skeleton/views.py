@@ -29,7 +29,7 @@ class AboutPage(generic.TemplateView):
             contact_form = forms.ContactForm(request.POST)
             if contact_form.is_valid():
                 # Begin reCAPTCHA validation
-                recaptcha_response = self.request.POST.get('g-recaptcha-response')
+                recaptcha_response = request.POST.get('g-recaptcha-response')
                 data = {'secret': settings.RECAPTCHA_SECRET_KEY,
                         'response': recaptcha_response}
                 r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)

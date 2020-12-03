@@ -23,9 +23,9 @@ class ShowProfile(LoginRequiredMixin, generic.TemplateView):
                 profile = get_object_or_404(models.Profile, slug=slug)
                 user = profile.user
             else:
-                user = self.request.user
+                user = request.user
 
-            if user == self.request.user:
+            if user == request.user:
                 kwargs['editable'] = True
 
             kwargs['show_user'] = user
@@ -41,7 +41,7 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
 
     def get(self, request, *args, **kwargs):
         try:
-            user = self.request.user
+            user = request.user
             if 'user_form' not in kwargs:
                 kwargs['user_form'] = forms.UserForm(instance=user)
             if 'profile_form' not in kwargs:
@@ -54,7 +54,7 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
 
     def post(self, request, *args, **kwargs):
         try:
-            user = self.request.user
+            user = request.user
             user_form = forms.UserForm(request.POST, instance=user)
             profile_form = forms.ProfileForm(request.POST, request.FILES, instance=user.profile)
 
