@@ -18,7 +18,7 @@ class ShowProfile(LoginRequiredMixin, generic.TemplateView):
 
     def get(self, request, *args, **kwargs):
         try:
-            slug = self.kwargs.get('slug')
+            slug = kwargs.get('slug')
             if slug:
                 profile = get_object_or_404(models.Profile, slug=slug)
                 user = profile.user
