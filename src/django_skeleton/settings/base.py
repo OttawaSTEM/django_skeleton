@@ -6,11 +6,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
-
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from os.path import dirname, join, exists, abspath
 # from celery.schedules import crontab
+
+from .allauth import *
+from .compressor import *
+from .crispy_form import *
+from .database import *
+from .email import *
+from .google import *
+from .timezone_language import *
 
 # Use 12factor inspired environment variables or from a file
 import environ
@@ -35,24 +42,6 @@ SITE_URL = 'https://django_skeleton.com/'
 
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
-# Local - Build paths inside the project like this: join(BASE_DIR, 'directory')
-STATICFILES_FINDERS = (                                 # For Django-Compressor
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-)
-COMPRESS_OFFLINE = True
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.css_default.CssAbsoluteFilter', 
-    'compressor.filters.cssmin.rCSSMinFilter'
-]
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
-COMPRESS_JS_FILTERS = [     # Only compress javascript in production
-    'compressor.filters.jsmin.JSMinFilter'
-]
-
 # Define Local Server MEDIA_ROOT for User-uploaded files like profile pics need to be served
 STATIC_URL = '/static/'                 # Local
 MEDIA_URL = '/media/'                   # Local
@@ -75,57 +64,6 @@ PASSWORD_HASHERS = [
 #     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
 #     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 # ]
-
-# django-allauth settings
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of django-allauth
-    'django.contrib.auth.backends.ModelBackend',
-
-    # django-allauth specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'          # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
-# ACCOUNT_EMAIL_VERIFICATION = 'optional'
-ACCOUNT_FORMS = {
-    'signup': 'django_skeleton.forms.AllauthSignupForm',
-    'login': 'django_skeleton.forms.AllauthLoginForm',
-}
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
-LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')     # Redirect after sign 
-# LOGIN_REDIRECT_URL = '/'        
-ACCOUNT_LOGOUT_ON_GET = True                                # Logout without confirm
-ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
-# LOGOUT_REDIRECT_URL = '/'
-SOCIALACCOUNT_PROVIDERS = dict
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': env('GOOGLE_AUTH_CLIENT_ID'),
-            'secret': env('GOOGLE_AUTH_SECRET'),
-            'key': env('GOOGLE_AUTH_KEY'),
-        }
-    }
-}
-
-# Email Server Settings
-EMAIL_CONFIG = env.email_url('EMAIL_URL', default='consolemail://')
-if 'smtp' in EMAIL_CONFIG['EMAIL_BACKEND']:
-    EMAIL_USE_TLS = EMAIL_CONFIG['EMAIL_USE_TLS']
-    EMAIL_HOST = EMAIL_CONFIG['EMAIL_HOST']
-    EMAIL_PORT = EMAIL_CONFIG['EMAIL_PORT']
-    EMAIL_HOST_USER = EMAIL_CONFIG['EMAIL_HOST_USER']
-    EMAIL_HOST_PASSWORD = EMAIL_CONFIG['EMAIL_HOST_PASSWORD']
-else:
-    # For developing, email sent to console
-    # Commen local.env "EMAIL_URL" to use console Email backend
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'     
-
-WEBMASTER_1 = env('WEBMASTER_1')
-WEBMASTER_2 = env('WEBMASTER_2')
 
 # Use Django templates using the new Django 1.8 TEMPLATES settings
 TEMPLATES = [
@@ -194,45 +132,3 @@ MIDDLEWARE = (
 
 ROOT_URLCONF = 'django_skeleton.urls'
 ASGI_APPLICATION = 'django_skeleton.asgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
-
-DATABASES = {
-    # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db()
-}
-
-# Internationalization
-# https://docs.djangoproject.com/en/dev/topics/i18n/
-
-# Default data format: 2000-02-18
-USE_L10N = True
-USE_I18N = True
-USE_TZ = True
-TIME_ZONE = 'America/Toronto'
-
-# Language
-LOCALE_PATHS = (join(BASE_DIR, 'locale'),)
-LANGUAGE_CODE = 'en'
-LANGUAGES = (
-    ('en', _('English')),
-    ('fr', _('French')),
-    ('zh-hans', _('Simplified Chinese')),
-)
-
-# Crispy Form Theme - Bootstrap 4
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-# For Bootstrap 4, change error alert to 'danger'
-from django.contrib import messages
-MESSAGE_TAGS = {
-    messages.ERROR: 'danger'
-}
-
-# Google reCAPTCHA & Google Analytics
-RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_SITE_KEY')
-RECAPTCHA_PRIVATE_KEY  = env('RECAPTCHA_SECRET_KEY')
-
-GOOGLE_ANALYTICS_TRACKING_ID = env('GOOGLE_ANALYTICS_TRACKING_ID')
-

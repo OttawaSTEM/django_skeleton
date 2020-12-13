@@ -1,5 +1,4 @@
 from .base import *
-import sys
 import logging.config
 
 # SECURITY WARNING: don't run with debug turned on in production!
