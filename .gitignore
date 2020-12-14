@@ -46,6 +46,3 @@ local/
 
 # Bootstrap & Admin
 bootstrap/
-
-# Microsoft VSCode
-.vscode/
