@@ -2,12 +2,16 @@ from .base import *
 import logging.config
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = False
+# TEMPLATE_DEBUG = False
 DEBUG = True
 TEMPLATES[0]['OPTIONS'].update({'debug': True})
 
 # COMPRESS_ENABLED = False
 STATIC_ROOT = join(BASE_DIR, 'static')
 MEDIA_ROOT = join(BASE_DIR, 'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'     
 
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda r: False,  # Disables debug_toolbar
@@ -16,7 +20,7 @@ DEBUG_TOOLBAR_CONFIG = {
 # Django Debug Toolbar
 INSTALLED_APPS += (
     'debug_toolbar',
-    'autotranslate',            # No need to deploy in production
+    # 'autotranslate',            # No need to deploy in production
 )
 
 # Additional middleware introduced by debug toolbar
@@ -31,7 +35,7 @@ INTERNAL_IPS = [
 ]
 
 # django-autotranslate change translation service
-AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.GoogleWebTranslatorService'
+# AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.GoogleWebTranslatorService'
 # AUTOTRANSLATE_TRANSLATOR_SERVICE = 'autotranslate.services.AzureAPITranslatorService'
 # AZURE_TRANSLATOR_SECRET_KEY = env('AZURE_TRANSLATOR_SECRET_KEY')
 

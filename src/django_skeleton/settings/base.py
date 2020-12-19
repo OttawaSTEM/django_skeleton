@@ -117,6 +117,8 @@ INSTALLED_APPS = (
     'dbbackup',
     
     'profiles',
+    'websocket',
+    'chat',
 )
 
 MIDDLEWARE = (

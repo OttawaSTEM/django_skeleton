@@ -26,6 +26,15 @@ TEMPLATES[0].update({"APP_DIRS": False})
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'                   # For production only
 
+# Email server settings
+if 'smtp' in EMAIL_CONFIG['EMAIL_BACKEND']:
+    EMAIL_USE_SSL = True
+    EMAIL_HOST = EMAIL_CONFIG['EMAIL_HOST']
+    EMAIL_PORT = EMAIL_CONFIG['EMAIL_PORT']
+    EMAIL_HOST_USER = EMAIL_CONFIG['EMAIL_HOST_USER']
+    EMAIL_HOST_PASSWORD = EMAIL_CONFIG['EMAIL_HOST_PASSWORD']
+    DEFAULT_FROM_EMAIL = EMAIL_CONFIG['EMAIL_HOST_USER']
+    
 # Log everything to the logs directory at the top
 LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
 
