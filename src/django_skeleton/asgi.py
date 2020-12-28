@@ -7,10 +7,17 @@ For more information on this file, see
 https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 """
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_skeleton.settings.production")
+
+if os.environ.get('DJANGO_DEVELOPMENT') == 'True':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_skeleton.settings.development')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_skeleton.settings.production')
+
 
 from django.core.asgi import get_asgi_application
 application = get_asgi_application()
+from websocket.middleware import websockets
+application = websockets(application)
 
 # Wrap werkzeug debugger if DEBUG is on
 from django.conf import settings

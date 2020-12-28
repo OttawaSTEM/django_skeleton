@@ -73,3 +73,8 @@ Registered your site with Google Webmaster Tools.
 
 $ python manage.py ping_google
 
+
+
+# Daphne
+cd src\
+daphne django_skeleton.asgi:application

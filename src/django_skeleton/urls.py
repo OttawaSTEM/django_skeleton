@@ -5,8 +5,10 @@ from django.contrib.sitemaps.views import sitemap
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
+
 from . import views, sitemaps
 from allauth.account import views as allauth_views
+from websocket.urls import websocket
 
 sitemaps = {
     'static': sitemaps.StaticViewSitemap,
@@ -23,6 +25,9 @@ urlpatterns += i18n_patterns(
 
     path('accounts/', include('allauth.urls')),
     path('accounts/profile/', include('profiles.urls', namespace='profiles')),
+
+    path('chat/', include('chat.urls')),
+    websocket('ws/', views.websocket_view),
 )
 
 # User-uploaded files like profile pics need to be served in development

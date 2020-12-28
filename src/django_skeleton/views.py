@@ -1,7 +1,7 @@
 import sys, requests
 from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext as _
 from django.views import generic

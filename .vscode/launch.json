@@ -8,9 +8,11 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
+            // "program": "${workspaceFolder}\\src\\manage.py",
             "cwd": "${workspaceFolder}\\src",
             "program": "${workspaceFolder}\\venv\\Scripts\\daphne.exe",
             "args": [
+                // "runserver"
                 "django_skeleton.asgi:application"
             ],
             "env": {
