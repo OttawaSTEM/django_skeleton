@@ -68,8 +68,9 @@ https://console.developers.google.com/
 
 
 # Django SEO
+The ping_google() command only works if you have registered your site with Google Webmaster Tools.
 Registered your site with Google Webmaster Tools.
-[Google Search Console](https://search.google.com/)
+[Google Search Console](https://www.google.com/webmasters/tools/)
 
 $ python manage.py ping_google
 

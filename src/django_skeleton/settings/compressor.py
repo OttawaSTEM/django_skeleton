@@ -4,7 +4,6 @@ STATICFILES_FINDERS = (                                 # For Django-Compressor
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
-COMPRESS_OFFLINE = True
 COMPRESS_CSS_FILTERS = [
     'compressor.filters.css_default.CssAbsoluteFilter', 
     'compressor.filters.cssmin.rCSSMinFilter'

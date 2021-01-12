@@ -13,6 +13,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]       # ./manager.py colle
 STATIC_ROOT = '/usr/share/nginx/html/static/'               # ./manager.py collectstatic to this directory
 MEDIA_ROOT = '/usr/share/nginx/html/media/'
 
+# Django Compressor
+COMPRESS_OFFLINE = False
+
 # Cache the templates in memory for speed-up
 loaders = [
     ('django.template.loaders.cached.Loader', [
