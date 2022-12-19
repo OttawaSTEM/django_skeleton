@@ -1,0 +1,23 @@
+@import "vars";
+
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: $font-family;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: $code-fonts;
+}
+
+.btn-primary {
+    border: none;
+    background-color: $light_blue;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    border: 1px;
+    background-color: $highlight_blue;
+}

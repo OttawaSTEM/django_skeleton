@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "296b040f-7eb0-4b73-a13b-393434ec4126",
+		"name": "Django",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"id": "b96cc947-4fbe-482b-b86e-ae73c347858f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/api/auth/login/"
+			},
+			"response": []
+		},
+		{
+			"name": "Google Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "01205c1d-8086-46f1-85b9-7e64a7658c6f",
+						"exec": [
+							"var response = pm.response.json();\r",
+							"pm.environment.set(\"djangoToken\", response[\"key\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "2a1456e2-b2ff-4ea4-9341-67f9e8b2f605",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
+				},
+				"url": "http://localhost:8000/api/auth/google/"
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"id": "76aca354-9feb-43b5-ad0b-95a50a0fac4b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8000/api/auth/logout/"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"id": "52b587b9-857d-4f0a-b1f3-a262291cf058",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{djangoToken}}",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/users/"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,165 @@
+{% load i18n %}
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block head_title %}{% include "_brandname.html" %}{% endblock head_title %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="language" content="English">
+        <meta name="og:url" content="{% block meta_url %}{{ SITE_URL }}{% endblock meta_url %}"> 
+        <meta name="og:site_name" content="{{ SITE_NAME }}"> 
+        <meta name="og:type" content="{% block meta_type %}article{% endblock meta_type %}">
+        <meta name="og:title" content="{% block meta_title %}{% include "_brandname.html" %}{% endblock meta_title %}"> 
+        <meta name="og:description" content="{% block meta_description %}django_skeleton description{% endblock meta_description %}">
+        <meta name="og:image" content="{% block meta_image %}{{ SITE_URL }}static/site/img/logo.png{% endblock meta_image %}">
+        <meta name="twitter:site" content="@django_skeleton">
+        <meta name="twitter:title" content="{% block twitter_meta_title %}{% include "_brandname.html" %}{% endblock twitter_meta_title %}">
+        <meta name="twitter:description" content="{% block twitter_meta_description %}django_skeleton description{% endblock twitter_meta_description %}">
+        <meta name="twitter:image" content="{% block twitter_meta_image %}{{ SITE_URL }}static/site/img/logo.png{% endblock twitter_meta_image %}">
+        <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+
+        {% block head_style %}
+            {% compress css %}
+                <link type="text/x-scss" href="{% static 'site/css/main.scss' %}" rel="stylesheet">
+            {% endcompress %}
+        {% endblock head_style %}
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_TRACKING_ID }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', '{{ GOOGLE_ANALYTICS_TRACKING_ID }}');
+        </script>
+
+        {% block extra_head_script %}
+        {% endblock extra_head_script %}
+    </head>
+
+    <body>
+        <div id="language" style="display: none;">{{ LANGUAGE_CODE }}</div>
+        {% block navbar %}
+            <nav id="mainNav" class="navbar navbar-expand-md fw-bold fixed-top navbar-light" style="height: 50px;">
+                <div class="container-fluid">
+                    <a href="/" class="ml-1">
+                        <img src="{% static 'site/img/logo-menu.svg' %}" alt="logo" width="auto" height="30" loading="lazy">
+                    </a>
+
+                    <button class="navbar-toggler mr-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-2"> {% comment %} align center: mx-auto {% endcomment %}
+                            {% block navbar_left %}{% endblock %}
+                        </ul>
+
+                        <ul class="navbar-nav ms-auto">
+                            {% if user.is_authenticated %}
+                                {% if user.is_staff %}
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
+                                {% endif %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {% if user.profile.picture %}
+                                            <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_username|truncatechars:20 }}
+                                        {% else %}
+                                            <img src="{% static 'site/img/profile_default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_username|truncatechars:20 }}
+                                        {% endif%}
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="{% url 'profiles:show_self' %}">My Profile</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <button type="button" class="btn btn-primary collapse-signin" onclick="location.href = '{% url 'account_login' %}';">{% trans "Sign in" %}</button>
+                            {% endif %}
+
+                            <form action="{% url 'set_language' %}" method="POST" class="collapse-language mx-2">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ redirect_to }}">
+                                <select name="language" class="selectpicker border border-secondary rounded" data-width="fit" onchange="this.form.submit();">
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    {% get_available_languages as LANGUAGES %}
+                                    {% get_language_info_list for LANGUAGES as languages %}
+                                    {% for language in languages %}
+                                        <option value="{{ language.code }}" 
+                                            {% if language.code == LANGUAGE_CODE %} selected {% endif %} 
+                                            {% with 'site/img/flags/'|add:language.code|add:'.png' as image_lang %}
+                                                data-content="<span><img src=' {% static image_lang %}' style='margin-top: -2px;'> {{ language.name_local|capfirst }}</span>">
+                                            {% endwith %}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        {% endblock navbar %}
+        
+        {% block messages %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message | safe }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endblock messages %}
+        
+        {% block splash %}
+        {% endblock splash %}
+        
+        {% block content %}
+            <div class="container">
+                <div class="starter-template">
+                    <h1>New Project</h1>
+                    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+                </div>
+            </div>
+        {% endblock content %}
+
+        {% comment %} Site footer {% endcomment %}
+        {% block footer %}
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8">
+                            <p style="margin-bottom: 0px; font-size: 0.8em;"><img src="{% static 'site/img/logo.png' %}" alt="logo" width="30" height="30" style="margin-top: -10px"> &copy; {% now 'Y' %} django_skeleton.com All Rights Reserved.</p>
+                        </div>
+                        <div class="col-4 text-right">
+                            <ul class="social">
+                                <li><a href="https://www.youtube.com/channel/UCLz5ZgXBX4g9fEwnS7jmIvQ/" target="_blank" class="social-youtube"></a></li>
+                                <li><a href="https://twitter.com/OttawaStem/" target="_blank" class="social-twitter"></a></li>
+                                <li><a href="https://www.facebook.com/ottawastem/" target="_blank" class="social-facebook"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        {% endblock footer%}
+
+        {% compress js %}
+            <script src="{% static 'site/js/site.js' %}"></script>
+        {% endcompress %}
+        
+        {% block scripts %} 
+        {% endblock scripts %}
+    </body>
+</html>
