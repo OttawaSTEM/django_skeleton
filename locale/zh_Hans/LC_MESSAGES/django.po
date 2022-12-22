@@ -510,7 +510,7 @@ msgid " Switch to Site"
 msgstr ""
 
 #: .\templates\base.html:88
-msgid "Logout"
+msgid "Sign Out"
 msgstr "注销"
 
 #: .\templates\socialaccount\authentication_error.html:4

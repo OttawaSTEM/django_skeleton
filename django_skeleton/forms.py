@@ -17,11 +17,11 @@ class AllauthSignupForm(SignupForm):
     def signup(self, *args, **kwargs):
         return super(AllauthSignupForm, self).login(*args, **kwargs)
 
-class AllauthLoginForm(LoginForm):
+class AllauthSigninForm(LoginForm):
     captcha = ReCaptchaField(label='', widget=ReCaptchaV3)
 
     def login(self, *args, **kwargs):
-        return super(AllauthLoginForm, self).login(*args, **kwargs)
+        return super(AllauthSigninForm, self).login(*args, **kwargs)
 
 class ContactForm(forms.Form):
     from_email = forms.EmailField(required=True)

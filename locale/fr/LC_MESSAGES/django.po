@@ -525,8 +525,8 @@ msgid " Switch to Site"
 msgstr ""
 
 #: .\templates\base.html:88
-msgid "Logout"
-msgstr "Déconnexion"
+msgid "Sign Out"
+msgstr "Se déconnecter"
 
 #: .\templates\socialaccount\authentication_error.html:4
 #: .\templates\socialaccount\authentication_error.html:7

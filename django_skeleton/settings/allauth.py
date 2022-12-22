@@ -15,7 +15,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'          # Get Errno 10013: an attempt 
 # ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_FORMS = {
     'signup': 'django_skeleton.forms.AllauthSignupForm',
-    'login': 'django_skeleton.forms.AllauthLoginForm',
+    'login': 'django_skeleton.forms.AllauthSigninForm',
 }
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
