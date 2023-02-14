@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "527f8505-8697-40f0-afa2-3d4daec42713",
+		"name": "Django",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/auth/login/",
+			"_postman_id": "2d7d30e1-ada9-4fa3-8595-5c9175bc41d9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/login/"
+			},
+			"response": []
+		}
+	]
+}
