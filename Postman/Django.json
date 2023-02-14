@@ -10,7 +10,7 @@
 			"item": [
 				{
 					"name": "Query All Books",
-					"_postman_id": "42064681-1372-4a4a-927e-e594008c384d",
+					"id": "42064681-1372-4a4a-927e-e594008c384d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"disabledSystemHeaders": {}
@@ -23,9 +23,6 @@
 							"graphql": {
 								"query": "query {\r\n  allBooks {\r\n    id\r\n    title\r\n    author\r\n    yearPublished\r\n    review\r\n  }\r\n}",
 								"variables": ""
-							},
-							"options": {
-								"graphql": {}
 							}
 						},
 						"url": "http://localhost:8000/graphql/"
@@ -34,7 +31,7 @@
 				},
 				{
 					"name": "Query Book by ID",
-					"_postman_id": "6aeaa45a-a654-472e-a25b-50fb4db79b77",
+					"id": "6aeaa45a-a654-472e-a25b-50fb4db79b77",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -46,9 +43,6 @@
 							"graphql": {
 								"query": "query ($bookId: Int) {\r\n  book(bookId: $bookId) {\r\n    id\r\n    title\r\n    author\r\n  }\r\n}",
 								"variables": "{\r\n    \"bookId\": 1\r\n}"
-							},
-							"options": {
-								"graphql": {}
 							}
 						},
 						"url": "http://localhost:8000/graphql/"
@@ -56,14 +50,14 @@
 					"response": []
 				}
 			],
-			"_postman_id": "b589f924-0c7e-4116-9a15-3aacd0681fd5"
+			"id": "b589f924-0c7e-4116-9a15-3aacd0681fd5"
 		},
 		{
 			"name": "Auth",
 			"item": [
 				{
 					"name": "login",
-					"_postman_id": "091ba557-6435-4ca4-9fd6-0175ebe935a7",
+					"id": "091ba557-6435-4ca4-9fd6-0175ebe935a7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"disableCookies": false
@@ -89,8 +83,7 @@
 									"value": "{{password}}",
 									"type": "text"
 								}
-							],
-							"options": {}
+							]
 						},
 						"url": "http://localhost:8000/api/auth/login/"
 					},
@@ -111,7 +104,7 @@
 							}
 						}
 					],
-					"_postman_id": "56aa964e-e20b-42d0-bf18-ac73e7407c52",
+					"id": "56aa964e-e20b-42d0-bf18-ac73e7407c52",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"disableCookies": false
@@ -127,8 +120,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}",
-							"options": {}
+							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
 						},
 						"url": "http://localhost:8000/api/auth/google/"
 					},
@@ -136,7 +128,7 @@
 				},
 				{
 					"name": "logout",
-					"_postman_id": "04d57c8a-06a7-407e-9df3-cd73a8085e15",
+					"id": "04d57c8a-06a7-407e-9df3-cd73a8085e15",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -148,14 +140,14 @@
 					"response": []
 				}
 			],
-			"_postman_id": "fea542b9-a477-4820-8add-9e30271d7b77"
+			"id": "fea542b9-a477-4820-8add-9e30271d7b77"
 		},
 		{
 			"name": "Query",
 			"item": [
 				{
 					"name": "Get Users",
-					"_postman_id": "e92fb53d-3f85-44dc-9d10-29145d45c0ba",
+					"id": "e92fb53d-3f85-44dc-9d10-29145d45c0ba",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -173,7 +165,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "79b97dff-cb07-4c63-bbc7-5631d85c034f"
+			"id": "79b97dff-cb07-4c63-bbc7-5631d85c034f"
 		}
 	]
 }
