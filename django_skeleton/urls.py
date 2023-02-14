@@ -5,6 +5,9 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 
+from django.views.decorators.csrf import csrf_exempt
+from graphene_django.views import GraphQLView
+
 from . import views, sitemaps
 sitemaps = {
     'static': sitemaps.StaticViewSitemap,
@@ -13,6 +16,7 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),          # Remove Django admin login for security reason
     path('api/', include('api.urls')),
+    path('graphql/',  csrf_exempt(GraphQLView.as_view(graphiql=True))), # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
     path('i18n/', include('django.conf.urls.i18n'))

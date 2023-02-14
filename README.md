@@ -135,3 +135,7 @@ In definitions like forms or models you should use gettext_lazy because the code
 
 ## use gettext()) in view
 In views and similar function calls you can use gettext without problems, because everytime the view is called gettext will be newly executed, so you will always get the right translation fitting the request!
+
+
+# Provide initial data
+python manage.py loaddata api/books.json

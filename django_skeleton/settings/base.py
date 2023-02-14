@@ -14,8 +14,9 @@ from .crispy_form import *
 from .database import *
 from .email import *
 from .google import *
-from .timezone_language import *
+from .graphql import *
 from .rest import *
+from .timezone_language import *
 
 
 # New for Django 3.2
@@ -106,6 +107,7 @@ INSTALLED_APPS = (
     'dj_rest_auth',
     'dj_rest_auth.registration',
     'api',
+    'graphene_django',
 
     'compressor',
     'crispy_forms',

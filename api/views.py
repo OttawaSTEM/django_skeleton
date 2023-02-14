@@ -34,6 +34,7 @@ class UserView(APIView):
             {'name': 'Lucas', 'age': 33},
             {'name': 'Emily', 'age': 40},
             {'name': 'Atom', 'age': 66},
+            {'name': 'Atom', 'age': 66},
         ]
         return Response(data)
 
