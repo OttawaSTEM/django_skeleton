@@ -16,6 +16,7 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),          # Remove Django admin login for security reason
     path('api/', include('api.urls')),
+    # path('graphql', GraphQLView.as_view(graphiql=True)),
     path('graphql/',  csrf_exempt(GraphQLView.as_view(graphiql=True))), # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
@@ -26,10 +27,8 @@ urlpatterns += i18n_patterns(
     path('', views.HomePage.as_view(), name='home'),
     path('about/', views.AboutPage.as_view(), name='about'),
 
-
     path('accounts/', include('allauth.urls')),
     path('accounts/profile/', include('profiles.urls', namespace='profiles')),
-
 )
 
 # User-uploaded files like profile pics need to be served in development

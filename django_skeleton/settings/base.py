@@ -108,6 +108,7 @@ INSTALLED_APPS = (
     'dj_rest_auth.registration',
     'api',
     'graphene_django',
+    'book_graphql',
 
     'compressor',
     'crispy_forms',

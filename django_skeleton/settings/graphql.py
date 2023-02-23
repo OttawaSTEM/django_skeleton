@@ -1,3 +1,3 @@
 GRAPHENE = {
-    "SCHEMA": "api.schema.schema"
+    "SCHEMA": "book_graphql.schema.schema"
 }
