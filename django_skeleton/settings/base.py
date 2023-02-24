@@ -10,6 +10,7 @@ from .env_vars import env, BASE_DIR
 
 from .allauth import *
 from .compressor import *
+from .channels import *
 from .crispy_form import *
 from .database import *
 from .email import *
