@@ -1,4 +1,5 @@
 import os, sys, shutil
+import asyncio
 from datetime import datetime
 from django.conf import settings
 from django.contrib import messages
@@ -8,32 +9,38 @@ from django.utils.translation import gettext as _
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views import generic
+from django.views import View
 
+from django.http import HttpResponse
 
 from . import forms
 from . import models
 
-class ShowProfile(LoginRequiredMixin, generic.TemplateView):
+# class ShowProfile(LoginRequiredMixin, generic.TemplateView):
+class ShowProfile(View, LoginRequiredMixin):
     template_name = 'profiles/show_profile.html'
     http_method_names = ['get']
 
-    def get(self, request, *args, **kwargs):
-        try:
-            slug = kwargs.get('slug')
-            if slug:
-                profile = get_object_or_404(models.Profile, slug=slug)
-                user = profile.user
-            else:
-                user = request.user
+    async def get(self, request, *args, **kwargs):
+        await asyncio.sleep(1)
+        return HttpResponse("Hello async world!")
 
-            if user == request.user:
-                kwargs['editable'] = True
+        # try:
+        #     slug = kwargs.get('slug')
+        #     if slug:
+        #         profile = await get_object_or_404(models.Profile, slug=slug)
+        #         user = profile.user
+        #     else:
+        #         user = request.user
 
-            kwargs['show_user'] = user
-            return super(ShowProfile, self).get(request, *args, **kwargs)
-        except:
-            messages.error(request, f'Show profile error - {sys.exc_info()}')
-            return redirect('home')
+        #     if user == request.user:
+        #         kwargs['editable'] = True
+
+        #     kwargs['show_user'] = user
+        #     return await super(ShowProfile, self).get(request, *args, **kwargs)
+        # except:
+        #     messages.error(request, f'Show profile error - {sys.exc_info()}')
+        #     return redirect('home')
 
 
 class EditProfile(LoginRequiredMixin, generic.TemplateView):

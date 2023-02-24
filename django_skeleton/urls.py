@@ -16,8 +16,8 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),          # Remove Django admin login for security reason
     path('api/', include('api.urls')),
-    # path('graphql', GraphQLView.as_view(graphiql=True)),
-    path('graphql/',  csrf_exempt(GraphQLView.as_view(graphiql=True))), # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
+    # path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False))), # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
     path('i18n/', include('django.conf.urls.i18n'))
