@@ -169,20 +169,7 @@
 		},
 		{
 			"name": "WebSocket",
-			"item": [
-				{
-					"name": "New Request",
-					"id": "8819ab50-bb22-4bb3-ba2a-51ca7584f420",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			],
+			"item": [],
 			"id": "6a9ce5ea-3ea0-46b8-9098-3e5752f7ecf1"
 		}
 	]
