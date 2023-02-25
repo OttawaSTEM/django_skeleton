@@ -33,7 +33,7 @@ jobs:
             source /home/${{ secrets.USERNAME }}/${{ secrets.FOLDER }}/venv/bin/activate && cd /home/${{ secrets.USERNAME }}/${{ secrets.FOLDER }} && python ./manage.py compress --force
 
             # 6. Update all static files' user & group permission for STATIC_ROOT
-            sudo chown ${{ secrets.USERNAME }}:nginx -R /usr/share/nginx/html/static/
+            sudo chown ${{ secrets.USERNAME }}:www-data -R /usr/share/nginx/html/static/
 
             # 7. SEO - Ping Google after update with sitemap
             # source /home/${{ secrets.USERNAME }}/${{ secrets.FOLDER }}/venv/bin/activate && cd /home/${{ secrets.USERNAME }}/${{ secrets.FOLDER }} && python ./manage.py ping_google
