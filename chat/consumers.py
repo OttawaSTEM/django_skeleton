@@ -22,10 +22,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
         try:
             text_data_json = json.loads(text_data)
             message = text_data_json["message"]
-            print(message)
+            # print(message)
         except:
             message = text_data
-            print(message)
+            # print(message)
 
         # Send message to room group
         await self.channel_layer.group_send(
