@@ -2,8 +2,7 @@
 	"info": {
 		"_postman_id": "e4ffe751-6b66-4012-ad9e-a70db04ed0bf",
 		"name": "Django",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24699647"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -11,6 +10,7 @@
 			"item": [
 				{
 					"name": "Query All Books",
+					"id": "42064681-1372-4a4a-927e-e594008c384d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"disabledSystemHeaders": {}
@@ -25,23 +25,13 @@
 								"variables": ""
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8000/graphql/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"graphql",
-								""
-							]
-						}
+						"url": "http://localhost:8000/graphql/"
 					},
 					"response": []
 				},
 				{
 					"name": "Query Book by ID",
+					"id": "6aeaa45a-a654-472e-a25b-50fb4db79b77",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -55,29 +45,21 @@
 								"variables": "{\r\n    \"bookId\": 1\r\n}"
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8000/graphql/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"graphql",
-								""
-							]
-						}
+						"url": "http://localhost:8000/graphql/"
 					},
 					"response": []
 				}
-			]
+			],
+			"id": "b589f924-0c7e-4116-9a15-3aacd0681fd5"
 		},
 		{
 			"name": "Auth",
 			"item": [
 				{
 					"name": "login",
+					"id": "091ba557-6435-4ca4-9fd6-0175ebe935a7",
 					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
 						"disableCookies": false
 					},
 					"request": {
@@ -103,20 +85,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "http://localhost:8000/api/auth/login/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"auth",
-								"login",
-								""
-							]
-						}
+						"url": "http://localhost:8000/api/auth/login/"
 					},
 					"response": []
 				},
@@ -126,6 +95,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "c9987f97-9842-4e5d-99fa-c9823af775dc",
 								"exec": [
 									"var response = pm.response.json();\r",
 									"pm.environment.set(\"djangoToken\", response[\"key\"]);"
@@ -134,7 +104,9 @@
 							}
 						}
 					],
+					"id": "56aa964e-e20b-42d0-bf18-ac73e7407c52",
 					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
 						"disableCookies": false
 					},
 					"request": {
@@ -150,52 +122,35 @@
 							"mode": "raw",
 							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
 						},
-						"url": {
-							"raw": "http://localhost:8000/api/auth/google/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"auth",
-								"google",
-								""
-							]
-						}
+						"url": "http://localhost:8000/api/auth/google/"
 					},
 					"response": []
 				},
 				{
 					"name": "logout",
+					"id": "04d57c8a-06a7-407e-9df3-cd73a8085e15",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8000/api/auth/logout/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"auth",
-								"logout",
-								""
-							]
-						}
+						"url": "http://localhost:8000/api/auth/logout/"
 					},
 					"response": []
 				}
-			]
+			],
+			"id": "fea542b9-a477-4820-8add-9e30271d7b77"
 		},
 		{
 			"name": "Query",
 			"item": [
 				{
 					"name": "Get Users",
+					"id": "e92fb53d-3f85-44dc-9d10-29145d45c0ba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -205,23 +160,17 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "http://localhost:8000/api/users/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"users",
-								""
-							]
-						}
+						"url": "http://localhost:8000/api/users/"
 					},
 					"response": []
 				}
-			]
+			],
+			"id": "79b97dff-cb07-4c63-bbc7-5631d85c034f"
+		},
+		{
+			"name": "New Folder",
+			"item": [],
+			"id": "6a9ce5ea-3ea0-46b8-9098-3e5752f7ecf1"
 		}
 	]
 }
