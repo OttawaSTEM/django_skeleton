@@ -1,4 +1,4 @@
-name: Release Django
+name: Release to flutter.ottawastem.com
 
 on:
   push:
