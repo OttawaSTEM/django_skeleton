@@ -1,11 +1,11 @@
-from django.urls import include, path, reverse_lazy
+from django.urls import include, path
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 
-from django.views.decorators.csrf import csrf_exempt
+# from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
 
 from . import views, sitemaps
@@ -14,14 +14,18 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('admin/', admin.site.urls),          # Remove Django admin login for security reason
+    # Remove Django admin login for security reason
+    path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
-    # path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False))), # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
 
-     path('chat/', include('chat.urls')),
+    # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
+    # path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False))),
 
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('chat/', include('chat.urls')),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
     path('i18n/', include('django.conf.urls.i18n'))
 ]
 
