@@ -163,26 +163,6 @@
 						"url": "http://localhost:8000/api/users/"
 					},
 					"response": []
-				},
-				{
-					"name": "Get Users Copy",
-					"id": "62cabeba-c613-4904-ba8e-0b487f9933bc",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Token {{djangoToken}}",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": "http://{{baseUrl}}/api/users/"
-					},
-					"response": []
 				}
 			],
 			"id": "79b97dff-cb07-4c63-bbc7-5631d85c034f"
