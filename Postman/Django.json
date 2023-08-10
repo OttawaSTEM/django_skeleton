@@ -160,7 +160,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:8000/api/users/"
+						"url": "http://{{baseUrl}}/api/users/"
 					},
 					"response": []
 				}
