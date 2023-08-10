@@ -135,7 +135,7 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": "http://localhost:8000/api/auth/logout/"
+						"url": "http://{{baseUrl}}/api/auth/logout/"
 					},
 					"response": []
 				}
