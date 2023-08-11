@@ -15,7 +15,7 @@ def create_profile_handler(sender, instance, created, **kwargs):
     # Create the profile object, only if it is newly created
     profile = models.Profile(user=instance)
     profile.save()
-    logger.info('New user profile for {} created'.format(instance))
+    logger.info('New user profile for %s created', instance)
 
 
 @receiver(user_logged_in)
@@ -25,4 +25,4 @@ def logged_in_handler(sender, user, request, **kwargs):
     if not profile.email_verified:
         profile.email_verified = True
         profile.save()
-    logger.info("{}' Email is Verfied".format(user))
+    logger.info("%s' Email is Verfied", user)
