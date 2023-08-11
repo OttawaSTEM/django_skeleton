@@ -181,5 +181,12 @@
 			],
 			"id": "79b97dff-cb07-4c63-bbc7-5631d85c034f"
 		}
+	],
+	"variable": [
+		{
+			"id": "d6cb0318-cac9-46af-8e67-ac9b09053ac3",
+			"key": "djangoToken",
+			"value": ""
+		}
 	]
 }
