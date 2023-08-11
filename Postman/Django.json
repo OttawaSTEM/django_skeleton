@@ -57,6 +57,20 @@
 			"item": [
 				{
 					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"var accessToken = jsonData.key;",
+									"pm.collectionVariables.set(\"bearer-token\", access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "091ba557-6435-4ca4-9fd6-0175ebe935a7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
@@ -85,7 +99,7 @@
 								}
 							]
 						},
-						"url": "http://localhost:8000/api/auth/login/"
+						"url": "http://{{baseUrl}}/api/auth/login/"
 					},
 					"response": []
 				},
