@@ -135,7 +135,7 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": "http://localhost:8000/api/auth/logout/"
+						"url": "http://{{baseUrl}}/api/auth/logout/"
 					},
 					"response": []
 				}
@@ -160,17 +160,12 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:8000/api/users/"
+						"url": "http://{{baseUrl}}/api/users/"
 					},
 					"response": []
 				}
 			],
 			"id": "79b97dff-cb07-4c63-bbc7-5631d85c034f"
-		},
-		{
-			"name": "Flutter",
-			"item": [],
-			"id": "0a890861-97f4-4c7a-bce7-f8e2a5690d87"
 		}
 	]
 }
