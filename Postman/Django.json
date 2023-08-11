@@ -65,7 +65,7 @@
 								"exec": [
 									"var jsonData = pm.response.json();",
 									"var accessToken = jsonData.key;",
-									"pm.collectionVariables.set(\"bearer-token\", accessToken);"
+									"pm.collectionVariables.set(\"djangoToken\", accessToken);"
 								],
 								"type": "text/javascript"
 							}
