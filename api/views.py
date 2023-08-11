@@ -13,6 +13,7 @@ from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 from dj_rest_auth.registration.views import SocialLoginView
 
+
 class GoogleSignin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
     client_class = OAuth2Client
@@ -38,6 +39,7 @@ class UserView(APIView):
         ]
         return Response(data)
 
+
 class GroupView(APIView):
     # authentication_classes = [SessionAuthentication, TokenAuthentication]
     # permission_classes = [permissions.IsAuthenticated]
@@ -57,4 +59,3 @@ class GroupView(APIView):
             {'name': 'Atom', 'age': 66},
         ]
         return Response(data)
-

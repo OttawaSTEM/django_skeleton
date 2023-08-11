@@ -1,4 +1,3 @@
-# django-allauth settings
 from .env_vars import env
 
 EMAIL_CONFIG = env.email_url('EMAIL_URL', default='consolemail://')
@@ -11,7 +10,7 @@ if 'smtp' in EMAIL_CONFIG['EMAIL_BACKEND']:
 else:
     # For developing, email sent to console
     # Commen local.env "EMAIL_URL" to use console Email backend
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'     
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 WEBMASTER_1 = env('WEBMASTER_1')
 WEBMASTER_2 = env('WEBMASTER_2')

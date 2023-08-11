@@ -6,7 +6,7 @@ STATICFILES_FINDERS = (                                 # For Django-Compressor
     'compressor.finders.CompressorFinder',
 )
 COMPRESS_CSS_FILTERS = [
-    'compressor.filters.css_default.CssAbsoluteFilter', 
+    'compressor.filters.css_default.CssAbsoluteFilter',
     'compressor.filters.cssmin.rCSSMinFilter'
 ]
 COMPRESS_PRECOMPILERS = (

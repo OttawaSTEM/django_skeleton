@@ -1,11 +1,13 @@
+import logging.config
 from .env_vars import BASE_DIR
 from .base import *
-import logging.config
 
 # For security and performance reasons, DEBUG is turned off
-DEBUG = False           # Must run "python manage.py collect static", otherwise cause Server Error (500)
+# Must run "python manage.py collect static", otherwise cause Server Error (500)
+DEBUG = False
 TEMPLATE_DEBUG = False
-CSRF_TRUSTED_ORIGINS = eval(env('CSRF_TRUSTED_ORIGINS'))      # When DEBUG=False in Deployment
+# When DEBUG=False in Deployment
+CSRF_TRUSTED_ORIGINS = eval(env('CSRF_TRUSTED_ORIGINS'))
 
 STATIC_ROOT = BASE_DIR.joinpath('static')
 MEDIA_ROOT = BASE_DIR.joinpath('media')
@@ -25,7 +27,8 @@ loaders = [
 TEMPLATES[0]['OPTIONS'].update({"loaders": loaders})
 TEMPLATES[0].update({"APP_DIRS": False})
 
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'                   # django-allauth For production only
+# django-allauth For production only
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 # Disable browsable API render of django-rest-framework
 REST_FRAMEWORK = {

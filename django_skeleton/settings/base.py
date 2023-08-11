@@ -5,6 +5,8 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
+from ast import literal_eval
+
 from .env_vars import env, BASE_DIR
 # from celery.schedules import crontab
 
@@ -25,13 +27,13 @@ from .timezone_language import *
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # ALLOWED_HOSTS
-ALLOWED_HOSTS = eval(env('ALLOWED_HOSTS'))
+ALLOWED_HOSTS = literal_eval(env('ALLOWED_HOSTS'))
 
 # Sitemaps
 # Need to update database table: django_site manual from example.com to domain name, which match record ID=1
 SITE_ID = 1
 SITE_NAME = 'django_skeleton'
-SITE_URL = 'https://django_skeleton.com/' 
+SITE_URL = 'https://django_skeleton.com/'
 
 # Define Local Server MEDIA_ROOT for User-uploaded files like profile pics need to be served
 STATIC_URL = 'static/'                 # Local
@@ -75,7 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                
+
                 # django-allauth needs this from django
                 'django.template.context_processors.request',
 
@@ -119,7 +121,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     "crispy_bootstrap5",
     'dbbackup',
-    
+
     'profiles',
 )
 
@@ -137,8 +139,6 @@ MIDDLEWARE = (
 
 ROOT_URLCONF = 'django_skeleton.urls'
 ASGI_APPLICATION = 'django_skeleton.asgi.application'
-
-
 
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

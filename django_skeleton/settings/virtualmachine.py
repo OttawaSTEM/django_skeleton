@@ -1,18 +1,23 @@
+from ast import literal_eval
+import logging.config
 from .env_vars import env, BASE_DIR
 from .base import *
-import logging.config
 
 # For security and performance reasons, DEBUG is turned off
-DEBUG = False           # Must run "python manage.py collect static", otherwise cause Server Error (500)
+# Must run "python manage.py collect static", otherwise cause Server Error (500)
+DEBUG = False
 TEMPLATE_DEBUG = False
-CSRF_TRUSTED_ORIGINS = eval(env('CSRF_TRUSTED_ORIGINS'))      # When DEBUG=False in Deployment
+# When DEBUG=False in Deployment
+CSRF_TRUSTED_ORIGINS = literal_eval(env('CSRF_TRUSTED_ORIGINS'))
 
-STATICFILES_DIRS = [BASE_DIR.joinpath('static')]      # ./manager.py collectstatic from this directory
+# ./manager.py collectstatic from this directory
+STATICFILES_DIRS = [BASE_DIR.joinpath('static')]
 STATIC_ROOT = '/usr/share/nginx/html/static/'
 MEDIA_ROOT = '/usr/share/nginx/html/media/'
 
 # Django Compressor for css and javascript
-COMPRESS_OFFLINE = True         # No new files are generated during a request in production
+# No new files are generated during a request in production
+COMPRESS_OFFLINE = True
 COMPRESS_ENABLED = True
 
 # Cache the templates in memory for speed-up

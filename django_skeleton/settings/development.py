@@ -1,6 +1,6 @@
+import logging.config
 from .env_vars import BASE_DIR
 from .base import *
-import logging.config
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -13,7 +13,7 @@ MEDIA_ROOT = BASE_DIR.joinpath('media')
 # COMPRESS_OFFLINE = True
 # COMPRESS_ENABLED = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'     
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda r: False,  # Disables debug_toolbar
@@ -95,4 +95,3 @@ LOGGING = {
 }
 
 logging.config.dictConfig(LOGGING)
-

@@ -1,7 +1,7 @@
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
-from .env_vars import BASE_DIR
 from django.utils.translation import gettext_lazy as _
+from .env_vars import BASE_DIR
 
 # Default data format: 2000-02-18
 USE_L10N = True
