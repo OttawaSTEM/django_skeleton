@@ -185,20 +185,8 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{djangoToken}}"
-							}
-						},
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Token {{djangoToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": "http://{{baseUrl}}/api/groups/"
 					},
 					"response": []
@@ -209,7 +197,7 @@
 	],
 	"variable": [
 		{
-			"id": "8a63e3cf-5ae8-4513-875d-69cfc959eec1",
+			"id": "f76bcab2-ba21-4475-97a3-a0231d68c975",
 			"key": "djangoToken",
 			"value": ""
 		}
