@@ -177,6 +177,25 @@
 						"url": "http://{{baseUrl}}/api/users/"
 					},
 					"response": []
+				},
+				{
+					"name": "Get Groups",
+					"id": "c41994c7-6f65-49f5-9d9f-8a816e4ab42c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{djangoToken}}",
+								"type": "text"
+							}
+						],
+						"url": "http://{{baseUrl}}/api/users/"
+					},
+					"response": []
 				}
 			],
 			"id": "79b97dff-cb07-4c63-bbc7-5631d85c034f"
@@ -184,7 +203,7 @@
 	],
 	"variable": [
 		{
-			"id": "f5cb040f-8257-4389-b52c-4c78ad6d0839",
+			"id": "742c667f-d32a-46b6-9c14-095fc020a973",
 			"key": "djangoToken",
 			"value": ""
 		}
