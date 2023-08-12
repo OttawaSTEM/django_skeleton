@@ -1,13 +1,14 @@
-from tokenize import group
+# from django.contrib.auth.models import User, Group
+# from django.contrib.auth.mixins import LoginRequiredMixin
+# from rest_framework.authentication import SessionAuthentication, TokenAuthentication
+# from tokenize import group
+# from .serializers import UserSerializer, GroupSerializer
+
 from django.conf import settings
-from django.contrib.auth.models import User, Group
-from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework import permissions
-from rest_framework.authentication import SessionAuthentication, TokenAuthentication
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
-from .serializers import UserSerializer, GroupSerializer
 
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from allauth.socialaccount.providers.oauth2.client import OAuth2Client

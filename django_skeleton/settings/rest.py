@@ -14,7 +14,9 @@ REST_FRAMEWORK = {
 
     # REST API
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.BasicAuthentication',    # Enables simple CLI authentication
+        # Enables simple CLI authentication
+        # 'rest_framework.authentication.BasicAuthentication',
+
         'rest_framework.authentication.TokenAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
     ],
