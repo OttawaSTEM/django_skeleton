@@ -136,7 +136,7 @@
 							"mode": "raw",
 							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
 						},
-						"url": "http://localhost:8000/api/auth/google/"
+						"url": "http://{{baseUrl}}/api/auth/google/"
 					},
 					"response": []
 				},
@@ -197,7 +197,7 @@
 	],
 	"variable": [
 		{
-			"id": "f76bcab2-ba21-4475-97a3-a0231d68c975",
+			"id": "55ee21e6-19a9-4e84-addf-a40bd670c555",
 			"key": "djangoToken",
 			"value": ""
 		}
