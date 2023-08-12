@@ -99,7 +99,7 @@
 								}
 							]
 						},
-						"url": "http://{{baseUrl}}/api/auth/login/"
+						"url": "https//{{baseUrl}}/api/auth/login/"
 					},
 					"response": []
 				},
@@ -166,14 +166,14 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{djangoToken}}"
-							}
-						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{djangoToken}}",
+								"type": "text"
+							}
+						],
 						"url": "http://{{baseUrl}}/api/users/"
 					},
 					"response": []
@@ -197,7 +197,7 @@
 	],
 	"variable": [
 		{
-			"id": "26db353d-a627-4a38-8759-1378f5807e01",
+			"id": "876872ef-48b2-42fb-a15b-0506fbb0bc7b",
 			"key": "djangoToken",
 			"value": ""
 		}
