@@ -166,14 +166,14 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{djangoToken}}"
-							}
-						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{djangoToken}}",
+								"type": "text"
+							}
+						],
 						"url": "http://{{baseUrl}}/api/users/"
 					},
 					"response": []
@@ -197,7 +197,7 @@
 	],
 	"variable": [
 		{
-			"id": "ea8a49a5-61fe-4262-8c32-da215bf01615",
+			"id": "11d6b14a-fe79-42d5-8e65-3a6b94c1af9b",
 			"key": "djangoToken",
 			"value": ""
 		}
