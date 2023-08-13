@@ -154,7 +154,7 @@
 					"response": []
 				},
 				{
-					"name": "Google",
+					"name": "Google Implicit Grant",
 					"id": "cb30468e-60a0-4935-86e7-769f02362a1c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -209,7 +209,7 @@
 	],
 	"variable": [
 		{
-			"id": "7e0f21e9-baa1-4844-8dfa-bbbf28f67443",
+			"id": "d6c2fc5a-02cd-4b8f-a459-7da7a04af022",
 			"key": "djangoToken",
 			"value": ""
 		}
