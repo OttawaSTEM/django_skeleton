@@ -161,3 +161,9 @@ In views and similar function calls you can use gettext without problems, becaus
 # Provide initial data
 
 python manage.py loaddata api/books.json
+
+
+# Generating an OpenAPI Schema
+```
+python manage.py generateschema --file static/site/openapi/schema.yaml
+```

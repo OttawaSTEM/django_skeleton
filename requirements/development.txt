@@ -8,4 +8,5 @@ Werkzeug
 django-debug-toolbar
 pylint
 pylint-django
+pyyaml
 # django-autotranslate     # Language translation

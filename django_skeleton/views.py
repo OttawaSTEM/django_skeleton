@@ -2,7 +2,7 @@ import sys
 import requests
 from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.utils.translation import gettext as _
 from django.views import generic

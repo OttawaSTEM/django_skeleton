@@ -27,17 +27,16 @@
 <!-- Benefits of the Django application -->
 {% block content %}
     <div class="container mt-3">
-        <div id="swagger-ui"></div>
+        <div id="swagger"></div>
     </div>
-    {% endblock content %}
+{% endblock content %}
     
 {% block scripts %}
     <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
     <script>
         const ui = SwaggerUIBundle({
-            {% comment %} url: "{% url schema_url %}", {% endcomment %}
-            {% comment %} url: "openapi-schema", {% endcomment %}
-            dom_id: '#swagger-ui',
+            url: "http://localhost:8000/static/site/openapi/schema.yaml",
+            dom_id: '#swagger',
             presets: [
                 SwaggerUIBundle.presets.apis,
                 SwaggerUIBundle.SwaggerUIStandalonePreset

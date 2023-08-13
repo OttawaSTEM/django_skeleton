@@ -13,12 +13,13 @@ sitemaps = {
     'static': sitemaps.StaticViewSitemap,
 }
 
+
 urlpatterns = [
     # Remove Django admin login for security reason
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('swagger-ui/', views.SwaggerPage.as_view(), name='swagger-ui'),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
+    # path('openapi/', views.SwaggerPage.as_view(), name='openapi'),
 
     # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
     # path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False))),
