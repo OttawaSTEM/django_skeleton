@@ -154,7 +154,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Google",
 					"id": "cb30468e-60a0-4935-86e7-769f02362a1c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -209,7 +209,7 @@
 	],
 	"variable": [
 		{
-			"id": "b4fd6de0-9325-4329-9070-34f594c200fe",
+			"id": "7e0f21e9-baa1-4844-8dfa-bbbf28f67443",
 			"key": "djangoToken",
 			"value": ""
 		}
