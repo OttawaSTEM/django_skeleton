@@ -161,7 +161,44 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri={{google_callback}}&prompt=consent&response_type=token&client_id={{google_client_id}}&scope=openid%20email%20profile",
+							"protocol": "https",
+							"host": [
+								"accounts",
+								"google",
+								"com"
+							],
+							"path": [
+								"o",
+								"oauth2",
+								"v2",
+								"auth"
+							],
+							"query": [
+								{
+									"key": "redirect_uri",
+									"value": "{{google_callback}}"
+								},
+								{
+									"key": "prompt",
+									"value": "consent"
+								},
+								{
+									"key": "response_type",
+									"value": "token"
+								},
+								{
+									"key": "client_id",
+									"value": "{{google_client_id}}"
+								},
+								{
+									"key": "scope",
+									"value": "openid%20email%20profile"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -209,7 +246,7 @@
 	],
 	"variable": [
 		{
-			"id": "d6c2fc5a-02cd-4b8f-a459-7da7a04af022",
+			"id": "afa9ccbe-62b6-4127-8562-51c789a9bfa9",
 			"key": "djangoToken",
 			"value": ""
 		}
