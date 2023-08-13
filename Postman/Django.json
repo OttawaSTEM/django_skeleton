@@ -152,6 +152,18 @@
 						"url": "http://{{baseUrl}}/api/auth/logout/"
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "cb30468e-60a0-4935-86e7-769f02362a1c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "fea542b9-a477-4820-8add-9e30271d7b77"
@@ -197,7 +209,7 @@
 	],
 	"variable": [
 		{
-			"id": "876872ef-48b2-42fb-a15b-0506fbb0bc7b",
+			"id": "b4fd6de0-9325-4329-9070-34f594c200fe",
 			"key": "djangoToken",
 			"value": ""
 		}
