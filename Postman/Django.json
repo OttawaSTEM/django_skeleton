@@ -223,7 +223,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://{{baseUrl}}/api/users/"
+						"url": "{{baseUrl}}/api/users/"
 					},
 					"response": []
 				},
@@ -246,7 +246,7 @@
 	],
 	"variable": [
 		{
-			"id": "b26809a8-7a29-4afd-bc6c-f5734d32b57c",
+			"id": "90f0b5be-499b-4f64-a7ba-7156ce199d09",
 			"key": "djangoToken",
 			"value": ""
 		}
