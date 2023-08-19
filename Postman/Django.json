@@ -236,7 +236,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://{{baseUrl}}/api/groups/"
+						"url": "{{baseUrl}}/api/groups/"
 					},
 					"response": []
 				}
@@ -246,7 +246,7 @@
 	],
 	"variable": [
 		{
-			"id": "28dbd0d7-85e0-42ab-b7e3-46f7a95cd370",
+			"id": "b26809a8-7a29-4afd-bc6c-f5734d32b57c",
 			"key": "djangoToken",
 			"value": ""
 		}
