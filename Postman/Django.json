@@ -56,53 +56,6 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "get CSRF",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
-								"exec": [
-									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
-									"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "0cd1805b-a799-4201-9c58-31c17b96b962",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"disableCookies": false
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "{{username}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}",
-									"type": "text"
-								}
-							]
-						},
-						"url": "{{baseUrl}}/"
-					},
-					"response": []
-				},
-				{
 					"name": "login",
 					"event": [
 						{
@@ -308,7 +261,7 @@
 	],
 	"variable": [
 		{
-			"id": "5abadc54-2b63-4d7d-ab1f-68b3887bf906",
+			"id": "ad29fb80-144c-47fc-aa22-9c9a2c629722",
 			"key": "djangoToken",
 			"value": ""
 		}
