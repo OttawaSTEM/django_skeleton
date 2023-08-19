@@ -63,7 +63,7 @@
 							"script": {
 								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
 								"exec": [
-									"// var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
 									"",
 									"var jsonData = pm.response.json();",
 									"var accessToken = jsonData.key;",
@@ -79,7 +79,7 @@
 						"disableCookies": false
 					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "formdata",
@@ -298,7 +298,7 @@
 	],
 	"variable": [
 		{
-			"id": "56dc8695-3f60-46d8-a2c6-62a3dba5c2c3",
+			"id": "f443bc0b-8961-4aaa-b913-22a325417124",
 			"key": "djangoToken",
 			"value": ""
 		}
