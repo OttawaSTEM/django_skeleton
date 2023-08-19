@@ -275,6 +275,11 @@
 								"key": "Authorization",
 								"value": "Token {{djangoToken}}",
 								"type": "text"
+							},
+							{
+								"key": "X-CSRFToken",
+								"value": "{{csrftoken}}",
+								"type": "text"
 							}
 						],
 						"url": "{{baseUrl}}/api/users/"
@@ -300,7 +305,7 @@
 	],
 	"variable": [
 		{
-			"id": "845fb6d5-a9b2-42c1-848a-d881767f753e",
+			"id": "c82c1e99-34cf-4c09-93bf-109a5ac781ee",
 			"key": "djangoToken",
 			"value": ""
 		}
