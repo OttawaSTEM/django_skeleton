@@ -115,7 +115,8 @@
 									"",
 									"var jsonData = pm.response.json();",
 									"var accessToken = jsonData.key;",
-									"pm.collectionVariables.set(\"djangoToken\", accessToken);"
+									"// pm.collectionVariables.set(\"djangoToken\", accessToken);",
+									"postman.setEnvironmentVariable(\"djangoToken\", accessToken);"
 								],
 								"type": "text/javascript"
 							}
@@ -307,7 +308,7 @@
 	],
 	"variable": [
 		{
-			"id": "6c6bd2ed-a4a3-4ed8-b332-e856045dc136",
+			"id": "3c34edf3-b53c-43e3-9ea6-78505bc7cfe2",
 			"key": "djangoToken",
 			"value": ""
 		}
