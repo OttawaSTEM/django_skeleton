@@ -58,5 +58,11 @@ class GroupView(APIView):
             {'name': 'Emily', 'age': 40},
             {'name': 'Atom', 'age': 66},
             {'name': 'Atom', 'age': 66},
+            {'name': 'John', 'age': 30},
+            {'name': 'Alex', 'age': 29},
+            {'name': 'Lucas', 'age': 33},
+            {'name': 'Emily', 'age': 40},
+            {'name': 'Atom', 'age': 66},
+            {'name': 'Atom', 'age': 66},
         ]
         return Response(data)
