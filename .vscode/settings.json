@@ -1,7 +1,7 @@
 {
     "pylint.args": [
-        "--django-settings-module=django_skeleton.settings",
         "--load-plugins=pylint_django",
+        "--django-settings-module=django_skeleton.settings",
         "--disable=line-too-long",
         "--disable=missing-function-docstring",
         "--disable=missing-class-docstring",

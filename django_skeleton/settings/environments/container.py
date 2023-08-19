@@ -1,6 +1,6 @@
 import logging.config
-from .env_vars import BASE_DIR
-from .base import *
+from ..env_vars import BASE_DIR
+from ..base import *
 
 # For security and performance reasons, DEBUG is turned off
 # Must run "python manage.py collect static", otherwise cause Server Error (500)
