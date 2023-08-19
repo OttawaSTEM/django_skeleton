@@ -56,6 +56,56 @@
 			"name": "Auth",
 			"item": [
 				{
+					"name": "get CRSF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
+								"exec": [
+									"// var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+									"",
+									"var jsonData = pm.response.json();",
+									"var accessToken = jsonData.key;",
+									"pm.collectionVariables.set(\"djangoToken\", accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "0cd1805b-a799-4201-9c58-31c17b96b962",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/api/auth/login/"
+					},
+					"response": []
+				},
+				{
 					"name": "login",
 					"event": [
 						{
@@ -248,7 +298,7 @@
 	],
 	"variable": [
 		{
-			"id": "027aa819-5557-4b74-af01-07eaadcadb51",
+			"id": "170d79d6-7cb1-4c5d-ba73-ba0e38a08cd7",
 			"key": "djangoToken",
 			"value": ""
 		}
