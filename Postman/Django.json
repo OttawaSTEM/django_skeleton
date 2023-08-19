@@ -109,8 +109,6 @@
 							"script": {
 								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
 								"exec": [
-									"// var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
-									"",
 									"var jsonData = pm.response.json();",
 									"var accessToken = jsonData.key;",
 									"pm.collectionVariables.set(\"djangoToken\", accessToken);"
@@ -305,7 +303,7 @@
 	],
 	"variable": [
 		{
-			"id": "890a5d83-9b20-461a-90df-105c003074f1",
+			"id": "2a34e201-d181-4a82-84e8-525833b20594",
 			"key": "djangoToken",
 			"value": ""
 		}
