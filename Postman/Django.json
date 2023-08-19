@@ -56,7 +56,7 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "get CRSF",
+					"name": "get CSRF",
 					"event": [
 						{
 							"listen": "test",
@@ -298,7 +298,7 @@
 	],
 	"variable": [
 		{
-			"id": "7a98461d-e39c-455f-b753-11693179eeec",
+			"id": "56dc8695-3f60-46d8-a2c6-62a3dba5c2c3",
 			"key": "djangoToken",
 			"value": ""
 		}
