@@ -99,7 +99,7 @@
 								}
 							]
 						},
-						"url": "https://{{baseUrl}}/api/auth/login/"
+						"url": "{{baseUrl}}/api/auth/login/"
 					},
 					"response": []
 				},
@@ -246,7 +246,7 @@
 	],
 	"variable": [
 		{
-			"id": "284d78b1-0167-47ec-8017-6e3bc6586997",
+			"id": "bfe380fe-9519-42dd-8c2e-caea8b39d82f",
 			"key": "djangoToken",
 			"value": ""
 		}
