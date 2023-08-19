@@ -126,7 +126,13 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "{{csrftoken}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -294,7 +300,7 @@
 	],
 	"variable": [
 		{
-			"id": "ebbfffcb-ce97-4d71-b4aa-ed37c9552e5f",
+			"id": "5e5b70f7-f266-4a7f-ac1b-ede46c39bdbc",
 			"key": "djangoToken",
 			"value": ""
 		}
