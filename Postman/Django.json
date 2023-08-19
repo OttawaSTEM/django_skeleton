@@ -63,11 +63,7 @@
 							"script": {
 								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
 								"exec": [
-									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
-									"",
-									"var jsonData = pm.response.json();",
-									"var accessToken = jsonData.key;",
-									"pm.collectionVariables.set(\"djangoToken\", accessToken);"
+									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
 								],
 								"type": "text/javascript"
 							}
@@ -298,7 +294,7 @@
 	],
 	"variable": [
 		{
-			"id": "f443bc0b-8961-4aaa-b913-22a325417124",
+			"id": "e7b53441-522f-48a0-930e-f757a3ee45b3",
 			"key": "djangoToken",
 			"value": ""
 		}
