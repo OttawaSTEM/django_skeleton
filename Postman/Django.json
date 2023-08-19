@@ -131,7 +131,7 @@
 						"header": [
 							{
 								"key": "X-CSRFToken",
-								"value": "",
+								"value": "{{csrftoken}}",
 								"type": "text"
 							}
 						],
@@ -307,7 +307,7 @@
 	],
 	"variable": [
 		{
-			"id": "0f46cf61-cdcd-47cd-be7b-df37864a99a1",
+			"id": "d0df14e1-a176-407d-87d3-9a980931d278",
 			"key": "djangoToken",
 			"value": ""
 		}
