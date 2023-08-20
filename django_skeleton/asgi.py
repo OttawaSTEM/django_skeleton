@@ -7,14 +7,15 @@ https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 """
 import os
 
-if os.environ.get('DJANGO_ENVIRONMENT') == 'Development':
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_skeleton.settings.development')
-elif os.environ.get('DJANGO_ENVIRONMENT') == 'VirtualMachine':
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_skeleton.settings.virtualmachine')
+if os.environ.get("DJANGO_ENVIRONMENT") == "Development":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_skeleton.settings.environments.development")
+elif os.environ.get("DJANGO_ENVIRONMENT") == "VirtualMachine":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_skeleton.settings.environments.virtualmachine")
 else:
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_skeleton.settings.container')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_skeleton.settings.environments.container")
 
 from django.core.asgi import get_asgi_application
+
 # application = get_asgi_application()          # HTTP only
 
 
@@ -24,14 +25,10 @@ from channels.security.websocket import AllowedHostsOriginValidator
 import chat.routing
 
 django_asgi_app = get_asgi_application()
-application = ProtocolTypeRouter({
-    # Need to separate HTTP & Websocket
-    "http": django_asgi_app,
-    "websocket": AllowedHostsOriginValidator(
-        AuthMiddlewareStack(
-            URLRouter(
-                chat.routing.websocket_urlpatterns
-            )
-        )
-    ),
-})
+application = ProtocolTypeRouter(
+    {
+        # Need to separate HTTP & Websocket
+        "http": django_asgi_app,
+        "websocket": AllowedHostsOriginValidator(AuthMiddlewareStack(URLRouter(chat.routing.websocket_urlpatterns))),
+    }
+)
