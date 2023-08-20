@@ -31,12 +31,12 @@ class UserView(APIView):
         # serializer = UserSerializer(users, many=True)
         # return Response(serializer.data)
         data = [
-            {'name': 'John', 'age': 30},
-            {'name': 'Alex', 'age': 29},
-            {'name': 'Lucas', 'age': 33},
-            {'name': 'Emily', 'age': 40},
-            {'name': 'Atom', 'age': 66},
-            {'name': 'Atom', 'age': 66},
+            {"name": "John", "age": 30},
+            {"name": "Alex", "age": 29},
+            {"name": "Lucas", "age": 33},
+            {"name": "Emily", "age": 40},
+            {"name": "Atom", "age": 66},
+            {"name": "Atom", "age": 66},
         ]
         return Response(data)
 
@@ -51,18 +51,60 @@ class GroupView(APIView):
         # serializer = GroupSerializer(group, many=True)
         # return Response(serializer.data)
 
+        # data = [
+        #     {
+        #         "name": "Pizza da Mario 1",
+        #         "cuisine": "Italian",
+        #         "age": 7,
+        #         "reviews": [
+        #             {"score": 4.5, "review": "The pizza was amazing!"},
+        #             {"score": 5.0, "review": "Very friendly staff, excellent service!"},
+        #         ],
+        #     },
+        #     {
+        #         "name": "Pizza da Mario 2",
+        #         "cuisine": "Italian",
+        #         "age": 8,
+        #         "reviews": [
+        #             {"score": 4.5, "review": "The pizza was amazing!"},
+        #             {"score": 5.0, "review": "Very friendly staff, excellent service!"},
+        #         ],
+        #     },
+        #     {
+        #         "name": "Pizza da Mario 3",
+        #         "cuisine": "Italian",
+        #         "age": 9,
+        #         "reviews": [
+        #             {"score": 4.5, "review": "The pizza was amazing!"},
+        #             {"score": 5.0, "review": "Very friendly staff, excellent service!"},
+        #         ],
+        #     },
+        #     {
+        #         "name": "Pizza da Mario 4",
+        #         "cuisine": "Italian",
+        #         "age": 10,
+        #         "reviews": [
+        #             {"score": 4.5, "review": "The pizza was amazing!"},
+        #             {"score": 5.0, "review": "Very friendly staff, excellent service!"},
+        #         ],
+        #     },
+        #     {
+        #         "name": "Pizza da Mario 5",
+        #         "cuisine": "Italian",
+        #         "age": 11,
+        #         "reviews": [
+        #             {"score": 4.5, "review": "The pizza was amazing!"},
+        #             {"score": 5.0, "review": "Very friendly staff, excellent service!"},
+        #         ],
+        #     },
+        # ]
+
         data = [
-            {'name': 'John', 'age': 30},
-            {'name': 'Alex', 'age': 29},
-            {'name': 'Lucas', 'age': 33},
-            {'name': 'Emily', 'age': 40},
-            {'name': 'Atom', 'age': 66},
-            {'name': 'Atom', 'age': 66},
-            {'name': 'John', 'age': 30},
-            {'name': 'Alex', 'age': 29},
-            {'name': 'Lucas', 'age': 33},
-            {'name': 'Emily', 'age': 40},
-            {'name': 'Atom', 'age': 66},
-            {'name': 'Atom', 'age': 66},
+            {"name": "John", "age": 30},
+            {"name": "Alex", "age": 29},
+            {"name": "Lucas", "age": 33},
+            {"name": "Emily", "age": 40},
+            {"name": "Atom", "age": 66},
+            {"name": "Atom", "age": 66},
         ]
         return Response(data)
