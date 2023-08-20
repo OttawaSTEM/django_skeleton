@@ -39,7 +39,9 @@ ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 
 # Disable browsable API render of django-rest-framework
 REST_FRAMEWORK = {
-    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer"),
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+    ],
 }
 
 # Log everything to the logs directory at the top
