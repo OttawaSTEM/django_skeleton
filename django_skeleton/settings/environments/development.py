@@ -40,9 +40,11 @@ INTERNAL_IPS = [
 # AZURE_TRANSLATOR_SECRET_KEY = env('AZURE_TRANSLATOR_SECRET_KEY')
 
 # Disable browsable API render of django-rest-framework
-# REST_FRAMEWORK = {
-#     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer"),
-# }
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+    ],
+}
 
 # Log everything to the logs directory at the top
 LOGFILE_ROOT = BASE_DIR.joinpath("logs")
