@@ -114,120 +114,6 @@
 					"response": []
 				},
 				{
-					"name": "Google Login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "c9987f97-9842-4e5d-99fa-c9823af775dc",
-								"exec": [
-									"var response = pm.response.json();\r",
-									"pm.environment.set(\"djangoToken\", response[\"key\"]);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "56aa964e-e20b-42d0-bf18-ac73e7407c52",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"disableCookies": false
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
-						},
-						"url": "{{baseUrl}}/api/auth/google/"
-					},
-					"response": []
-				},
-				{
-					"name": "Google Code Grant",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "c9987f97-9842-4e5d-99fa-c9823af775dc",
-								"exec": [
-									"var response = pm.response.json();\r",
-									"pm.environment.set(\"djangoToken\", response[\"key\"]);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "8d517c71-71db-4068-9400-746e87387d31",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"disableCookies": false
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
-						},
-						"url": {
-							"raw": "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri={{googleCallBackURL}}&prompt=consent&response_type=code&client_id={{googleClientID}}&scope=email&access_type=offline",
-							"protocol": "https",
-							"host": [
-								"accounts",
-								"google",
-								"com"
-							],
-							"path": [
-								"o",
-								"oauth2",
-								"v2",
-								"auth"
-							],
-							"query": [
-								{
-									"key": "redirect_uri",
-									"value": "{{googleCallBackURL}}"
-								},
-								{
-									"key": "prompt",
-									"value": "consent"
-								},
-								{
-									"key": "response_type",
-									"value": "code"
-								},
-								{
-									"key": "client_id",
-									"value": "{{googleClientID}}"
-								},
-								{
-									"key": "scope",
-									"value": "email"
-								},
-								{
-									"key": "access_type",
-									"value": "offline"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "logout",
 					"id": "04d57c8a-06a7-407e-9df3-cd73a8085e15",
 					"protocolProfileBehavior": {
@@ -237,55 +123,6 @@
 						"method": "POST",
 						"header": [],
 						"url": "http://{{baseUrl}}/api/auth/logout/"
-					},
-					"response": []
-				},
-				{
-					"name": "Google Implicit Grant",
-					"id": "cb30468e-60a0-4935-86e7-769f02362a1c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri={{google_callback}}&prompt=consent&response_type=token&client_id={{google_client_id}}&scope=openid%20email%20profile",
-							"protocol": "https",
-							"host": [
-								"accounts",
-								"google",
-								"com"
-							],
-							"path": [
-								"o",
-								"oauth2",
-								"v2",
-								"auth"
-							],
-							"query": [
-								{
-									"key": "redirect_uri",
-									"value": "{{google_callback}}"
-								},
-								{
-									"key": "prompt",
-									"value": "consent"
-								},
-								{
-									"key": "response_type",
-									"value": "token"
-								},
-								{
-									"key": "client_id",
-									"value": "{{google_client_id}}"
-								},
-								{
-									"key": "scope",
-									"value": "openid%20email%20profile"
-								}
-							]
-						}
 					},
 					"response": []
 				}
@@ -338,7 +175,7 @@
 	],
 	"variable": [
 		{
-			"id": "16f5438f-013e-4d08-b2ba-e09b7ac870f7",
+			"id": "12e44f1e-e02e-4e69-bc3b-7911f560ce32",
 			"key": "djangoToken",
 			"value": ""
 		}
