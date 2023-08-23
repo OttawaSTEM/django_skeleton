@@ -171,7 +171,7 @@
 						"disableCookies": false
 					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -183,7 +183,47 @@
 							"mode": "raw",
 							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
 						},
-						"url": "{{baseUrl}}/api/auth/google/"
+						"url": {
+							"raw": "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri={{googleCallBackURL}}&prompt=consent&response_type=code&client_id={{googleClientID}}&scope=openid%20email%20profile&access_type=offline",
+							"protocol": "https",
+							"host": [
+								"accounts",
+								"google",
+								"com"
+							],
+							"path": [
+								"o",
+								"oauth2",
+								"v2",
+								"auth"
+							],
+							"query": [
+								{
+									"key": "redirect_uri",
+									"value": "{{googleCallBackURL}}"
+								},
+								{
+									"key": "prompt",
+									"value": "consent"
+								},
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "client_id",
+									"value": "{{googleClientID}}"
+								},
+								{
+									"key": "scope",
+									"value": "openid%20email%20profile"
+								},
+								{
+									"key": "access_type",
+									"value": "offline"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -298,7 +338,7 @@
 	],
 	"variable": [
 		{
-			"id": "16ce0e5f-289f-45d6-92ff-214ac04dd280",
+			"id": "e4b5e48c-bc80-4b0c-b147-62bee6e5a601",
 			"key": "djangoToken",
 			"value": ""
 		}
