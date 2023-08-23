@@ -184,7 +184,7 @@
 							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
 						},
 						"url": {
-							"raw": "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri={{googleCallBackURL}}&prompt=consent&response_type=code&client_id={{googleClientID}}&scope=openid%20email%20profile&access_type=offline",
+							"raw": "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri={{googleCallBackURL}}&prompt=consent&response_type=code&client_id={{googleClientID}}&scope=email&access_type=offline",
 							"protocol": "https",
 							"host": [
 								"accounts",
@@ -216,7 +216,7 @@
 								},
 								{
 									"key": "scope",
-									"value": "openid%20email%20profile"
+									"value": "email"
 								},
 								{
 									"key": "access_type",
@@ -338,7 +338,7 @@
 	],
 	"variable": [
 		{
-			"id": "e4b5e48c-bc80-4b0c-b147-62bee6e5a601",
+			"id": "16f5438f-013e-4d08-b2ba-e09b7ac870f7",
 			"key": "djangoToken",
 			"value": ""
 		}
