@@ -151,6 +151,43 @@
 					"response": []
 				},
 				{
+					"name": "Google Code Grant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9987f97-9842-4e5d-99fa-c9823af775dc",
+								"exec": [
+									"var response = pm.response.json();\r",
+									"pm.environment.set(\"djangoToken\", response[\"key\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "8d517c71-71db-4068-9400-746e87387d31",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
+						},
+						"url": "{{baseUrl}}/api/auth/google/"
+					},
+					"response": []
+				},
+				{
 					"name": "logout",
 					"id": "04d57c8a-06a7-407e-9df3-cd73a8085e15",
 					"protocolProfileBehavior": {
@@ -261,7 +298,7 @@
 	],
 	"variable": [
 		{
-			"id": "b7a707bf-93b2-42b1-993b-b5fd545ea426",
+			"id": "16ce0e5f-289f-45d6-92ff-214ac04dd280",
 			"key": "djangoToken",
 			"value": ""
 		}
