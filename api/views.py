@@ -18,7 +18,7 @@ from dj_rest_auth.registration.views import SocialLoginView
 class GoogleSignin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
     client_class = OAuth2Client
-    callback_url = settings.REST_AUTH_CALLBACK_URL
+    callback_url = settings.REST_AUTH_GOOGLE_CALLBACK_URL
 
 
 class UserView(APIView):

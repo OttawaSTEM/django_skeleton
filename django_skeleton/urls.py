@@ -9,34 +9,30 @@ from django.conf.urls.static import static
 from graphene_django.views import GraphQLView
 
 from . import views, sitemaps
+
 sitemaps = {
-    'static': sitemaps.StaticViewSitemap,
+    "static": sitemaps.StaticViewSitemap,
 }
 
 
 urlpatterns = [
     # Remove Django admin login for security reason
-    path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
-    path('graphql/', GraphQLView.as_view(graphiql=True)),
-    # path('openapi/', views.SwaggerPage.as_view(), name='openapi'),
-
+    path("admin/", admin.site.urls),
+    path("api/", include("api.urls")),
+    path("graphql/", GraphQLView.as_view(graphiql=True)),
+    path("openapi/", views.SwaggerPage.as_view(), name="openapi"),
     # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
     # path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False))),
-
-    path('chat/', include('chat.urls')),
-
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-         name='django.contrib.sitemaps.views.sitemap'),
-    path('i18n/', include('django.conf.urls.i18n'))
+    path("chat/", include("chat.urls")),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
+    path("i18n/", include("django.conf.urls.i18n")),
 ]
 
 urlpatterns += i18n_patterns(
-    path('', views.HomePage.as_view(), name='home'),
-    path('about/', views.AboutPage.as_view(), name='about'),
-
-    path('accounts/', include('allauth.urls')),
-    path('accounts/profile/', include('profiles.urls', namespace='profiles')),
+    path("", views.HomePage.as_view(), name="home"),
+    path("about/", views.AboutPage.as_view(), name="about"),
+    path("accounts/", include("allauth.urls")),
+    path("accounts/profile/", include("profiles.urls", namespace="profiles")),
 )
 
 # User-uploaded files like profile pics need to be served in development
@@ -45,6 +41,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # Include django debug toolbar if DEBUG is on
 if settings.DEBUG:
     import debug_toolbar
+
     urlpatterns += [
-        path('__debug__/', include(debug_toolbar.urls)),
+        path("__debug__/", include(debug_toolbar.urls)),
     ]
