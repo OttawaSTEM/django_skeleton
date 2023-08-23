@@ -114,43 +114,6 @@
 					"response": []
 				},
 				{
-					"name": "Google Login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "c9987f97-9842-4e5d-99fa-c9823af775dc",
-								"exec": [
-									"var response = pm.response.json();\r",
-									"pm.environment.set(\"djangoToken\", response[\"key\"]);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "56aa964e-e20b-42d0-bf18-ac73e7407c52",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"disableCookies": false
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"access_token\": \"{{googleAccessToken}}\"\r\n}"
-						},
-						"url": "{{baseUrl}}/api/auth/google/"
-					},
-					"response": []
-				},
-				{
 					"name": "Google Code Grant",
 					"event": [
 						{
@@ -338,7 +301,7 @@
 	],
 	"variable": [
 		{
-			"id": "16f5438f-013e-4d08-b2ba-e09b7ac870f7",
+			"id": "c1f2f9b0-9162-4ead-b79e-e61dc4d6a1f8",
 			"key": "djangoToken",
 			"value": ""
 		}
