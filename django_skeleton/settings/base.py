@@ -12,12 +12,12 @@ from .env_vars import env, BASE_DIR
 
 from .allauth import *
 from .compressor import *
-from .channels import *
+# from .channels import *
 from .crispy_form import *
 from .database import *
 from .email import *
 from .google import *
-from .graphql import *
+# from .graphql import *
 from .rest import *
 from .timezone_language import *
 
@@ -112,10 +112,10 @@ INSTALLED_APPS = (
     'dj_rest_auth.registration',
     'api',
 
-    'graphene_django',
-    'book_graphql',
+    # 'graphene_django',
+    # 'book_graphql',
 
-    'chat',
+    # 'chat',
 
     'compressor',
     'crispy_forms',

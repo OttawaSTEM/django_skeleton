@@ -4,9 +4,11 @@ from django.contrib.sitemaps.views import sitemap
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
+from dj_rest_auth.views import PasswordResetConfirmView
+
 
 # from django.views.decorators.csrf import csrf_exempt
-from graphene_django.views import GraphQLView
+# from graphene_django.views import GraphQLView
 
 from . import views, sitemaps
 
@@ -19,11 +21,14 @@ urlpatterns = [
     # Remove Django admin login for security reason
     path("admin/", admin.site.urls),
     path("api/", include("api.urls")),
-    path("graphql/", GraphQLView.as_view(graphiql=True)),
-    path("openapi/", views.SwaggerPage.as_view(), name="openapi"),
+    path("api/auth/password-reset/confirm/<str:uidb64>/<str:token>/", PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
+
+    # path("openapi/", views.SwaggerPage.as_view(), name="openapi"),
+    # path("graphql/", GraphQLView.as_view(graphiql=True)),
     # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
     # path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False))),
-    path("chat/", include("chat.urls")),
+    # path("chat/", include("chat.urls")),
+    
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
     path("i18n/", include("django.conf.urls.i18n")),
 ]
