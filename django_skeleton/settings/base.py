@@ -104,7 +104,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'captcha',
+    'django_recaptcha',
 
     'rest_framework',
     'rest_framework.authtoken',

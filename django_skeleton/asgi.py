@@ -16,19 +16,20 @@ else:
 
 from django.core.asgi import get_asgi_application
 
-# application = get_asgi_application()          # HTTP only
+# HTTP
+application = get_asgi_application()
 
+# HTTP & WebSocket
+# from channels.auth import AuthMiddlewareStack
+# from channels.routing import ProtocolTypeRouter, URLRouter
+# from channels.security.websocket import AllowedHostsOriginValidator
+# import chat.routing
 
-from channels.auth import AuthMiddlewareStack
-from channels.routing import ProtocolTypeRouter, URLRouter
-from channels.security.websocket import AllowedHostsOriginValidator
-import chat.routing
-
-django_asgi_app = get_asgi_application()
-application = ProtocolTypeRouter(
-    {
-        # Need to separate HTTP & Websocket
-        "http": django_asgi_app,
-        "websocket": AllowedHostsOriginValidator(AuthMiddlewareStack(URLRouter(chat.routing.websocket_urlpatterns))),
-    }
-)
+# django_asgi_app = get_asgi_application()
+# application = ProtocolTypeRouter(
+#     {
+#         # Need to separate HTTP & Websocket
+#         "http": django_asgi_app,
+#         "websocket": AllowedHostsOriginValidator(AuthMiddlewareStack(URLRouter(chat.routing.websocket_urlpatterns))),
+#     }
+# )

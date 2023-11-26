@@ -4,8 +4,8 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Field, HTML
 
 from allauth.account.forms import SignupForm, LoginForm, PasswordField
-from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV3
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV3
 
 
 class AllauthSignupForm(SignupForm):
