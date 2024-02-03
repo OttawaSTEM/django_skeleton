@@ -176,17 +176,42 @@
 			"name": "Scratch",
 			"item": [
 				{
-					"name": "http://localhost:8000/scratch/project/49/edit/",
-					"id": "a3457532-8221-4666-aee8-4108e28b8e68",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:8000/scratch/project/49/edit/"
-					},
-					"response": []
+					"name": "Dev",
+					"item": [
+						{
+							"name": "Get Project by ID",
+							"id": "a3457532-8221-4666-aee8-4108e28b8e68",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/project/49"
+							},
+							"response": []
+						}
+					],
+					"id": "33cb805f-60f1-4e9f-bf90-f050e1b1af65"
+				},
+				{
+					"name": "Prd",
+					"item": [
+						{
+							"name": "Get Project by ID Copy",
+							"id": "6ed64c57-8b13-4068-a77f-d18b1dd9ec69",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8000/api/project/49"
+							},
+							"response": []
+						}
+					],
+					"id": "fed2a7d1-643f-4ba0-b6c4-ceefca3612a8"
 				}
 			],
 			"id": "62daf882-ae47-4e61-9f5c-f69696aaef84"
