@@ -171,11 +171,15 @@
 				}
 			],
 			"id": "79b97dff-cb07-4c63-bbc7-5631d85c034f"
+		},
+		{
+			"name": "Scratch",
+			"item": [],
+			"id": "62daf882-ae47-4e61-9f5c-f69696aaef84"
 		}
 	],
 	"variable": [
 		{
-			"id": "12e44f1e-e02e-4e69-bc3b-7911f560ce32",
 			"key": "djangoToken",
 			"value": ""
 		}
