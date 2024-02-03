@@ -176,17 +176,23 @@
 			"name": "Scratch",
 			"item": [
 				{
-					"name": "Get Project by ID",
-					"id": "a3457532-8221-4666-aee8-4108e28b8e68",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{baseUrl}}/api/project/49"
-					},
-					"response": []
+					"name": "API",
+					"item": [
+						{
+							"name": "Get Project by ID",
+							"id": "a3457532-8221-4666-aee8-4108e28b8e68",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/project/49"
+							},
+							"response": []
+						}
+					],
+					"id": "bbb795a2-2496-4931-9065-26eeae083a1d"
 				}
 			],
 			"id": "62daf882-ae47-4e61-9f5c-f69696aaef84"
