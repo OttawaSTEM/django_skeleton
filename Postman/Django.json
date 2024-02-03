@@ -190,6 +190,19 @@
 								"url": "{{baseUrl}}/api/project/49"
 							},
 							"response": []
+						},
+						{
+							"name": "Get Session",
+							"id": "69cb86f1-a19f-4b5c-b859-bd0f5b1ec163",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/session"
+							},
+							"response": []
 						}
 					],
 					"id": "bbb795a2-2496-4931-9065-26eeae083a1d"
