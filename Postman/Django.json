@@ -174,7 +174,21 @@
 		},
 		{
 			"name": "Scratch",
-			"item": [],
+			"item": [
+				{
+					"name": "http://localhost:8000/scratch/project/49/edit/",
+					"id": "a3457532-8221-4666-aee8-4108e28b8e68",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8000/scratch/project/49/edit/"
+					},
+					"response": []
+				}
+			],
 			"id": "62daf882-ae47-4e61-9f5c-f69696aaef84"
 		}
 	],
