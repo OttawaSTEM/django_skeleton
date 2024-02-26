@@ -17,11 +17,8 @@ ACCOUNT_FORMS = {
     'signup': 'django_skeleton.forms.AllauthSignupForm',
     'login': 'django_skeleton.forms.AllauthSigninForm',
 }
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
-LOGIN_REDIRECT_URL = reverse_lazy(
-    'profiles:show_self')     # Redirect after sign in
+LOGIN_REDIRECT_URL = reverse_lazy('profiles:show_self')     # Redirect after sign in
 # LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy('home')
 
