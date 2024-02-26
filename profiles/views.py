@@ -60,10 +60,9 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
         try:
             user = request.user
             user_form = forms.UserForm(request.POST, instance=user)
-            profile_form = forms.ProfileForm(
-                request.POST, request.FILES, instance=user.profile)
+            profile_form = forms.ProfileForm(request.POST, request.FILES, instance=user.profile)
 
-            if user_form.is_valid() or profile_form.is_valid():
+            if not user_form.is_valid() or not profile_form.is_valid():
                 if user_form.errors:
                     message = f'Username: {user_form.errors.get_json_data()["username"][0]["message"]}'
                 elif profile_form.errors:
@@ -82,10 +81,9 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
             profile.user = user
             profile.save()
 
-            if not profile.picture:
+            if profile.picture:
                 try:
-                    shutil.rmtree(os.path.join(
-                        settings.MEDIA_ROOT, f'users/{user.profile.slug}/'))
+                    shutil.rmtree(os.path.join(settings.MEDIA_ROOT, f'users/{user.profile.slug}/'))
                 except ImportError:
                     pass
 
