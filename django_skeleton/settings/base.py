@@ -134,7 +134,9 @@ MIDDLEWARE = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 )
 
 ROOT_URLCONF = 'django_skeleton.urls'

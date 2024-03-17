@@ -9,7 +9,7 @@ django-recaptcha>=4.0.0             # Google recaptcha v3
 django-compressor>=4.4              # Django Compressor Compress CSS and JS, $ pip install rcssmin --install-option="--without-c-extensions"
 django-libsass>=0.9                 # Django Compressor compile scss to css
 djangorestframework>=3.14.0         # REST Web APIs
-dj-rest-auth==4.0.1                 # Django REST Authtication (django-allauth and djangorestframework)
+dj-rest-auth==5.0.2                 # Django REST Authtication (django-allauth and djangorestframework)
 
 # graphene-django>=3.0.0              # Graph QL
 # djangorestframework-simplejwt       # 
