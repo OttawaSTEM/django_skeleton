@@ -264,12 +264,19 @@
 					"response": []
 				},
 				{
-					"name": "2. login Copy",
+					"name": "3. sweet",
 					"id": "d9be0d75-1fc3-491b-b992-99cfa4664def",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"value": "Token 925a0a1c0af5b96d015afdb7937fe7bbe4f3997a2c09f06fd01be37d42fc641f",
+								"key": "Authorization"
+							}
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -280,14 +287,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"demo1\",\r\n    \"password\": \"demo1\"\r\n}",
+							"raw": "{\r\n    \"name\": \"demo1-1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/api/login/"
+						"url": "http://localhost:8000/sweet/"
 					},
 					"response": []
 				}
