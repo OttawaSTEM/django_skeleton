@@ -297,6 +297,41 @@
 						"url": "http://localhost:8000/sweet/"
 					},
 					"response": []
+				},
+				{
+					"name": "4. sweet get",
+					"id": "941014eb-9393-49d0-8d0e-d45e8c7643ce",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"value": "Token 925a0a1c0af5b96d015afdb7937fe7bbe4f3997a2c09f06fd01be37d42fc641f",
+								"key": "Authorization"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-ID",
+								"value": "42867f96-1e5e-41b1-8b1b-28b0738dd9b2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/sweet/"
+					},
+					"response": []
 				}
 			],
 			"id": "3ebbe1e7-af9d-49d2-8303-fad1f152070a"
