@@ -243,17 +243,28 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "X-Requested-ID",
+								"value": "42867f96-1e5e-41b1-8b1b-28b0738dd9b2",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"tenant_name\": \"demo1\"\r\n}",
+							"raw": "{\r\n    \"username\": \"demo1\",\r\n    \"password\": \"demo1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8000/client"
+						"url": "http://localhost:8000/api/login/"
 					},
 					"response": []
 				}
