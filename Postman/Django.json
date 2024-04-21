@@ -209,6 +209,24 @@
 				}
 			],
 			"id": "62daf882-ae47-4e61-9f5c-f69696aaef84"
+		},
+		{
+			"name": "tenant",
+			"item": [
+				{
+					"name": "tenant",
+					"id": "651854d7-1d4a-4619-b20d-e50eae708dda",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "3ebbe1e7-af9d-49d2-8303-fad1f152070a"
 		}
 	],
 	"variable": [
