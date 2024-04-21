@@ -214,7 +214,7 @@
 			"name": "tenant",
 			"item": [
 				{
-					"name": "tenant",
+					"name": "1. tenant",
 					"id": "651854d7-1d4a-4619-b20d-e50eae708dda",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -236,7 +236,7 @@
 					"response": []
 				},
 				{
-					"name": "login",
+					"name": "2. login",
 					"id": "cf69fec5-8b22-4950-9eef-96353e1da934",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -245,13 +245,36 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "X-Requested-ID",
+								"key": "X-Request-ID",
 								"value": "42867f96-1e5e-41b1-8b1b-28b0738dd9b2",
 								"type": "text"
-							},
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"demo1\",\r\n    \"password\": \"demo1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/login/"
+					},
+					"response": []
+				},
+				{
+					"name": "2. login Copy",
+					"id": "d9be0d75-1fc3-491b-b992-99cfa4664def",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
 							{
-								"key": "Accept",
-								"value": "*/*",
+								"key": "X-Request-ID",
+								"value": "42867f96-1e5e-41b1-8b1b-28b0738dd9b2",
 								"type": "text"
 							}
 						],
