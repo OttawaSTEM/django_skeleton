@@ -335,6 +335,25 @@
 				}
 			],
 			"id": "3ebbe1e7-af9d-49d2-8303-fad1f152070a"
+		},
+		{
+			"name": "Egorders",
+			"item": [
+				{
+					"name": "clients",
+					"id": "1de5d6e5-966d-4151-a78e-0ac1dd9aa299",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://egorders.com/api/clients/"
+					},
+					"response": []
+				}
+			],
+			"id": "9ec247b1-4f08-4a4b-91b0-5b62cb7f87bf"
 		}
 	],
 	"variable": [
