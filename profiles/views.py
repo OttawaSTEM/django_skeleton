@@ -47,13 +47,11 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
             if 'user_form' not in kwargs:
                 kwargs['user_form'] = forms.UserForm(instance=user)
             if 'profile_form' not in kwargs:
-                kwargs['profile_form'] = forms.ProfileForm(
-                    instance=user.profile)
+                kwargs['profile_form'] = forms.ProfileForm(instance=user.profile)
 
             return super(EditProfile, self).get(request, *args, **kwargs)
         except ImportError:
-            messages.error(
-                request, f'Show edit profile error - {sys.exc_info()}')
+            messages.error(request, f'Show edit profile error - {sys.exc_info()}')
             return redirect('home')
 
     def post(self, request, *args, **kwargs):
@@ -66,8 +64,7 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
                 if user_form.errors:
                     message = f'Username: {user_form.errors.get_json_data()["username"][0]["message"]}'
                 elif profile_form.errors:
-                    message = _(
-                        'Upload unsupported image. Supported image file format: *.png, *.jpg, *.jpeg, *.bmp *.gif.')
+                    message = _('Upload unsupported image. Supported image file format: *.png, *.jpg, *.jpeg, *.bmp.')
 
                 messages.error(request, message)
                 user_form = forms.UserForm(instance=user)
@@ -90,6 +87,5 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
             messages.success(request, _('Profile details saved!'))
             return HttpResponseRedirect(reverse_lazy('profiles:show_self'))
         except ImportError:
-            messages.error(
-                request, f'Post edit profile error - {sys.exc_info()}')
+            messages.error(request, f'Post edit profile error - {sys.exc_info()}')
             return redirect('home')
