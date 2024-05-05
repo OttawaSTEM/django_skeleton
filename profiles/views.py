@@ -78,12 +78,6 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
             profile.user = user
             profile.save()
 
-            if profile.picture:
-                try:
-                    shutil.rmtree(os.path.join(settings.MEDIA_ROOT, f'users/{user.profile.slug}/'))
-                except ImportError:
-                    pass
-
             messages.success(request, _('Profile details saved!'))
             return HttpResponseRedirect(reverse_lazy('profiles:show_self'))
         except ImportError:

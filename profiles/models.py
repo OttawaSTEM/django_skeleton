@@ -66,8 +66,7 @@ class BaseProfile(models.Model):
             output = BytesIO()
             image.save(output, format='PNG')
             output.seek(0)
-            self.picture = InMemoryUploadedFile(
-                output, 'ImageField', 'avatar.png', 'image/png', len(output.getvalue()), None)
+            self.picture = InMemoryUploadedFile(output, 'ImageField', 'avatar.png', 'image/png', len(output.getvalue()), None)
         super(BaseProfile, self).save(*args, **kwargs)
 
 
