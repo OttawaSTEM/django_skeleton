@@ -233,7 +233,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/en/api/clients/"
+						"url": "{{baseUrl}}/api/clients/"
 					},
 					"response": []
 				}
