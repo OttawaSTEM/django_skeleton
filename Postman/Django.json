@@ -199,7 +199,18 @@
 							},
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "sessionid",
+										"value": "o4luhyame1d7p9elqocnkf7ex3s610d5",
+										"type": "text"
+									},
+									{
+										"key": "csrftoken",
+										"value": "DIqNu8M7wWAcz6BrrYM0fnisY00x76b9BkpKTsAVyFAK4YW37KOu9ELVSh5LWeOl",
+										"type": "text"
+									}
+								],
 								"url": "{{baseUrl}}/api/session"
 							},
 							"response": []
@@ -287,7 +298,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"demo1-1\"\r\n}",
+							"raw": "{\r\n    \"name\": \"demo1-3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
