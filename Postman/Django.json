@@ -225,7 +225,7 @@
 			"name": "Egorders",
 			"item": [
 				{
-					"name": "clients",
+					"name": "info",
 					"id": "1de5d6e5-966d-4151-a78e-0ac1dd9aa299",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -233,7 +233,33 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/api/clients/"
+						"url": "{{baseUrl}}/en/api/client/{{clientId}}/info/"
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"id": "2d1e8c66-db91-46dc-bc7f-120dcf929127",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/en/api/client/{{clientId}}/categories/"
+					},
+					"response": []
+				},
+				{
+					"name": "items",
+					"id": "24a499a5-aea9-4e1d-b375-a4fc4e71fcb7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/en/api/client/{{clientId}}/items/"
 					},
 					"response": []
 				}
