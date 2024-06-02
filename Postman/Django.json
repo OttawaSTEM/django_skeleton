@@ -262,6 +262,45 @@
 						"url": "{{baseUrl}}/en/api/client/{{clientId}}/items/"
 					},
 					"response": []
+				},
+				{
+					"name": "addons",
+					"id": "b49f764c-3653-4c62-9610-8fdef757a7be",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/en/api/client/{{clientId}}/addons/"
+					},
+					"response": []
+				},
+				{
+					"name": "order",
+					"id": "8a0cd9b2-6a75-46c2-af7e-c224142c9618",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/en/api/client/{{clientId}}/order/"
+					},
+					"response": []
+				},
+				{
+					"name": "order",
+					"id": "f07eb4ef-a8f5-4abb-b78c-474347105173",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{baseUrl}}/en/api/client/{{clientId}}/order/"
+					},
+					"response": []
 				}
 			],
 			"id": "9ec247b1-4f08-4a4b-91b0-5b62cb7f87bf"
