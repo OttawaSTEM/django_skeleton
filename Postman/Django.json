@@ -277,19 +277,6 @@
 					"response": []
 				},
 				{
-					"name": "order",
-					"id": "8a0cd9b2-6a75-46c2-af7e-c224142c9618",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{baseUrl}}/en/api/client/{{clientId}}/order/"
-					},
-					"response": []
-				},
-				{
 					"name": "orders",
 					"id": "b7542c49-ce75-44af-b6e8-23dca2abd795",
 					"protocolProfileBehavior": {
@@ -298,7 +285,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/en/api/client/{{clientId}}/order/"
+						"url": "{{baseUrl}}/en/api/client/{{clientId}}/orders/"
 					},
 					"response": []
 				},
@@ -311,6 +298,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Order\": \"Order\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": "{{baseUrl}}/en/api/client/{{clientId}}/order/"
 					},
 					"response": []
