@@ -290,6 +290,19 @@
 					"response": []
 				},
 				{
+					"name": "orders",
+					"id": "b7542c49-ce75-44af-b6e8-23dca2abd795",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/en/api/client/{{clientId}}/order/"
+					},
+					"response": []
+				},
+				{
 					"name": "order",
 					"id": "f07eb4ef-a8f5-4abb-b78c-474347105173",
 					"protocolProfileBehavior": {
