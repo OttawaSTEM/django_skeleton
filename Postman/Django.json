@@ -63,15 +63,25 @@
 							"script": {
 								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
 								"exec": [
-									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
-									"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
-									"",
 									"var jsonData = pm.response.json();",
 									"var accessToken = jsonData.key;",
 									"// pm.collectionVariables.set(\"djangoToken\", accessToken);",
 									"postman.setEnvironmentVariable(\"djangoToken\", accessToken);"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3c5fa0c1-0bd2-4e77-b0b7-74a5162d2173",
+								"exec": [
+									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); \r",
+									"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -85,8 +95,7 @@
 						"header": [
 							{
 								"key": "X-CSRFToken",
-								"value": "{{csrftoken}}",
-								"type": "text"
+								"value": "{{csrftoken}}"
 							}
 						],
 						"body": {
