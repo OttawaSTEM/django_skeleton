@@ -87,13 +87,13 @@
 							}
 						}
 					],
-					"id": "091ba557-6435-4ca4-9fd6-0175ebe935a7",
+					"id": "5dc29628-b6e3-4b19-87ea-477b98d10104",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"disableCookies": false
 					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "X-CSRFToken",
@@ -156,7 +156,7 @@
 							}
 						}
 					],
-					"id": "5dc29628-b6e3-4b19-87ea-477b98d10104",
+					"id": "091ba557-6435-4ca4-9fd6-0175ebe935a7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
 						"disableCookies": false
