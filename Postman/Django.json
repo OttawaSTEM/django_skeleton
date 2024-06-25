@@ -364,7 +364,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{djangoToken}}",
+								"type": "text"
+							}
+						],
 						"url": "{{baseUrl}}/api/clients/{{clientId}}/orders/"
 					},
 					"response": []
