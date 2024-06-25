@@ -257,7 +257,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/en/api/client/{{clientId}}/categories/"
+						"url": "{{baseUrl}}/api/clients/{{clientId}}/categories/"
 					},
 					"response": []
 				},
@@ -270,7 +270,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/en/api/client/{{clientId}}/items/"
+						"url": "{{baseUrl}}/api/clients/{{clientId}}/items/"
 					},
 					"response": []
 				},
@@ -283,7 +283,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/en/api/client/{{clientId}}/addons/"
+						"url": "{{baseUrl}}/api/clients/{{clientId}}/addons/"
 					},
 					"response": []
 				},
@@ -296,7 +296,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/api/client/{{clientId}}/orders/"
+						"url": "{{baseUrl}}/api/clients/{{clientId}}/orders/"
 					},
 					"response": []
 				},
@@ -318,7 +318,7 @@
 								}
 							}
 						},
-						"url": "{{baseUrl}}/en/api/client/{{clientId}}/order/"
+						"url": "{{baseUrl}}/api/clients/{{clientId}}/order/"
 					},
 					"response": []
 				}
