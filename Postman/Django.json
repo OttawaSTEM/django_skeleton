@@ -296,7 +296,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/en/api/client/{{clientId}}/orders/"
+						"url": "{{baseUrl}}/api/client/{{clientId}}/orders/"
 					},
 					"response": []
 				},
