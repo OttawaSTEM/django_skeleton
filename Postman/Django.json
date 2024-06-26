@@ -249,6 +249,19 @@
 					"response": []
 				},
 				{
+					"name": "clients",
+					"id": "058b10f5-173d-47e4-90c2-0340da640a3d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/clients/"
+					},
+					"response": []
+				},
+				{
 					"name": "categories",
 					"id": "2d1e8c66-db91-46dc-bc7f-120dcf929127",
 					"protocolProfileBehavior": {
