@@ -417,6 +417,32 @@
 			"name": "Stripe",
 			"item": [
 				{
+					"name": "Get Stripe Key",
+					"id": "bdbcd106-3d7c-475e-8043-0a9c3b276dce",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4242/stripe-key/"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy 2",
+					"id": "9992df4a-d827-40ce-ad92-a8f684ccfd64",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:5000/create-checkout-session/"
+					},
+					"response": []
+				},
+				{
 					"name": "New Request",
 					"id": "960677c5-7fd4-4e71-9e6e-e0f3c4a93384",
 					"protocolProfileBehavior": {
