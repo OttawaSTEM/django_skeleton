@@ -469,7 +469,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/create-payment-intent/"
+						"url": "http://localhost:5000/create-payment-intent"
 					},
 					"response": []
 				}
