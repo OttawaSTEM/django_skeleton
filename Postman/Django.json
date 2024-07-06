@@ -412,6 +412,24 @@
 				}
 			],
 			"id": "9ec247b1-4f08-4a4b-91b0-5b62cb7f87bf"
+		},
+		{
+			"name": "Stripe",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "960677c5-7fd4-4e71-9e6e-e0f3c4a93384",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "d7946900-b441-4da8-92be-726587c2872f"
 		}
 	],
 	"variable": [
