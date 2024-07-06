@@ -430,7 +430,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request Copy 2",
+					"name": "Create Checkout Session",
 					"id": "9992df4a-d827-40ce-ad92-a8f684ccfd64",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -438,7 +438,16 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": "http://localhost:5000/create-checkout-session/"
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4242/create-checkout-session/"
 					},
 					"response": []
 				},
