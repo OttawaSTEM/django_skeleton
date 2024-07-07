@@ -452,7 +452,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Create Payment Intent",
 					"id": "960677c5-7fd4-4e71-9e6e-e0f3c4a93384",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
