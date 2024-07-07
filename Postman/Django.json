@@ -369,6 +369,74 @@
 					"response": []
 				},
 				{
+					"name": "login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
+								"exec": [
+									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
+									"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+									"",
+									"var jsonData = pm.response.json();",
+									"var accessToken = jsonData.key;",
+									"postman.setEnvironmentVariable(\"djangoToken\", accessToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3c5fa0c1-0bd2-4e77-b0b7-74a5162d2173",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "cf0bb864-ecc9-4681-b5a0-8931c656db7b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "{{csrftoken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/api/auth/login/"
+					},
+					"response": []
+				},
+				{
 					"name": "orders",
 					"id": "b7542c49-ce75-44af-b6e8-23dca2abd795",
 					"protocolProfileBehavior": {
