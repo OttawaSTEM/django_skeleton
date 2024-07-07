@@ -313,7 +313,6 @@
 									"",
 									"var jsonData = pm.response.json();",
 									"var accessToken = jsonData.key;",
-									"// pm.collectionVariables.set(\"djangoToken\", accessToken);",
 									"postman.setEnvironmentVariable(\"djangoToken\", accessToken);"
 								],
 								"type": "text/javascript",
