@@ -409,6 +409,28 @@
 						"url": "{{baseUrl}}/api/clients/{{clientId}}/order/"
 					},
 					"response": []
+				},
+				{
+					"name": "stripe",
+					"id": "9e1d0119-4c7c-4ad9-a862-547488e7dd5d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"id\": \"xl-tshirt\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/clients/{{clientId}}/order/payment/"
+					},
+					"response": []
 				}
 			],
 			"id": "9ec247b1-4f08-4a4b-91b0-5b62cb7f87bf"
@@ -470,28 +492,6 @@
 							}
 						},
 						"url": "http://localhost:5000/create-payment-intent"
-					},
-					"response": []
-				},
-				{
-					"name": "Create Payment Intent Copy",
-					"id": "9e1d0119-4c7c-4ad9-a862-547488e7dd5d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"id\": \"xl-tshirt\"\r\n        }\r\n    ]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://192.168.1.109:8000/clients/33ce91cd-4b30-4168-9e6e-806f9c4e7bfd/order/payment/"
 					},
 					"response": []
 				}
