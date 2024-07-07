@@ -409,28 +409,13 @@
 						"header": [
 							{
 								"key": "X-CSRFToken",
-								"value": "{{csrftoken}}"
+								"value": "{{csrftoken}}",
+								"disabled": true
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "{{username}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}",
-									"type": "text"
-								}
-							]
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"email\":\"google@egorders.com\",\r\n    \"password\": \"^#RgKcE&etZ6jKE3\"\r\n}"
 						},
 						"url": "{{baseUrl}}/api/auth/login/"
 					},
