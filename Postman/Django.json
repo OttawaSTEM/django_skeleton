@@ -308,12 +308,12 @@
 							"script": {
 								"id": "c8e5be36-32dc-4e14-9ade-a099697f6a78",
 								"exec": [
-									"// var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
-									"// postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); ",
+									"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
 									"",
-									"// var jsonData = pm.response.json();",
-									"// var accessToken = jsonData.key;",
-									"// postman.setEnvironmentVariable(\"djangoToken\", accessToken);"
+									"var jsonData = pm.response.json();",
+									"var accessToken = jsonData.key;",
+									"postman.setEnvironmentVariable(\"djangoToken\", accessToken);"
 								],
 								"type": "text/javascript",
 								"packages": {}
