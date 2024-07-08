@@ -493,6 +493,28 @@
 						"url": "http://localhost:5000/create-payment-intent"
 					},
 					"response": []
+				},
+				{
+					"name": "Create Payment Intent Copy",
+					"id": "8a3ad0ff-c19b-422e-9124-b886fc9a925d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"id\": \"xl-tshirt\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://192.168.1.109:8000/api/clients/33ce91cd-4b30-4168-9e6e-806f9c4e7bfd/order/payment/"
+					},
+					"response": []
 				}
 			],
 			"id": "d7946900-b441-4da8-92be-726587c2872f"
