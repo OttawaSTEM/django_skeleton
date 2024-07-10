@@ -91,6 +91,8 @@ https://console.developers.google.com/
 (venv)$ python manage.py translate_messages -u -f
 (venv)$ python manage.py compilemessages
 
+[PO File Translate](https://pofile.net/free-po-editor)
+
 # Django create app add to project
 
 (venv)$ python manage.py startapp <new_app>
