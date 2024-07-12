@@ -13,8 +13,9 @@ class AllauthSignupForm(SignupForm):
     password2 = PasswordField(label=_("Password (again)"))
     captcha = ReCaptchaField(label='', widget=ReCaptchaV3)
 
-    def signup(self, *args, **kwargs):
-        return super(AllauthSignupForm, self).login(*args, **kwargs)
+    def save(self, request):
+        user = super(AllauthSignupForm, self).save(request)
+        return user
 
 
 class AllauthSigninForm(LoginForm):

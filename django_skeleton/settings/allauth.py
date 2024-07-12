@@ -10,6 +10,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
+DEFAULT_FROM_EMAIL = "info@django.com"
+
 # Get Errno 10013: an attempt was made to access a socket in a way forbidden by its access permissions.
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # ACCOUNT_EMAIL_VERIFICATION = 'optional'
