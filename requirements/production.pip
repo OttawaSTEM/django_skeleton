@@ -2,6 +2,6 @@
 # python -m pip install --upgrade pip
 # pip install -r requirements\development.txt --upgrade
 
--r base.txt
+-r base.pip
 
 # Extra stuff required for production like Prod Database interfacing packages
