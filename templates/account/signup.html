@@ -30,7 +30,7 @@
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{  form | crispy }}
-        <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
+        <button type="submit" class="btn btn-primary fw-bold">{% trans "Sign up" %}</button>
     </form>
 
     <hr class="my-3">
