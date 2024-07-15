@@ -173,3 +173,12 @@ python manage.py generateschema --file static/site/openapi/schema.yaml
 # Google Login "Invalid id_token"
 django-allauth==0.50.0
 dj-rest-auth==4.0.1    
+
+
+# Test SendEmail
+```bash
+python manage.py shell
+
+>>> from dharro.utils import SendEmail
+>>> SendEmail('test', 'test')
+```
