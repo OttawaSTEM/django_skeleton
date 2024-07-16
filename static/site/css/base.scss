@@ -15,16 +15,17 @@ code {
 
 .btn-primary {
     border: none;
-    background-color: $light_blue;
+    background-color: $primary_color;
 }
 
-.btn-primary:hover,
-.btn-primary:active {
-    // border: 1px;
-    // background-color: $highlight_blue;
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
     border: 2px;
-    border-color: $light_blue;
+    border-color: $primary_color;
     border-style: solid;
     background-color: $gray_100;
-    color: $light_blue;
+    color: $primary_color;
+    outline: none !important;
+    box-shadow: none !important;
 }
