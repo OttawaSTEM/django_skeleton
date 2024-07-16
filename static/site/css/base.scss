@@ -16,6 +16,7 @@ code {
 .btn-primary {
     border: none;
     background-color: $primary_color;
+    font-weight: bold;
 }
 
 .btn-primary:active,
@@ -28,4 +29,5 @@ code {
     color: $primary_color;
     outline: none !important;
     box-shadow: none !important;
+    font-weight: bold;
 }
