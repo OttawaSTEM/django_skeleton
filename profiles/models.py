@@ -60,13 +60,13 @@ class BaseProfile(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        if self.picture:
-            image = Image.open(BytesIO(self.picture.read()))
+        if self.avatar:
+            image = Image.open(BytesIO(self.avatar.read()))
             image.thumbnail((140, 140))
             output = BytesIO()
             image.save(output, format='PNG')
             output.seek(0)
-            self.picture = InMemoryUploadedFile(output, 'ImageField', 'avatar.png', 'image/png', len(output.getvalue()), None)
+            self.avatar = InMemoryUploadedFile(output, 'ImageField', 'avatar.png', 'image/png', len(output.getvalue()), None)
         super(BaseProfile, self).save(*args, **kwargs)
 
 
