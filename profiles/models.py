@@ -37,7 +37,7 @@ class BaseProfile(models.Model):
     # Add more user profile fields here with default values,
     # CharFiled and TextFiled discouraged to use null=True in Django, avoid two possible values for “no data”: null and the empty string
     # python manage.py makemigrations profiles --name AddProfileModels
-    picture = models.ImageField(_('Profile Picture'), upload_to=upload_to, storage=UploadStorage(
+    avatar = models.ImageField(_('Avatar Picture'), upload_to=upload_to, storage=UploadStorage(
     ), blank=True, null=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg', 'bmp', 'gif'])])
     bio = models.CharField(_('Short Bio'), max_length=200, blank=True)
     email_verified = models.BooleanField(_('Email Verified'), default=False)

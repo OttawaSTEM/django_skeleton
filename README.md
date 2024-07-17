@@ -19,8 +19,8 @@ async for author in Author.objects.filter(name__startswith="A"):
 ## Windows
 
 ```
-python -m venv venv
-venv\Scripts\activate
+python -m venv .venv
+.venv\Scripts\activate
 python -m pip install pip --upgrade
 pip install -r requirements\development.txt
 pip install -r requirements\production.txt
@@ -29,7 +29,7 @@ pip install -r requirements\production.txt
 ## MacOS,Linux
 
 ```
-python3 -m venv venv
+python3 -m venv .venv
 . venv/bin/activate
 python -m pip install pip --upgrade
 pip install -r requirements/development.txt
@@ -141,8 +141,8 @@ database: db.sqlite
 
 ```
 # Translate language
-$ django-admin makemessages -l fr -i venv
-$ django-admin makemessages -l zh_Hans -i venv
+$ django-admin makemessages -l fr -i .venv
+$ django-admin makemessages -l zh_Hans -i .venv
 
 # Compile language po for production
 $ django-admin compilemessages         # Compile all languanges

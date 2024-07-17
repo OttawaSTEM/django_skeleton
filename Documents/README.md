@@ -109,10 +109,10 @@ https://www.jqueryscript.net/form/Bootstrap-Country-Picker-jQuery.html
 
 
 Modify widgets js
-./venv/lib/python3.x/site-packages/jsignature/templates/widgets.py
+./.venv/lib/python3.x/site-packages/jsignature/templates/widgets.py
 class="btn" -> class="btn btn-default"
 
-./venv/lib/python3.x/site-packages/jsignature/widgets.py
+./.venv/lib/python3.x/site-packages/jsignature/widgets.py
 #    class Media:
 #        js = ('site/js/signature/jSignature.min.js',
 #              'site/js/signature/django_jsignature.js')

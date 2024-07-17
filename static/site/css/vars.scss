@@ -11,8 +11,8 @@ $gray_300: #dee2e6;
 $gray_200: #e9ecef;
 $gray_100: #f8f9fa;
 
-$light_blue: #26b3fb;
-$highlight_blue: #169aff;
+$primary_color: #26b3fb;
+$second_color: #169aff;
 $border_gray: #ccc;
 $background_gray: #ededed;
 $background_light_gray: $gray_100;
@@ -29,5 +29,5 @@ $widget_border_radius: 4px;
 $table_header_rounding: 6px;
 
 $navbar_color: white;
-$navbar_background_color: $light_blue;
+$navbar_background_color: $primary_color;
 $navbar_dropdown_background_color: $gray_800;
