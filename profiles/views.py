@@ -30,7 +30,7 @@ class ShowProfile(LoginRequiredMixin, generic.TemplateView):
             if user == request.user:
                 kwargs['editable'] = True
 
-            kwargs['show_user'] = user
+            kwargs['user'] = user
             return super(ShowProfile, self).get(request, *args, **kwargs)
         except ImportError:
             messages.error(request, f'Show profile error - {sys.exc_info()}')

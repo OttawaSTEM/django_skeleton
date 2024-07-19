@@ -16,8 +16,8 @@
         <div class="row profile-head">
             <div class="col-sm-2">
                 <div class="row ml-1">
-                    {% if show_user.profile.picture %}
-                        <img title="profile picture" src="{{ MEDIA_URL}}{{ show_user.profile.picture }}" alt="avatar" class="img-fluid w-auto">
+                    {% if user.profile.picture %}
+                        <img title="profile picture" src="{{ MEDIA_URL}}{{ user.profile.picture }}" alt="avatar" class="img-fluid w-auto">
                     {% else %}
                         <img title="profile picture" src="{% static '/site/img/profile_default.png' %}" alt="avatar" class="img-fluid w-auto">
                     {% endif%}
@@ -25,8 +25,8 @@
             </div>
             <div class="col-sm-10">
                 <div class="row">
-                    <h5 class="mt-3">{{ show_user.get_username }}</h5>
-                    {% comment %} <h5 class="mt-3 fw-bold">{{ show_user.get_full_name }}</h5> {% endcomment %}
+                    <h5 class="mt-3">{{ user.get_username }}</h5>
+                    {% comment %} <h5 class="mt-3 fw-bold">{{ user.get_full_name }}</h5> {% endcomment %}
                 </div>
                 <div class="row">
                     <div class="mt-5">
@@ -41,8 +41,8 @@
             <div class="col-md-4 mt-3">
                 <ul class="list-group">
                     <li class="list-group-item bg-secondary" style="color: white; font-weight: bold;">{% trans "Profile" %}</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>{% trans "Email" %}: </strong></span> {{ show_user.email|default:"missing" }}
-                {% if show_user.profile.email_verified %}
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>{% trans "Email" %}: </strong></span> {{ user.email|default:"missing" }}
+                {% if user.profile.email_verified %}
                     <span class="glyphicon glyphicon-ok-circle" aria-hidden="true" title="This email address has been verified"></span>
                     <span class="sr-only">{% trans "Email verified" %}</span>
                 {% else %}
@@ -50,22 +50,22 @@
                     <span class="sr-only">{% trans "Email not verified" %}</span>
                 {% endif %}
                 </li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>{% trans "Joined" %}: </strong></span> {{ show_user.date_joined }}</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>{% trans "Last seen" %}: </strong></span> {{ show_user.last_login }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>{% trans "Joined" %}: </strong></span> {{ user.date_joined }}</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>{% trans "Last seen" %}: </strong></span> {{ user.last_login }}</li>
                 </ul>
             </div>
             <div class="col-md-8 mt-3">
                 <div class="card">
-                    {% comment %} <div class="card-header fw-bold">{{ show_user.get_full_name }}'s {% trans "Profile" %} {% endcomment %}
-                    <div class="card-header fw-bold">{{ show_user.get_username }}'s {% trans "Profile" %}
-                        {% if show_user.profile.slug %}
-                            <a href="{% url 'profiles:show' show_user.profile.slug %}">
+                    {% comment %} <div class="card-header fw-bold">{{ user.get_full_name }}'s {% trans "Profile" %} {% endcomment %}
+                    <div class="card-header fw-bold">{{ user.get_username }}'s {% trans "Profile" %}
+                        {% if user.profile.slug %}
+                            <a href="{% url 'profiles:show' user.profile.slug %}">
                             <span class="glyphicon glyphicon-link" aria-hidden="true" title="Profile permalink"></span>
-                            <span class="sr-only">{% trans "Permalink" %}</span></a>{{ show_user.profile.get_absolute_url }}
+                            <span class="sr-only">{% trans "Permalink" %}</span></a>{{ user.profile.get_absolute_url }}
                         {% endif %}
                     </div>
                     <div class="card-body" style="height: 145px;">
-                        <strong>{% trans "Bio" %}: </strong>{{ show_user.profile.bio }}
+                        <strong>{% trans "Bio" %}: </strong>{{ user.profile.bio }}
                     </div>
                 </div>
             </div>
