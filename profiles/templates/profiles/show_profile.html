@@ -19,7 +19,7 @@
                     {% if user.profile.picture %}
                         <img title="profile picture" src="{{ MEDIA_URL}}{{ user.profile.picture }}" alt="avatar" class="img-fluid w-auto">
                     {% else %}
-                        <img title="profile picture" src="{% static '/site/img/profile_default.png' %}" alt="avatar" class="img-fluid w-auto">
+                        <img title="profile picture" src="{% static '/site/img/profile/default.png' %}" alt="avatar" class="img-fluid w-auto">
                     {% endif%}
                 </div>
             </div>
