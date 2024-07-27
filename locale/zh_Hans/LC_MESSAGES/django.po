@@ -97,23 +97,23 @@ msgstr "省"
 msgid "Postal Code"
 msgstr "邮政编码"
 
-#: .\profiles\templates\profiles\edit_profile.html:6
-#: .\profiles\templates\profiles\show_profile.html:5
-#: .\profiles\templates\profiles\show_profile.html:41
-#: .\profiles\templates\profiles\show_profile.html:59
+#: .\profiles\templates\profiles\profile_edit.html:6
+#: .\profiles\templates\profiles\profile_show.html:5
+#: .\profiles\templates\profiles\profile_show.html:41
+#: .\profiles\templates\profiles\profile_show.html:59
 msgid "Profile"
 msgstr "配置 文件"
 
-#: .\profiles\templates\profiles\edit_profile.html:18
-#: .\profiles\templates\profiles\show_profile.html:31
+#: .\profiles\templates\profiles\profile_edit.html:18
+#: .\profiles\templates\profiles\profile_show.html:31
 msgid "Edit Profile"
 msgstr "编辑配置文件"
 
-#: .\profiles\templates\profiles\edit_profile.html:32
+#: .\profiles\templates\profiles\profile_edit.html:32
 msgid "Personal Information"
 msgstr "个人信息"
 
-#: .\profiles\templates\profiles\edit_profile.html:45
+#: .\profiles\templates\profiles\profile_edit.html:45
 #: .\templates\account\password_change.html:6
 #: .\templates\account\password_change.html:9
 #: .\templates\account\password_change.html:14
@@ -124,32 +124,32 @@ msgstr "个人信息"
 msgid "Change Password"
 msgstr "更改密码"
 
-#: .\profiles\templates\profiles\show_profile.html:42
+#: .\profiles\templates\profiles\profile_show.html:42
 msgid "Email"
 msgstr "添加电子邮件"
 
-#: .\profiles\templates\profiles\show_profile.html:45
+#: .\profiles\templates\profiles\profile_show.html:45
 #: .\templates\account\email.html:21
 msgid "Email verified"
 msgstr "电子邮件已验证"
 
-#: .\profiles\templates\profiles\show_profile.html:48
+#: .\profiles\templates\profiles\profile_show.html:48
 msgid "Email not verified"
 msgstr "电子邮件未验证"
 
-#: .\profiles\templates\profiles\show_profile.html:51
+#: .\profiles\templates\profiles\profile_show.html:51
 msgid "Joined"
 msgstr ""
 
-#: .\profiles\templates\profiles\show_profile.html:52
+#: .\profiles\templates\profiles\profile_show.html:52
 msgid "Last seen"
 msgstr ""
 
-#: .\profiles\templates\profiles\show_profile.html:63
+#: .\profiles\templates\profiles\profile_show.html:63
 msgid "Permalink"
 msgstr ""
 
-#: .\profiles\templates\profiles\show_profile.html:67
+#: .\profiles\templates\profiles\profile_show.html:67
 msgid "Bio"
 msgstr ""
 

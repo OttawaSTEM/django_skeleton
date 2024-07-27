@@ -14,8 +14,8 @@ from . import forms
 from . import models
 
 
-class ShowProfile(LoginRequiredMixin, generic.TemplateView):
-    template_name = 'profiles/show_profile.html'
+class ProfileShow(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'profiles/profile_show.html'
     http_method_names = ['get']
 
     def get(self, request, *args, **kwargs):
@@ -31,14 +31,14 @@ class ShowProfile(LoginRequiredMixin, generic.TemplateView):
                 kwargs['editable'] = True
 
             kwargs['user'] = user
-            return super(ShowProfile, self).get(request, *args, **kwargs)
+            return super(ProfileShow, self).get(request, *args, **kwargs)
         except ImportError:
             messages.error(request, f'Show profile error - {sys.exc_info()}')
             return redirect('home')
 
 
-class EditProfile(LoginRequiredMixin, generic.TemplateView):
-    template_name = 'profiles/edit_profile.html'
+class ProfileEdit(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'profiles/profile_edit.html'
     http_method_names = ['get', 'post']
 
     def get(self, request, *args, **kwargs):
@@ -49,7 +49,7 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
             if 'profile_form' not in kwargs:
                 kwargs['profile_form'] = forms.ProfileForm(instance=user.profile)
 
-            return super(EditProfile, self).get(request, *args, **kwargs)
+            return super(ProfileEdit, self).get(request, *args, **kwargs)
         except ImportError:
             messages.error(request, f'Show edit profile error - {sys.exc_info()}')
             return redirect('home')
@@ -69,7 +69,7 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
                 messages.error(request, message)
                 user_form = forms.UserForm(instance=user)
                 profile_form = forms.ProfileForm(instance=user.profile)
-                return super(EditProfile, self).get(request, user_form=user_form, profile_form=profile_form)
+                return super(ProfileEdit, self).get(request, user_form=user_form, profile_form=profile_form)
 
             # Both forms are fine. Time to save!
             user_form.save()
