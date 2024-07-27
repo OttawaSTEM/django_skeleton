@@ -182,3 +182,24 @@ python manage.py shell
 >>> from dharro.utils import SendEmail
 >>> SendEmail('test', 'test')
 ```
+
+
+
+# Squash Migration
+```bash
+# Apply all change to DB
+python manage.py migrate
+
+# Squash merge from 0003_faqcategory_order (last migration) to 0002_faqcategory_faqs
+python manage.py squashmigrations products 0002_faqcategory_faqs 0003_faqcategory_order
+
+# Delete migrations and rename squash migrations to 
+0002_squash_0002_faqcategory_faqs.py -> 0002_faqcategory_faqs.py
+
+# Validate the squash merge migraiton
+python manage.py makemigration
+python manage.py migrate
+
+# Show migration
+python manage.py showmigrations
+```
