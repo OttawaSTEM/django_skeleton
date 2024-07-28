@@ -22,12 +22,10 @@ code {
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
-    border: 2px;
-    border-color: $primary_color;
-    border-style: solid;
+    outline: 2px solid $primary_color;
+    outline-offset: -2px;
     background-color: $gray_100;
     color: $primary_color;
-    outline: none !important;
     box-shadow: none !important;
     font-weight: bold;
 }
