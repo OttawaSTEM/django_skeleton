@@ -10,6 +10,10 @@
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 {% endblock extra_head_script %}
 
+{% block navbar_left %}
+  {% include '_navbar.html' %}
+{% endblock %}
+
 {% block auth_content %}
     <h3 class="text-center">{% trans "Sign in" %}</h3>
     {% get_providers as socialaccount_providers %}
