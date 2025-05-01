@@ -19,7 +19,6 @@ local.env
 # Django stuff:
 # CACHE/        # Disable for Heroku container deployment
 media/
-*.mo
 *.pot
 database/
 
