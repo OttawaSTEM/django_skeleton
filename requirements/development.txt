@@ -9,5 +9,5 @@ django-debug-toolbar
 pylint
 pylint-django
 pyyaml
-django-autotranslate
+# django-autotranslate
 # django-translations 

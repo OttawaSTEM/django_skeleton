@@ -19,99 +19,99 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 #: django_skeleton/forms.py:12
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: django_skeleton/forms.py:13
 msgid "Password (again)"
-msgstr ""
+msgstr "Mot de passe (encore)"
 
 #: django_skeleton/forms.py:44
 msgid "Send"
-msgstr ""
+msgstr "Envoyer"
 
 #: django_skeleton/settings/timezone_language.py:16
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: django_skeleton/settings/timezone_language.py:17
 msgid "French"
-msgstr ""
+msgstr "Français"
 
 #: django_skeleton/settings/timezone_language.py:18
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "Chinois simplifié"
 
 #: django_skeleton/views.py:47
 msgid "Email sent!"
-msgstr ""
+msgstr "Email envoyé!"
 
 #: django_skeleton/views.py:51
 msgid "There was a problem with the form. Please check the details."
-msgstr ""
+msgstr "Il y avait un problème avec le formulaire. S’il vous plaît vérifier les détails."
 
 #: profiles/forms.py:46
 msgid "Update"
-msgstr ""
+msgstr "mettre à jour"
 
 #: profiles/models.py:40
 msgid "Avatar Picture"
-msgstr ""
+msgstr "Photo de profil"
 
 #: profiles/models.py:42
 msgid "Short Bio"
-msgstr ""
+msgstr "Bio courte"
 
 #: profiles/models.py:43
 msgid "Email Verified"
-msgstr ""
+msgstr "Courriel vérifié"
 
 #: profiles/models.py:45
 msgid "Phone Number"
-msgstr ""
+msgstr "Numéro de téléphone"
 
 #: profiles/models.py:46
 msgid "P.O. Box"
-msgstr ""
+msgstr "Boîte P.O."
 
 #: profiles/models.py:47
 msgid "Apt/Unit"
-msgstr ""
+msgstr "Apt/Unité"
 
 #: profiles/models.py:49
 msgid "Street Number"
-msgstr ""
+msgstr "Nom de la rue"
 
 #: profiles/models.py:50
 msgid "Street Name"
-msgstr ""
+msgstr "Nom de la rue"
 
 #: profiles/models.py:51
 msgid "City/Town"
-msgstr ""
+msgstr "Ville/Ville"
 
 #: profiles/models.py:55
 msgid "Province"
-msgstr ""
+msgstr "Province"
 
 #: profiles/models.py:57
 msgid "Postal Code"
-msgstr ""
+msgstr "Postal Code"
 
 #: profiles/templates/profiles/profile_edit.html:7
 #: profiles/templates/profiles/profile_show.html:5
 #: profiles/templates/profiles/profile_show.html:44
 #: profiles/templates/profiles/profile_show.html:62
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: profiles/templates/profiles/profile_edit.html:20
 #: profiles/templates/profiles/profile_show.html:35
 msgid "Edit Profile"
-msgstr ""
+msgstr "Modifier le profil"
 
 #: profiles/templates/profiles/profile_edit.html:34
 msgid "Personal Information"
-msgstr ""
+msgstr "Renseignements personnels"
 
 #: profiles/templates/profiles/profile_edit.html:47
 #: templates/account/password_change.html:6
@@ -122,20 +122,20 @@ msgstr ""
 #: templates/account/password_reset_from_key_done.html:4
 #: templates/account/password_reset_from_key_done.html:7
 msgid "Change Password"
-msgstr ""
+msgstr "Modifier le mot de passe"
 
 #: profiles/templates/profiles/profile_show.html:45
 msgid "Email"
-msgstr ""
+msgstr "Ajouter un e-mail"
 
 #: profiles/templates/profiles/profile_show.html:48
 #: templates/account/email.html:21
 msgid "Email verified"
-msgstr ""
+msgstr "Email verifié"
 
 #: profiles/templates/profiles/profile_show.html:51
 msgid "Email not verified"
-msgstr ""
+msgstr "E-mail non vérifié"
 
 #: profiles/templates/profiles/profile_show.html:54
 msgid "Joined"
@@ -161,40 +161,40 @@ msgstr ""
 
 #: profiles/views.py:81
 msgid "Profile details saved!"
-msgstr ""
+msgstr "Détails de profil enregistrés!"
 
 #: templates/_navbar.html:3
 msgid "About"
-msgstr ""
+msgstr "À propos"
 
 #: templates/account/account_inactive.html:5
 #: templates/account/account_inactive.html:8
 msgid "Account Inactive"
-msgstr ""
+msgstr "Compte Inactif"
 
 #: templates/account/account_inactive.html:9
 msgid "This account is inactive."
-msgstr ""
+msgstr "Ce compte est inactif."
 
 #: templates/account/email.html:6 templates/account/email.html:9
 msgid "E-mail Addresses"
-msgstr ""
+msgstr "Adresses mail"
 
 #: templates/account/email.html:11
 msgid "The following e-mail addresses are associated with your account:"
-msgstr ""
+msgstr "Les adresses e-mail suivantes sont associées à votre compte:"
 
 #: templates/account/email.html:23
 msgid "Email unverified"
-msgstr ""
+msgstr "E-mail non vérifié"
 
 #: templates/account/email.html:26
 msgid "Primary"
-msgstr ""
+msgstr "Primaire"
 
 #: templates/account/email.html:33
 msgid "Make primary"
-msgstr ""
+msgstr "Rendre primaire"
 
 #: templates/account/email.html:34
 msgid "Re-send verification"

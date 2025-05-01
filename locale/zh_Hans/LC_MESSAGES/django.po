@@ -20,71 +20,71 @@ msgstr ""
 
 #: django_skeleton/forms.py:12
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: django_skeleton/forms.py:13
 msgid "Password (again)"
-msgstr ""
+msgstr "密码"
 
 #: django_skeleton/forms.py:44
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 #: django_skeleton/settings/timezone_language.py:16
 msgid "English"
-msgstr ""
+msgstr "英语"
 
 #: django_skeleton/settings/timezone_language.py:17
 msgid "French"
-msgstr ""
+msgstr "法语"
 
 #: django_skeleton/settings/timezone_language.py:18
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "简体中文"
 
 #: django_skeleton/views.py:47
 msgid "Email sent!"
-msgstr ""
+msgstr "邮件已发送！"
 
 #: django_skeleton/views.py:51
 msgid "There was a problem with the form. Please check the details."
-msgstr ""
+msgstr "表单有问题。请检查详细信息。"
 
 #: profiles/forms.py:46
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: profiles/models.py:40
 msgid "Avatar Picture"
-msgstr ""
+msgstr "个人资料图片"
 
 #: profiles/models.py:42
 msgid "Short Bio"
-msgstr ""
+msgstr "短生物"
 
 #: profiles/models.py:43
 msgid "Email Verified"
-msgstr ""
+msgstr "已验证的电子邮件"
 
 #: profiles/models.py:45
 msgid "Phone Number"
-msgstr ""
+msgstr "电话号码"
 
 #: profiles/models.py:46
 msgid "P.O. Box"
-msgstr ""
+msgstr "邮政信箱"
 
 #: profiles/models.py:47
 msgid "Apt/Unit"
-msgstr ""
+msgstr "街道编号"
 
 #: profiles/models.py:49
 msgid "Street Number"
-msgstr ""
+msgstr "街道编号"
 
 #: profiles/models.py:50
 msgid "Street Name"
-msgstr ""
+msgstr "街道名称"
 
 #: profiles/models.py:51
 msgid "City/Town"
@@ -302,12 +302,12 @@ msgstr ""
 #: templates/account/login.html:22 templates/account/login.html:39
 #: templates/account/signup.html:16 templates/base.html:90
 msgid "Sign in"
-msgstr ""
+msgstr "登录"
 
 #: templates/account/login.html:31 templates/account/login.html:45
 #: templates/account/signup.html:25
 msgid "Don't have an account?"
-msgstr ""
+msgstr "没有帐户？"
 
 #: templates/account/login.html:31 templates/account/login.html:45
 #: templates/account/signup.html:9 templates/account/signup.html:25
@@ -315,35 +315,35 @@ msgstr ""
 #: templates/socialaccount/signup.html:5 templates/socialaccount/signup.html:8
 #: templates/socialaccount/signup.html:19
 msgid "Sign up"
-msgstr ""
+msgstr "注册"
 
 #: templates/account/login.html:43
 msgid "Forgot Password?"
-msgstr ""
+msgstr "忘记密码？"
 
 #: templates/account/logout.html:4 templates/account/logout.html:7
 #: templates/account/logout.html:15 templates/base.html:86
 msgid "Sign Out"
-msgstr ""
+msgstr "退出"
 
 #: templates/account/logout.html:8
 msgid "Are you sure you want to sign out?"
-msgstr ""
+msgstr "您确定要退出吗？"
 
 #: templates/account/messages/cannot_delete_primary_email.txt:2
 #, python-format
 msgid "You cannot remove your primary e-mail address %(email)s."
-msgstr ""
+msgstr "您无法删除您的主要电子邮件地址%(email)s。"
 
 #: templates/account/messages/email_confirmation_sent.txt:2
 #, python-format
 msgid "Confirmation E-mail sent to %(email)s."
-msgstr ""
+msgstr "确认电子邮件已发送至 %(email)s。"
 
 #: templates/account/messages/email_confirmed.txt:2
 #, python-format
 msgid "You have confirmed %(email)s."
-msgstr ""
+msgstr "您已确认 %(email)s。"
 
 #: templates/account/messages/email_deleted.txt:2
 #, python-format
