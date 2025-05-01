@@ -113,15 +113,12 @@ python manage.py makemessages -l fr
 python manage.py makemessages -l zh_Hans
 
 # Compile language po for production
-python manage.py compilemessages         # Compile all languanges
-python manage.py compilemessages -l fr
-python manage.py compilemessages -l zh_Hans
+python manage.py compilemessages -l fr -l zh_Hans
 
 # django-autotranslate (User custom version)
 python manage.py translate_messages -u -f
 python manage.py compilemessages
 ```
-
 
 # gettext() vs gettext_lazy()
 ## Use gettext_lazy() in forms or models
