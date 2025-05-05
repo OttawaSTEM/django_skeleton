@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}
+  {{ block.super }} - Dashboard
+{% endblock %}
+
+{% block extra_head_script %}
+
+{% endblock %}
+
+{% block navbar_left %}
+  {% include '_navbar.html' with active_link='' %}
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid h-100 mt-5">
+    <div class="row h-100">
+      {% block side_menu %}
+        <aside class="side-menu shadow border-secondary">
+          <button onclick="toggleSubMenu(this)" class="menu-category">
+            <span>{% trans 'TAK Servers' %}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+              <path d="m480-509.91-184 184L221.91-400 480-658.09 738.09-400 664-325.91l-184-184Z" />
+            </svg>
+          </button>
+          <ul class="sub-menu show">
+            <div>
+              <li class="w-100">
+                <a href="{% url 'tenants:dashboard' %}" class="nav-link side-menu-text">{% trans 'Organizations' %}</a>
+              </li>
+              <li class="w-100">
+                <a href="{% url 'tenants:dashboard' %}" class="nav-link side-menu-text">{% trans 'Users' %}</a>
+              </li>
+              <li class="w-100">
+                <a href="{% url 'tenants:dashboard' %}" class="nav-link side-menu-text">{% trans 'TAK Servers' %}</a>
+              </li>
+            </div>
+          </ul>
+          <button onclick="toggleSubMenu(this)" class="menu-category">
+            <span>{% trans 'TAK Servers 2' %}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000">
+              <path d="m480-509.91-184 184L221.91-400 480-658.09 738.09-400 664-325.91l-184-184Z" />
+            </svg>
+          </button>
+          <ul class="sub-menu show">
+            <div>
+              <li class="w-100">
+                <a href="{% url 'tenants:dashboard' %}" class="nav-link side-menu-text">{% trans 'Organizations' %}</a>
+              </li>
+              <li class="w-100">
+                <a href="{% url 'tenants:dashboard' %}" class="nav-link side-menu-text">{% trans 'Users' %}</a>
+              </li>
+              <li class="w-100">
+                <a href="{% url 'tenants:dashboard' %}" class="nav-link side-menu-text">{% trans 'TAK Servers' %}</a>
+              </li>
+            </div>
+          </ul>
+        </aside>
+      {% endblock %}
+
+      <main id="mainContent" class="col main-content">
+        {% block share_top %}
+
+        {% endblock %}
+
+        {% block main_content %}
+
+        {% endblock %}
+
+        {% block share_bottom %}
+
+        {% endblock %}
+      </main>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    function toggleSubMenu(element) {
+      element.nextElementSibling.classList.toggle('show')
+      element.classList.toggle('rotate')
+    }
+  </script>
+{% endblock %}

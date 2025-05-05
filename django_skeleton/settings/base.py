@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     'dbbackup',
 
     'profiles',
+    'tenants',
 )
 
 MIDDLEWARE = (

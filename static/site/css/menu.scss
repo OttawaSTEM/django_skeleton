@@ -86,3 +86,46 @@ a.dropdown-item:hover {
 // .btn {
 //     padding: 3px 10px;
 // }
+
+.side-menu {
+    width: 180px;
+}
+
+.side-menu-text {
+    font-size: 14px;
+    // font-weight: 600;
+    color: $gray_900;
+    padding: 5px 5px;
+}
+
+.menu-category {
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-category svg {
+    transition: 300ms;
+}
+
+.rotate svg:last-child {
+    transform: rotate(180deg);
+}
+
+.sub-menu {
+    padding-left: 20px;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+
+    >div {
+        overflow: hidden;
+    }
+}
+
+.sub-menu.show {
+    grid-template-rows: 1fr;
+}

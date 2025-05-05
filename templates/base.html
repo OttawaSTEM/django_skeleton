@@ -52,7 +52,7 @@
         <div id="language" style="display: none;">{{ LANGUAGE_CODE }}</div>
         {% block navbar %}
             <nav id="mainNav" class="navbar navbar-expand-md fw-bold fixed-top navbar-light" style="height: 50px;">
-                <div class="container-fluid">
+                <div class="container-fluid" style="height: 50px;">
                     <div>
                         <a href="/" class="ml-1" style="text-decoration: none; color: inherit;">
                             <img src="{% static 'site/img/logo.svg' %}" alt="logo" width="auto" height="30" loading="lazy">
@@ -64,7 +64,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse ps-3 pe-0 py-4" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse ps-3 pe-0" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-2"> {% comment %} align center: mx-auto {% endcomment %}
                             {% block navbar_left %}{% endblock %}
                         </ul>
