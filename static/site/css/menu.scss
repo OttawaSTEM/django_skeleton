@@ -1,8 +1,6 @@
 @import "vars";
 
-@media (max-width: 767.98px) {
-
-    /* max-width: Less than 768px, min-width: 768px and up; */
+@media (max-width: 800px) {
     .navbar-collapse {
         background-color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -19,6 +17,16 @@
 
     .collapse-language {
         margin: 10px 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    aside {
+        height: 60px;
+        width: 100%;
+        position: fixed;
+        top: unset;
+        bottom: 0;
     }
 }
 
@@ -87,6 +95,24 @@ a.dropdown-item:hover {
 //     padding: 3px 10px;
 // }
 
+// Sidebar
+#sidebar {
+    width: 180px;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+    text-wrap: nowrap;
+    padding: 5px 5px;
+}
+
+#sidebar.close {
+    width: 33px;
+    overflow: hidden;
+}
+
+.rotate svg:last-child {
+    transform: rotate(180deg);
+}
+
 .side-menu {
     width: 180px;
 }
@@ -111,9 +137,6 @@ a.dropdown-item:hover {
     transition: 300ms;
 }
 
-.rotate svg:last-child {
-    transform: rotate(180deg);
-}
 
 .sub-menu {
     padding-left: 20px;
@@ -128,4 +151,12 @@ a.dropdown-item:hover {
 
 .sub-menu.show {
     grid-template-rows: 1fr;
+}
+
+#toggle-btn {
+    cursor: pointer;
+
+    svg {
+        transition: rotate 300ms ease;
+    }
 }
