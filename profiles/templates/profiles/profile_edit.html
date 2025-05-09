@@ -22,8 +22,8 @@
     <div class="row">
       <!-- left column -->
       <div class="col-md-3">
-        {% if user.profile.picture %}
-          <img title="profile picture" src="{{ MEDIA_URL }}{{ user.profile.picture }}" height="140px" width="140px" alt="avatar" />
+        {% if user.profile.avatar %}
+          <img title="profile avatar" src="{{ MEDIA_URL }}{{ user.profile.avatar }}" height="140px" width="auto" alt="avatar" />
         {% else %}
           <img src="{% static 'site/img/profile/default.png' %}" alt="avatar" />
         {% endif %}

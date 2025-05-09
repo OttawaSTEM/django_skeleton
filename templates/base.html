@@ -76,8 +76,8 @@
                                 {% endif %}
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {% if user.profile.picture %}
-                                            <img src="{{ MEDIA_URL }}{{ user.profile.picture }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_username|truncatechars:20 }}
+                                        {% if user.profile.avatar %}
+                                            <img src="{{ MEDIA_URL }}{{ user.profile.avatar }}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_username|truncatechars:20 }}
                                         {% else %}
                                             <img src="{% static 'site/img/profile/default.png' %}" alt="avatar" width="30" height="30" style="border-radius: 50%; margin-top:-3px;"> {{ user.get_username|truncatechars:20 }}
                                         {% endif%}

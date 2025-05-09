@@ -18,8 +18,7 @@ from django_skeleton.constants import PROVINCE
 @deconstructible
 class UploadStorage(FileSystemStorage):
     def __init__(self, *args, **kwargs):
-        super(UploadStorage, self).__init__(
-            location=settings.MEDIA_ROOT, base_url='/media/')
+        super(UploadStorage, self).__init__(location=settings.MEDIA_ROOT, base_url='/media/')
 
 
 def upload_to(instance, filename):      # Convert to (private) path, not full private yet
@@ -31,28 +30,23 @@ def upload_to(instance, filename):      # Convert to (private) path, not full pr
 
 
 class BaseProfile(models.Model):
-    user = models.OneToOneField(
-        User, primary_key=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     slug = models.UUIDField(default=uuid.uuid4, blank=True, editable=False)
     # Add more user profile fields here with default values,
     # CharFiled and TextFiled discouraged to use null=True in Django, avoid two possible values for “no data”: null and the empty string
     # python manage.py makemigrations profiles --name AddProfileModels
-    avatar = models.ImageField(_('Avatar Picture'), upload_to=upload_to, storage=UploadStorage(
-    ), blank=True, null=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg', 'bmp', 'gif'])])
+    avatar = models.ImageField(_('Avatar Picture'), upload_to=upload_to, storage=UploadStorage(), blank=True, null=True, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg', 'bmp', 'gif'])])
     bio = models.CharField(_('Short Bio'), max_length=200, blank=True)
     email_verified = models.BooleanField(_('Email Verified'), default=False)
-    phone_number = models.CharField(
-        _('Phone Number'), max_length=20, blank=True)
+    phone_number = models.CharField(_('Phone Number'), max_length=20, blank=True)
     pobox = models.CharField(_('P.O. Box'), max_length=20, blank=True)
     apt_unit = models.CharField(_('Apt/Unit'), max_length=20, blank=True)
-    street_num = models.CharField(
-        _('Street Number'), max_length=20, blank=True)
+    street_num = models.CharField(_('Street Number'), max_length=20, blank=True)
     street_name = models.CharField(_('Street Name'), max_length=50, blank=True)
     city = models.CharField(_('City/Town'), max_length=30, blank=True)
     # subdivision = models.CharField(_('Province'), max_length=2, blank=True, db_index=True, choices=PROVINCE)    # For Territory, Province, State, District, etc.
     # For Territory, Province, State, District, etc.
-    province = models.CharField(
-        _('Province'), max_length=2, blank=True, db_index=True, choices=PROVINCE)
+    province = models.CharField(_('Province'), max_length=2, blank=True, db_index=True, choices=PROVINCE)
     country = CountryField(default='CA')
     post_code = models.CharField(_('Postal Code'), max_length=7, blank=True)
 
