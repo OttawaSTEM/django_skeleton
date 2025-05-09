@@ -4,7 +4,6 @@ from io import BytesIO
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.core.files.storage import FileSystemStorage
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.validators import FileExtensionValidator
 from django.utils.deconstruct import deconstructible
@@ -14,11 +13,18 @@ from PIL import Image
 from django_countries.fields import CountryField
 from django_skeleton.constants import PROVINCE
 
-
+# Local Storage
+from django.core.files.storage import FileSystemStorage
 @deconstructible
 class UploadStorage(FileSystemStorage):
     def __init__(self, *args, **kwargs):
         super(UploadStorage, self).__init__(location=settings.MEDIA_ROOT, base_url='/media/')
+
+# Remote Storage
+# from storages.backends.s3boto3 import S3Boto3Storage
+# @deconstructible
+# class UploadStorage(S3Boto3Storage):
+#     location = 'media'
 
 
 def upload_to(instance, filename):      # Convert to (private) path, not full private yet
