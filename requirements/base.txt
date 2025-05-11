@@ -1,5 +1,5 @@
-Django>=5.2
-daphne>=4.1.0                       # Django ASGI deployment for production
+Django>=5.2.1
+daphne>=4.1.2                       # Django ASGI deployment for production
 django-allauth==65.2.0              # Authentication, registration, account management as well as 3rd party (social) account authentication
 django-countries>=7.6.1             # Country for use with forms, flag icons static files, and a country field for models
 crispy-bootstrap5>=2025.4           # For Django forms - Bootstrap 5
