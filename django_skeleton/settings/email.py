@@ -12,5 +12,4 @@ else:
     # Commen local.env "EMAIL_URL" to use console Email backend
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-WEBMASTER_1 = env('WEBMASTER_1')
-WEBMASTER_2 = env('WEBMASTER_2')
+WEBMASTERS = eval(env("WEBMASTERS"))
