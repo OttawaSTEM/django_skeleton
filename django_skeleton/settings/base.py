@@ -5,7 +5,6 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
-from ast import literal_eval
 
 from .env_vars import env, BASE_DIR
 # from celery.schedules import crontab
@@ -27,7 +26,7 @@ from .timezone_language import *
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # ALLOWED_HOSTS
-ALLOWED_HOSTS = literal_eval(env('ALLOWED_HOSTS'))
+ALLOWED_HOSTS = eval(env('ALLOWED_HOSTS'))
 
 # Sitemaps
 # Need to update database table: django_site manual from example.com to domain name, which match record ID=1

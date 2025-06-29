@@ -1,4 +1,3 @@
-from ast import literal_eval
 import logging.config
 from ..env_vars import env, BASE_DIR
 from ..base import *
@@ -8,7 +7,7 @@ from ..base import *
 DEBUG = False
 TEMPLATE_DEBUG = False
 # When DEBUG=False in Deployment
-CSRF_TRUSTED_ORIGINS = literal_eval(env("CSRF_TRUSTED_ORIGINS"))
+CSRF_TRUSTED_ORIGINS = eval(env("CSRF_TRUSTED_ORIGINS"))
 
 # ./manager.py collectstatic from this directory
 STATICFILES_DIRS = [BASE_DIR.joinpath("static")]
