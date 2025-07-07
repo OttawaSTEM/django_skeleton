@@ -22,8 +22,8 @@ class DashboardView(TemplateView):
             user = request.user
             kwargs['user'] = user
             return super(DashboardView, self).get(request, *args, **kwargs)
-        except ImportError:
-            messages.error(request, f'Show tenants error - {sys.exc_info()}')
+        except Exception as error:
+            messages.error(request, f'Show tenants error - {error}')
             return redirect('home')
 
 
@@ -43,8 +43,8 @@ class DashboardView(TemplateView):
 #             else:
 #                 return redirect('home')
 #             return super(ChannelsView, self).get(request, *args, **kwargs)
-#         except ImportError:
-#             messages.error(request, f'Show groups error - {sys.exc_info()}')
+#         except Exception as error:
+#             messages.error(request, f'Show groups error - {error}')
 #             return redirect('home')
 
 #     def post(self, request, *args, **kwargs):
@@ -70,8 +70,8 @@ class DashboardView(TemplateView):
 #                 return redirect('home')
 #             messages.success(request, _('Channel edit success!'))
 #             return HttpResponseRedirect(reverse_lazy('tenants:channels'))
-#         except ImportError:
-#             messages.error(request, f'Edit channel error - {sys.exc_info()}')
+#         except Exception as error:
+#             messages.error(request, f'Edit channel error - {error}')
 #             return redirect('home')
 
 
@@ -112,8 +112,8 @@ class DashboardView(TemplateView):
 #             else:
 #                 return redirect('home')
 #             return super(UsersView, self).get(request, *args, **kwargs)
-#         except ImportError:
-#             messages.error(request, f'Show users error - {sys.exc_info()}')
+#         except Exception as error:
+#             messages.error(request, f'Show users error - {error}')
 #             return redirect('home')
 
 #     def post(self, request, *args, **kwargs):
@@ -139,6 +139,6 @@ class DashboardView(TemplateView):
 #                 return redirect('home')
 #             messages.success(request, _('User edit success!'))
 #             return HttpResponseRedirect(reverse_lazy('tenants:users'))
-#         except ImportError:
-#             messages.error(request, f'Edit user error - {sys.exc_info()}')
+#         except Exception as error:
+#             messages.error(request, f'Edit user error - {error}')
 #             return redirect('home')

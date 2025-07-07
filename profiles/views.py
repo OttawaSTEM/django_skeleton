@@ -32,8 +32,8 @@ class ProfileShow(LoginRequiredMixin, generic.TemplateView):
 
             kwargs['user'] = user
             return super(ProfileShow, self).get(request, *args, **kwargs)
-        except ImportError:
-            messages.error(request, f'Show profile error - {sys.exc_info()}')
+        except Exception as error:
+            messages.error(request, f'Show profile error - {error}')
             return redirect('home')
 
 
@@ -50,8 +50,8 @@ class ProfileEdit(LoginRequiredMixin, generic.TemplateView):
                 kwargs['profile_form'] = forms.ProfileForm(instance=user.profile)
 
             return super(ProfileEdit, self).get(request, *args, **kwargs)
-        except ImportError:
-            messages.error(request, f'Show edit profile error - {sys.exc_info()}')
+        except Exception as error:
+            messages.error(request, f'Show edit profile error - {error}')
             return redirect('home')
 
     def post(self, request, *args, **kwargs):
@@ -80,6 +80,6 @@ class ProfileEdit(LoginRequiredMixin, generic.TemplateView):
 
             messages.success(request, _('Profile details saved!'))
             return HttpResponseRedirect(reverse_lazy('profiles:show_self'))
-        except ImportError:
-            messages.error(request, f'Post edit profile error - {sys.exc_info()}')
+        except Exception as error:
+            messages.error(request, f'Post edit profile error - {error}')
             return redirect('home')
