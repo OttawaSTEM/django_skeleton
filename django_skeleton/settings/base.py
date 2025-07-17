@@ -98,6 +98,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+    'livereload',    
     'django.contrib.staticfiles',
 
     'allauth',
