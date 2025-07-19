@@ -1,5 +1,12 @@
-# Django 4 Asynchronous support
-[Django 4.1 - Where To Apply Async](https://medium.com/@ivan.slavko.matic.96/django-4-1-where-to-apply-async-c05f29ca2041)
+# UV
+```bash
+# Install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+wget -qO- https://astral.sh/uv/install.sh | sh
+
+# Github Action
+sudo ln -s /home/ubuntu/.local/bin/uv /usr/local/bin/uv
+```
 
 ## Async views
 - For the function-based view, declaring the whole view using "async def"
@@ -168,4 +175,10 @@ python manage.py migrate
 
 # Show migration
 python manage.py showmigrations
+```
+
+# Django Live Reload
+```bash
+python manage.py runserver
+python manage.py livereload
 ```

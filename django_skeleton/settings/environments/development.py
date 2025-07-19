@@ -26,8 +26,10 @@ INSTALLED_APPS += (
 )
 
 # Additional middleware introduced by debug toolbar
-MIDDLEWARE += ("debug_toolbar.middleware.DebugToolbarMiddleware",)
-
+MIDDLEWARE += (
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "livereload.middleware.LiveReloadScript",
+)
 # Allow internal IPs for debugging
 INTERNAL_IPS = [
     "127.0.0.1",

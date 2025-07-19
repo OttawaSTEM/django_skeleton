@@ -23,8 +23,8 @@ class AboutPage(generic.TemplateView):
         try:
             kwargs['contact_form'] = forms.ContactForm()
             return super(AboutPage, self).get(request, *args, **kwargs)
-        except:
-            messages.error(request, f'Show about error - {sys.exc_info()}')
+        except Exception as error:
+            messages.error(request, f'Show about error - {error}')
             return redirect('home')
 
     def post(self, request, *args, **kwargs):
@@ -47,12 +47,10 @@ class AboutPage(generic.TemplateView):
                     messages.success(request, _('Email sent!'))
                 return HttpResponseRedirect('/about')
             else:
-                messages.error(request, _(
-                    'There was a problem with the form. Please check the details.'))
+                messages.error(request, _('There was a problem with the form. Please check the details.'))
                 return super(AboutPage, self).get(request, contact_form=contact_form)
-        except:
-            messages.error(
-                request, f'Post about contact error - {sys.exc_info()}')
+        except Exception as error:
+            messages.error(request, f'Post about contact error - {error}')
             return redirect('home')
 
 

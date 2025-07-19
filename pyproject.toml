@@ -1,0 +1,41 @@
+[project]
+name = "xfoma-be"
+version = "0.1.0"
+description = "Xfoma Backend - Includes Django REST API and GraphQL"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "django==5.2.4",
+    "daphne>=4.1.0",               # Django ASGI deployment for production
+    "django-allauth==65.2.0",      # Authentication, registration, account management as well as 3rd party (social) account authentication
+    "crispy-bootstrap5>=2025.4",   # For Django forms - Bootstrap 5
+    "django-compressor>=4.5.1",    # Django Compressor Compress CSS and JS, $ pip install rcssmin --install-option="--without-c-extensions"
+    "django-countries>=7.6.1",     # Country for use with forms, flag icons static files, and a country field for models
+    "django-dbbackup>=4.2.1",      # Backup and restore Database
+    "django-environ>=0.12.0",      # django-environ allows you to use Twelve-factor methodology, used by base.py
+    "django-libsass>=0.9",         # Django Libsass is a Django app that provides a template tag for compiling Sass stylesheets# Django Compressor compile scss to css
+    "django-recaptcha>=4.1.0",     # Google recaptcha v3
+    "djangorestframework>=3.16.0", # REST Web APIs
+    "dj-rest-auth>=7.0.1",         # Django REST Authentication (django-allauth and djangorestframework)
+    "jwt",                         # JSON Web Token Authentication
+
+    "google-api-python-client>=2.175.0", # Google API client library for Python
+    "google-auth>=2.40.3",               # Google Authentication Library for Python
+    "google-auth-oauthlib>=1.2.2",       # Google OAuth2 Library for Python
+    "google-auth-httplib2>=0.2.0",       # Google HTTP Client Library for Python
+
+    "graphene-django>=3.2.3", # GraphQL support for Django
+    "hashids>=1.3.1",         # Hashids is a small open-source library that generates short, unique, non-sequential ids from numbers
+    "pillow>=11.2.1",         # Python Imaging Library (PIL) fork
+    "requests>=2.32.3",       # HTTP library for Python, for making API requests
+]
+
+[dependency-groups]
+dev = [
+    "django-debug-toolbar>=5.2.0",     # Debugging tool for Django
+    "django-livereload-server>=0.5.1", # LiveReload server for Django development
+    "pylint>=3.3.7",                   # Python code static checker
+    "pylint-django>=2.6.1",            # Pylint plugin for Django
+    "pyyaml>=6.0.2",                   # YAML parser and emitter for Python
+    "werkzeug>=3.1.3",                 # WSGI utility library
+]
