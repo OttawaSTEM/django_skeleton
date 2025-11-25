@@ -177,8 +177,7 @@ python manage.py migrate
 python manage.py showmigrations
 ```
 
-# Django Live Reload
+# Django Browser Reload
 ```bash
 python manage.py runserver
-python manage.py livereload
 ```
