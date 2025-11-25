@@ -1,7 +1,7 @@
 [project]
-name = "xfoma-be"
+name = "django_skeleton"
 version = "0.1.0"
-description = "Xfoma Backend - Includes Django REST API and GraphQL"
+description = "Django Skeleton Backend - Includes Django REST API and GraphQL"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -17,7 +17,9 @@ dependencies = [
     "django-recaptcha>=4.1.0",     # Google recaptcha v3
     "djangorestframework>=3.16.0", # REST Web APIs
     "dj-rest-auth>=7.0.1",         # Django REST Authentication (django-allauth and djangorestframework)
-    "jwt",                         # JSON Web Token Authentication
+    "PyJWT>=2.10.1",               # JSON Web Tokens (JWT) encode and decode 
+    "psycopg[binary]>=3.2.13",     # PostgreSQL database adapter for Python
+    # "jwt",                         # JSON Web Token Authentication
 
     "google-api-python-client>=2.175.0", # Google API client library for Python
     "google-auth>=2.40.3",               # Google Authentication Library for Python
