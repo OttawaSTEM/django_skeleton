@@ -17,6 +17,6 @@ RUN DEBIAN_FRONTEND=noninteractive \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && git config --global user.name "OttawaSTEM" \
-    && git config --global user.email "ottawasteem@gmail.com" \
+    && git config --global user.email "ottawastem@gmail.com" \
     && pip install --upgrade pip \
     && pip install uv
