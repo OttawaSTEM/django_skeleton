@@ -22,9 +22,9 @@ dependencies = [
     # "jwt",                         # JSON Web Token Authentication
 
     "google-api-python-client>=2.187.0", # Google API client library for Python
-    "google-auth==2.45.0",               # Google Authentication Library for Python
-    # "google-auth-oauthlib>=1.2.3",       # Google OAuth2 Library for Python
-    "google-auth-httplib2>=0.3.0", # Google HTTP Client Library for Python
+    "google-auth==2.41.1",               # Google Authentication Library for Python
+    "google-auth-oauthlib>=1.2.3",       # Google OAuth2 Library for Python
+    "google-auth-httplib2>=0.3.0",       # Google HTTP Client Library for Python
 
     "graphene-django>=3.2.3", # GraphQL support for Django
     "hashids>=1.3.1",         # Hashids is a small open-source library that generates short, unique, non-sequential ids from numbers
