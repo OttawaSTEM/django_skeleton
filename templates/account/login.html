@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block auth_content %}
-    <h3 class="text-center">{% trans "Sign in" %}</h3>
+    {% comment %} <h3 class="text-center">{% trans "Sign in" %}</h3> {% endcomment %}
     {% get_providers as socialaccount_providers %}
     {% if socialaccount_providers %}
         <div class="list-group">
@@ -31,7 +31,7 @@
             <span>{% trans "Don't have an account?" %} </span><a href="{{ signup_url }}">{% trans "Sign up" %}</a>
         </p>
     {% endif %}
-    <hr>
+    <hr class="my-4">
     {% include "socialaccount/snippets/login_extra.html" %}
     <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
