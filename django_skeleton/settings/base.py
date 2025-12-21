@@ -17,6 +17,7 @@ from .crispy_form import *
 from .database import *
 from .email import *
 from .google import *
+from .graphql import *
 
 # from .graphql import *
 from .rest import *
@@ -110,8 +111,10 @@ INSTALLED_APPS = (
     # 'dj_rest_auth',
     # 'dj_rest_auth.registration',
     "api",
-    # 'graphene_django',
-    # 'book_graphql',
+
+    'graphene_django',
+    'book_graphql',
+
     # 'chat',
     "compressor",
     "crispy_forms",

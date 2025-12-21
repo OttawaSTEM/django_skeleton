@@ -7,8 +7,8 @@ from django.conf.urls.static import static
 from dj_rest_auth.views import PasswordResetConfirmView
 
 
-# from django.views.decorators.csrf import csrf_exempt
-# from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
+from graphene_django.views import GraphQLView
 
 from . import views, sitemaps
 
@@ -26,10 +26,11 @@ urlpatterns = [
         PasswordResetConfirmView.as_view(),
         name="password_reset_confirm",
     ),
+    # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+
     # path("openapi/", views.SwaggerPage.as_view(), name="openapi"),
     # path("graphql/", GraphQLView.as_view(graphiql=True)),
-    # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
-    # path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False))),
     # path("chat/", include("chat.urls")),
     path(
         "sitemap.xml",

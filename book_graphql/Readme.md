@@ -1,9 +1,15 @@
+# Load books.json to book_graphql app
+python manage.py loaddata book_graphql/books.json
+
+
 # GraphQL
 https://www.twilio.com/blog/graphql-apis-django-graphene
 
 ## Query (GraphQL auto convert python Snake to Camal, all_books to allBooks)
-http://127.0.0.1:8000/graphql
+```bash
+http://localhost:8000/graphql
 
+# GUI Query or Body
 query {
   allBooks {
     id
@@ -54,3 +60,4 @@ mutation deleteMutation{
     } 
   }
 }
+```
