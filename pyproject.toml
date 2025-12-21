@@ -5,9 +5,9 @@ description = "Django Skeleton Backend - Includes Django REST API and GraphQL"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "django==5.2.4",
+    "django==5.2.9",
     "daphne>=4.1.0",               # Django ASGI deployment for production
-    "django-allauth==65.2.0",      # Authentication, registration, account management as well as 3rd party (social) account authentication
+    "django-allauth==65.4.0",      # Authentication, registration, account management as well as 3rd party (social) account authentication
     "crispy-bootstrap5>=2025.4",   # For Django forms - Bootstrap 5
     "django-compressor>=4.6.0",    # Django Compressor Compress CSS and JS, $ pip install rcssmin --install-option="--without-c-extensions"
     "django-countries>=8.2.0",     # Country for use with forms, flag icons static files, and a country field for models
