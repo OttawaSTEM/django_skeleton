@@ -26,11 +26,12 @@ urlpatterns = [
         PasswordResetConfirmView.as_view(),
         name="password_reset_confirm",
     ),
+    
     # Enable CSRF: https://docs.djangoproject.com/en/4.0/ref/csrf/#ajax
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    # path("graphql/", GraphQLView.as_view(graphiql=True)),
 
     # path("openapi/", views.SwaggerPage.as_view(), name="openapi"),
-    # path("graphql/", GraphQLView.as_view(graphiql=True)),
     # path("chat/", include("chat.urls")),
     path(
         "sitemap.xml",

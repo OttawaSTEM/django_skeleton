@@ -16,7 +16,7 @@ MEDIA_ROOT = BASE_DIR.joinpath("media")
 
 # Django Compressor for css and javascript
 # COMPRESS_OFFLINE = True
-# COMPRESS_ENABLED = True
+COMPRESS_ENABLED = True
 
 # Cache the templates in memory for speed-up
 loaders = [

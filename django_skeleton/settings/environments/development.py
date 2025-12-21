@@ -11,7 +11,7 @@ MEDIA_ROOT = BASE_DIR.joinpath("media")
 
 # Django Compressor for css and javascript - Not enable in development
 # COMPRESS_OFFLINE = True
-# COMPRESS_ENABLED = True
+COMPRESS_ENABLED = True
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
