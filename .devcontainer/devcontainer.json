@@ -9,12 +9,14 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                "batisteo.vscode-django",
+                "charliermarsh.ruff",
+                "fill-labs.dependi",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
                 "ms-python.python",
                 "ms-python.black-formatter",
                 "ms-python.vscode-pylance",
                 "ms-python.debugpy",
-                "charliermarsh.ruff",
-                "batisteo.vscode-django",
                 "tamasfe.even-better-toml"
             ]
         }
