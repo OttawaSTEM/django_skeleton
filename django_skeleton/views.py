@@ -7,6 +7,9 @@ from django.http import HttpResponseRedirect
 from django.utils.translation import gettext as _
 from django.views import generic
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from graphene_django.views import GraphQLView
+
 from . import forms
 from .utils import SendEmail
 
@@ -47,11 +50,16 @@ class AboutPage(generic.TemplateView):
                     messages.success(request, _('Email sent!'))
                 return HttpResponseRedirect('/about')
             else:
-                messages.error(request, _('There was a problem with the form. Please check the details.'))
+                messages.error(request, _(
+                    'There was a problem with the form. Please check the details.'))
                 return super(AboutPage, self).get(request, contact_form=contact_form)
         except Exception as error:
             messages.error(request, f'Post about contact error - {error}')
             return redirect('home')
+
+
+class PrivateGraphQLView(LoginRequiredMixin, GraphQLView):
+    pass
 
 
 class SwaggerPage(generic.TemplateView):
