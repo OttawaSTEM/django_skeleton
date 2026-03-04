@@ -15,8 +15,8 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"        # "mandatory" or "optional"
 
 # django-allauth > 65.4.0, conflict with dj-rest-auth 7.0.1
 ACCOUNT_LOGIN_METHODS = {"email"}
-ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
+ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
+# ACCOUNT_EMAIL_REQUIRED = True
 
 ACCOUNT_FORMS = {
     "signup": "django_skeleton.forms.AllauthSignupForm",
