@@ -7,4 +7,5 @@
         "--disable=missing-module-docstring",
         "--disable=W0614,W0401"
     ],
+    "liveServer.settings.port": 5501,
 }
