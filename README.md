@@ -181,3 +181,6 @@ python manage.py showmigrations
 ```bash
 python manage.py runserver
 ```
+
+# Bootstrap 5 Tree View 
+https://github.com/nhmvienna/bs5treeview
