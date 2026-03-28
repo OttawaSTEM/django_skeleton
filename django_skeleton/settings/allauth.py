@@ -15,14 +15,15 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # "mandatory" or "optional"
 # django-allauth > 65.4.0, conflict with dj-rest-auth 7.0.1
 ACCOUNT_LOGIN_METHODS = {"email"}
 ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
-ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_REQUIRED = True
 
 ACCOUNT_FORMS = {
     "signup": "django_skeleton.forms.AllauthSignupForm",
     "login": "django_skeleton.forms.AllauthSigninForm",
 }
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
-LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")  # Redirect after sign in
+LOGIN_REDIRECT_URL = reverse_lazy(
+    "profiles:show_self")  # Redirect after sign in
 # LOGIN_REDIRECT_URL = "/"
 ACCOUNT_LOGOUT_REDIRECT_URL = reverse_lazy("home")
 

@@ -69,9 +69,3 @@ alias tfo="terraform output"
 
 # Go
 export PATH=$PATH:/home/keli/go/bin
-
-# Start Docker daemon automatically when logging in if not running.
-RUNNING=`ps aux | grep dockerd | grep -v grep`
-if [ -z "$RUNNING" ]; then
-    sudo service docker start > /dev/null
-fi

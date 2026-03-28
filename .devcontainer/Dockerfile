@@ -21,7 +21,8 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 
 USER vscode
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="~/.local/bin:$PATH"
+
 RUN git config --global user.name "OttawaSTEM" \
-    && git config --global user.email "ottawasteem@gmail.com" \
-    && pip install --upgrade pip \
-    && pip install uv
+    && git config --global user.email "ottawasteem@gmail.com"

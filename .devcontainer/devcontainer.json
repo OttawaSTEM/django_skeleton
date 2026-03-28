@@ -18,10 +18,17 @@
                 "ms-python.vscode-pylance",
                 "ms-python.debugpy",
                 "tamasfe.even-better-toml"
-            ]
+            ],
+            "settings": {
+                "python.venvFolders": [
+                    "/workspaces/${localWorkspaceFolderBasename}/.venv/bin"
+                ],
+                "python.venvPath": "/workspaces/${localWorkspaceFolderBasename}/.venv/bin/activate",
+                "python.terminal.activateEnvInCurrentTerminal": true,
+                "python.defaultInterpreterPath": "/workspaces/${localWorkspaceFolderBasename}/.venv/bin/python"
+            }
         }
     },
-    // "postCreateCommand": "uv sync --link-mode=copy",
     "forwardPorts": [
         8000,
         5432
