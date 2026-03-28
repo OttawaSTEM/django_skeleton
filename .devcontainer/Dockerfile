@@ -6,6 +6,8 @@ ENV PYTHONUNBUFFERED 1
 # Set environment variable for non-interactive installation
 ARG DEBIAN_FRONTEND=noninteractive
 
+COPY .devcontainer/.profile /home/vscode/
+
 USER root
 RUN rm -f /etc/apt/sources.list.d/yarn.list
 RUN apt update \
