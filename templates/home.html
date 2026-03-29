@@ -1,48 +1,52 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load i18n %}
 {% load static %}
 {% load compress %}
 
 {% block head_title %}
   {{ block.super }} - {{ block.super }}
-{% endblock %}
+{% endblock head_title %}
 
 {% block meta_url %}
   {{ block.super }}
-{% endblock %}
+{% endblock meta_url %}
+
 {% block meta_title %}
   {{ block.super }}
-{% endblock %}
+{% endblock meta_title %}
+
 {% block meta_description %}
   django_skeleton description.
-{% endblock %}
+{% endblock meta_description %}
+
 {% block meta_image %}
   {{ block.super }}
-{% endblock %}
+{% endblock meta_image %}
 
 {% block twitter_meta_title %}
   {{ block.super }}
-{% endblock %}
+{% endblock twitter_meta_title %}
+
 {% block twitter_meta_description %}
   django_skeleton description.
-{% endblock %}
+{% endblock twitter_meta_description %}
+
 {% block twitter_meta_image %}
   {{ block.super }}
-{% endblock %}
+{% endblock twitter_meta_image %}
 
 {% block extra_head_script %}
-
-{% endblock %}
+{% endblock extra_head_script %}
 
 {% block navbar_left %}
-  {% include '_navbar.html' with active_link='home' %}
-{% endblock %}
+  {% include "_navbar.html" with active_link="home" %}
+{% endblock navbar_left %}
 
 {% block splash %}
   <div class="container-fluid mx-0 p-0">
     <div class="corporate-jumbo" style="background-image: url('/static/site/img/canada-map-full.svg');"></div>
   </div>
-{% endblock %}
+{% endblock splash %}
 
 {% block content %}
   <div class="container">
@@ -70,8 +74,7 @@
       </div>
     </div>
   </div>
-{% endblock %}
+{% endblock content %}
 
 {% block scripts %}
-
-{% endblock %}
+{% endblock scripts %}
